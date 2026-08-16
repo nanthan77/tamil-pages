@@ -2,7 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllNews, getNewsBySlug } from "@/lib/news";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return getAllNews().map((n) => ({ slug: n.slug }));
+}
 
 export async function generateMetadata({
   params,

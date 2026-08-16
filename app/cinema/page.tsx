@@ -1,20 +1,22 @@
+"use client";
+
+import { Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { getAllTheatres, getNowShowingMovies } from "@/lib/cinema";
 import { mapsLink, telLink } from "@/lib/utils";
 
-export const metadata = {
-  title: "Canada Tamil Cinema & Showtimes · Woodside, Albion, Cineplex, Landmark Theatres",
-  description:
-    "Explore Tamil movie showtimes in Canadian theatres — Scarborough Woodside Cinemas, Albion Etobicoke, Cineplex Montreal, Landmark Surrey/Vancouver, and Calgary. Watch trailers and get directions.",
-};
+export default function CinemaPage() {
+  return (
+    <Suspense fallback={<div className="max-w-7xl mx-auto p-12 text-center text-sm font-bold text-[#002D62]">Loading Tamil Cinema Showtimes…</div>}>
+      <CinemaContent />
+    </Suspense>
+  );
+}
 
-export default async function CinemaPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ city?: string }>;
-}) {
-  const sp = await searchParams;
-  const city = sp.city || "";
+function CinemaContent() {
+  const searchParams = useSearchParams();
+  const city = searchParams.get("city") || "";
 
   const theatres = getAllTheatres();
   const nowShowing = getNowShowingMovies();
@@ -110,7 +112,6 @@ export default async function CinemaPage({
               <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62] absolute top-0 left-0 right-0" />
 
               <div className="space-y-4 pt-1">
-                {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2 text-xs">
                   <span className="px-3 py-1 rounded-full bg-[#E00624] text-white font-black uppercase text-[10px] tracking-wider">
                     {movie.status}
@@ -121,7 +122,6 @@ export default async function CinemaPage({
                   <span className="text-[#64748B] font-medium">{movie.language}</span>
                 </div>
 
-                {/* Title */}
                 <div>
                   <h3 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A]">
                     {movie.title}
@@ -131,7 +131,6 @@ export default async function CinemaPage({
                   </p>
                 </div>
 
-                {/* Cast & Director */}
                 <div className="text-xs text-[#64748B] space-y-1 bg-[#F8FAFC] p-4 rounded-2xl border border-[#CBD5E1]">
                   <p>
                     <strong className="text-[#0F172A]">Director:</strong> {movie.director}
@@ -148,7 +147,6 @@ export default async function CinemaPage({
                   {movie.synopsis}
                 </p>
 
-                {/* Showtimes by Theatre */}
                 <div className="space-y-2 pt-2">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#002D62] block">
                     Canadian Showtimes &amp; Theatres:
@@ -179,7 +177,6 @@ export default async function CinemaPage({
                 </div>
               </div>
 
-              {/* Action Footer */}
               <div className="pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3">
                 <span className="text-xs text-[#64748B]">Book tickets directly at theatre box office</span>
                 <Link

@@ -5,9 +5,15 @@ import JsonLd from "@/components/JsonLd";
 import { getCategory } from "@/lib/categories";
 import { CITIES } from "@/lib/cities";
 import { breadcrumbJsonLd, categoryTitle, itemListJsonLd } from "@/lib/seo";
-import { searchBusinesses } from "@/lib/store";
+import { cityCategoryPairs, searchBusinesses } from "@/lib/store";
+import { citySlug } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return cityCategoryPairs().map((p) => ({
+    city: citySlug(p.city),
+    category: p.category,
+  }));
+}
 
 export async function generateMetadata({
   params,

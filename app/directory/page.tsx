@@ -8,7 +8,6 @@ import { CATEGORIES } from "@/lib/categories";
 import { CITIES, PROVINCES } from "@/lib/cities";
 import { countByCategory, countByCity, countByProvince, searchBusinesses } from "@/lib/store";
 
-export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Canada Tamil business directory",

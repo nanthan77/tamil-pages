@@ -8,7 +8,8 @@ import { cityCategoryPairs, getAllBusinesses } from "@/lib/store";
 import { getAllTemples } from "@/lib/temples";
 import { citySlug } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
+
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

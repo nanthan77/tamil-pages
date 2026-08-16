@@ -1,13 +1,6 @@
-import { redirect } from "next/navigation";
 import AddBusinessForm from "@/components/AddBusinessForm";
-import { getSessionUser } from "@/lib/auth";
 
-export const dynamic = "force-dynamic";
-
-export default async function AddBusinessPage() {
-  const user = await getSessionUser();
-  if (!user) redirect("/register");
-
+export default function AddBusinessPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
       <div className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-6 sm:p-10 space-y-6 shadow-card relative overflow-hidden">

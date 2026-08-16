@@ -76,14 +76,18 @@ export async function clearSession() {
 }
 
 export async function getSessionUser(): Promise<SessionUser | null> {
-  const jar = await cookies();
-  const token = jar.get("tp_session")?.value;
-  if (!token) return null;
-  const data = unsign(token);
-  if (!data) return null;
-  const user = findUserById(data.uid);
-  if (!user) return null;
-  return { id: user.id, name: user.name, email: user.email, phone: user.phone };
+  try {
+    const jar = await cookies();
+    const token = jar.get("tp_session")?.value;
+    if (!token) return null;
+    const data = unsign(token);
+    if (!data) return null;
+    const user = findUserById(data.uid);
+    if (!user) return null;
+    return { id: user.id, name: user.name, email: user.email, phone: user.phone };
+  } catch {
+    return null;
+  }
 }
 
 export function authenticate(email: string, password: string) {

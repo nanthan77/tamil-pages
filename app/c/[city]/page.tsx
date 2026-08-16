@@ -8,7 +8,9 @@ import { breadcrumbJsonLd, cityTitle, itemListJsonLd } from "@/lib/seo";
 import { SITE_NAME } from "@/lib/site";
 import { countByCategory, searchBusinesses } from "@/lib/store";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return CITIES.map((c) => ({ city: c.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }) {
   const { city } = await params;

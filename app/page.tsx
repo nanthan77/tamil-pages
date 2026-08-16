@@ -10,7 +10,6 @@ import { getLatestNews } from "@/lib/news";
 import { countByCategory, countByCity, getAllBusinesses, stats } from "@/lib/store";
 import { getAllTemples } from "@/lib/temples";
 
-export const dynamic = "force-dynamic";
 
 export default function HomePage() {
   const s = stats();

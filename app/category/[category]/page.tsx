@@ -2,12 +2,14 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import BusinessCard from "@/components/BusinessCard";
 import JsonLd from "@/components/JsonLd";
-import { getCategory } from "@/lib/categories";
+import { CATEGORIES, getCategory } from "@/lib/categories";
 import { breadcrumbJsonLd, categoryTitle, itemListJsonLd } from "@/lib/seo";
 import { searchBusinesses } from "@/lib/store";
 import { citySlug } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return CATEGORIES.map((c) => ({ category: c.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;

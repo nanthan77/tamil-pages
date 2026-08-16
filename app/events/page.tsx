@@ -1,22 +1,24 @@
+"use client";
+
+import { Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import EventSubmissionModal from "@/components/EventSubmissionModal";
 import { countEventsByCity, getAllEvents, getEventsByCity } from "@/lib/events";
 import { mapsLink } from "@/lib/utils";
 
-export const metadata = {
-  title: "Canadian Tamil Events & Thiruvizha Calendar · Concerts, Festivals & Sports",
-  description:
-    "Explore upcoming Tamil events, temple chariot festivals, Carnatic music concerts, Bharatanatyam arangetrams, and community tournaments in Toronto, Montreal, Vancouver, Calgary, and across Canada.",
-};
+export default function EventsPage() {
+  return (
+    <Suspense fallback={<div className="max-w-7xl mx-auto p-12 text-center text-sm font-bold text-[#002D62]">Loading Events Calendar…</div>}>
+      <EventsContent />
+    </Suspense>
+  );
+}
 
-export default async function EventsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ city?: string; category?: string }>;
-}) {
-  const sp = await searchParams;
-  const city = sp.city || "";
-  const category = sp.category || "";
+function EventsContent() {
+  const searchParams = useSearchParams();
+  const city = searchParams.get("city") || "";
+  const category = searchParams.get("category") || "";
 
   let events = getAllEvents();
   if (city) {
@@ -125,7 +127,6 @@ export default async function EventsPage({
               <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62]" />
 
               <div className="p-6 space-y-4">
-                {/* Top Badges */}
                 <div className="flex items-center justify-between text-xs">
                   <span className="px-3 py-1 rounded-full bg-[#F0F7FF] text-[#002D62] border border-[#CCE3F8] font-black uppercase text-[10px] tracking-wider">
                     {evt.category}
@@ -135,7 +136,6 @@ export default async function EventsPage({
                   </span>
                 </div>
 
-                {/* Title */}
                 <div>
                   <h3 className="font-outfit font-extrabold text-xl text-[#0F172A] group-hover:text-[#002D62] transition leading-snug">
                     <Link href={`/events/${evt.slug}`}>{evt.title}</Link>
@@ -147,7 +147,6 @@ export default async function EventsPage({
                   )}
                 </div>
 
-                {/* Date & Time Box */}
                 <div className="bg-[#F8FAFC] rounded-2xl border border-[#CBD5E1] p-3.5 space-y-2 text-xs">
                   <div className="flex items-center gap-2">
                     <span className="text-[#002D62] font-black text-sm">📅</span>
@@ -172,12 +171,10 @@ export default async function EventsPage({
                   </div>
                 </div>
 
-                {/* Description */}
                 <p className="text-xs text-[#475569] leading-relaxed line-clamp-3">
                   {evt.description}
                 </p>
 
-                {/* Highlights */}
                 {evt.highlights.length > 0 && (
                   <div className="text-[11px] bg-amber-50/80 border border-amber-200 rounded-xl p-2.5 text-amber-950 font-medium">
                     ★ {evt.highlights[0]}
@@ -185,7 +182,6 @@ export default async function EventsPage({
                 )}
               </div>
 
-              {/* Action Footer */}
               <div className="p-4 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between gap-2">
                 <span className="text-xs font-black text-[#002D62] px-2.5 py-1 rounded-xl bg-white border border-[#CBD5E1]">
                   {evt.ticketType}

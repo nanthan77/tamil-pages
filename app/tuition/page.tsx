@@ -1,4 +1,8 @@
+"use client";
+
+import { Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import {
   getAllCulturalSchools,
   searchCulturalSchools,
@@ -6,21 +10,19 @@ import {
 } from "@/lib/culture";
 import { mapsLink, telLink } from "@/lib/utils";
 
-export const metadata = {
-  title: "Tamil Tuition, Language Schools, Dance & Music Academies in Canada",
-  description:
-    "Explore 30+ Tamil language schools (Thamil Cholai, TDSB/PDSB High School Credits), Bharatanatyam dance academies, Carnatic vocal, Miruthangam, Veena, and Violin institutes across Toronto, Scarborough, Markham, Brampton, Mississauga, Montreal, Surrey, Vancouver, Calgary, and Edmonton.",
-};
+export default function TuitionPage() {
+  return (
+    <Suspense fallback={<div className="max-w-7xl mx-auto p-12 text-center text-sm font-bold text-[#002D62]">Loading Tamil Tuition &amp; Fine Arts Directory…</div>}>
+      <TuitionContent />
+    </Suspense>
+  );
+}
 
-export default async function TuitionPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ city?: string; category?: string; q?: string }>;
-}) {
-  const sp = await searchParams;
-  const city = sp.city || "";
-  const category = sp.category || "";
-  const q = sp.q || "";
+function TuitionContent() {
+  const searchParams = useSearchParams();
+  const city = searchParams.get("city") || "";
+  const category = searchParams.get("category") || "";
+  const q = searchParams.get("q") || "";
 
   let schools = getAllCulturalSchools();
 
@@ -219,7 +221,6 @@ export default async function TuitionPage({
                   </p>
                 )}
 
-                {/* Discipline Tag */}
                 <div className="text-[11px] font-bold text-[#002D62] bg-[#F0F7FF] px-3 py-1 rounded-xl border border-[#CCE3F8] inline-block">
                   🎵 {school.discipline}
                 </div>

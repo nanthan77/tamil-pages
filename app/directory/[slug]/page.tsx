@@ -13,7 +13,9 @@ import { getAllBusinesses, getBusiness } from "@/lib/store";
 import { getTempleBySlug } from "@/lib/temples";
 import { citySlug, mapsLink, telLink, whatsappLink } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return getAllBusinesses().map((b) => ({ slug: b.slug }));
+}
 
 export async function generateMetadata({
   params,

@@ -1,23 +1,25 @@
+"use client";
+
+import { Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { countTemplesByCity, getAllTemples, searchTemples } from "@/lib/temples";
 import { mapsLink, telLink } from "@/lib/utils";
 
-export const metadata = {
-  title: "Canadian Tamil Hindu Temples Directory · 22+ Temples, Pooja Timings & Thiruvizha",
-  description:
-    "Explore all Tamil Hindu temples across Canada city-wise — Scarborough, Richmond Hill, Toronto, Brampton, Mississauga, Pickering, Ottawa, Hamilton, Montreal, Surrey, Vancouver, Calgary, Edmonton, Winnipeg, and Halifax.",
-};
+export default function TemplesDirectoryPage() {
+  return (
+    <Suspense fallback={<div className="max-w-7xl mx-auto p-12 text-center text-sm font-bold text-[#002D62]">Loading Canadian Tamil Temples…</div>}>
+      <TemplesContent />
+    </Suspense>
+  );
+}
 
-export default async function TemplesDirectoryPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ city?: string; province?: string; deity?: string; q?: string }>;
-}) {
-  const sp = await searchParams;
-  const city = sp.city || "";
-  const province = sp.province || "";
-  const deity = sp.deity || "";
-  const q = sp.q || "";
+function TemplesContent() {
+  const searchParams = useSearchParams();
+  const city = searchParams.get("city") || "";
+  const province = searchParams.get("province") || "";
+  const deity = searchParams.get("deity") || "";
+  const q = searchParams.get("q") || "";
 
   let temples = getAllTemples();
 
@@ -234,7 +236,6 @@ export default async function TemplesDirectoryPage({
               <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62]" />
 
               <div className="p-6 space-y-4">
-                {/* City & Province Badge */}
                 <div className="flex items-center justify-between text-xs">
                   <span className="px-3 py-1 rounded-full bg-[#F0F7FF] text-[#002D62] border border-[#CCE3F8] font-black uppercase text-[10px] tracking-wider">
                     🛕 {temple.moolavar.split("(")[0]}
@@ -244,7 +245,6 @@ export default async function TemplesDirectoryPage({
                   </span>
                 </div>
 
-                {/* Name */}
                 <div>
                   <h3 className="font-outfit font-extrabold text-xl text-[#0F172A] group-hover:text-[#002D62] transition leading-snug">
                     <Link href={`/temples/${temple.slug}`}>{temple.name}</Link>
@@ -254,7 +254,6 @@ export default async function TemplesDirectoryPage({
                   </p>
                 </div>
 
-                {/* Darshan & Timings Summary */}
                 <div className="bg-[#F8FAFC] rounded-2xl border border-[#CBD5E1] p-3.5 space-y-2 text-xs">
                   <div className="flex items-start gap-2">
                     <span className="text-[#002D62] font-extrabold text-sm shrink-0">🕒</span>
@@ -276,7 +275,6 @@ export default async function TemplesDirectoryPage({
                   </div>
                 </div>
 
-                {/* Main Annual Festival Highlight */}
                 {temple.festivals.length > 0 && (
                   <div className="text-xs bg-amber-50/70 border border-amber-200 rounded-xl p-3 text-amber-950">
                     <span className="font-extrabold block text-amber-900">
@@ -288,14 +286,12 @@ export default async function TemplesDirectoryPage({
                   </div>
                 )}
 
-                {/* Address */}
                 <div className="text-xs text-[#64748B] flex items-center gap-1.5 truncate">
                   <span>📍</span>
                   <span className="truncate">{temple.address}</span>
                 </div>
               </div>
 
-              {/* Action Footer */}
               <div className="p-4 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   {temple.phone && (

@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 import ClaimButton from "@/components/ClaimButton";
 import LeadForm from "@/components/LeadForm";
 import { getSessionUser } from "@/lib/auth";
-import { getBusiness } from "@/lib/store";
+import { getAllBusinesses, getBusiness } from "@/lib/store";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return getAllBusinesses().map((b) => ({ slug: b.slug }));
+}
 
 export default async function ClaimPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

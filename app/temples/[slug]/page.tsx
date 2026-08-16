@@ -3,10 +3,12 @@ import { notFound } from "next/navigation";
 import BusinessCard from "@/components/BusinessCard";
 import TemplePhotoUpload from "@/components/TemplePhotoUpload";
 import { getAllBusinesses } from "@/lib/store";
-import { getTempleBySlug } from "@/lib/temples";
+import { getAllTemples, getTempleBySlug } from "@/lib/temples";
 import { mapsLink, telLink, whatsappLink } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return getAllTemples().map((t) => ({ slug: t.slug }));
+}
 
 export async function generateMetadata({
   params,

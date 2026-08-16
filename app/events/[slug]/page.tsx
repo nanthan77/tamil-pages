@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { getAllEvents, getEventBySlug } from "@/lib/events";
 import { mapsLink } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return getAllEvents().map((e) => ({ slug: e.slug }));
+}
 
 export async function generateMetadata({
   params,
