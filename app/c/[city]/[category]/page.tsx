@@ -33,21 +33,17 @@ export async function generateMetadata({
 
 export default async function CityCategoryPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ city: string; category: string }>;
-  searchParams: Promise<{ page?: string }>;
 }) {
   const { city, category } = await params;
-  const { page } = await searchParams;
   const meta = CITIES.find((c) => c.slug === city);
   const name = meta?.name || city.replace(/-/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
   const cat = getCategory(category);
   const list = searchBusinesses({ city: name, category });
   const pageSize = 24;
+  const slice = list.slice(0, pageSize);
   const pages = Math.max(1, Math.ceil(list.length / pageSize));
-  const safePage = Math.min(Math.max(1, Number(page || 1) || 1), pages);
-  const slice = list.slice((safePage - 1) * pageSize, safePage * pageSize);
 
   return (
     <main className="max-w-7xl mx-auto px-4 py-8 space-y-6">
@@ -92,19 +88,14 @@ export default async function CityCategoryPage({
         ))}
       </div>
       {pages > 1 && (
-        <p className="text-sm text-center">
-          {safePage > 1 && (
-            <Link href={`/c/${city}/${category}?page=${safePage - 1}`} className="text-[#d80621] font-bold mr-4">
-              ← Previous
-            </Link>
-          )}
-          Page {safePage} / {pages}
-          {safePage < pages && (
-            <Link href={`/c/${city}/${category}?page=${safePage + 1}`} className="text-[#d80621] font-bold ml-4">
-              Next →
-            </Link>
-          )}
-        </p>
+        <div className="text-center pt-4">
+          <Link
+            href={`/directory?city=${name}&category=${category}`}
+            className="btn-navy rounded-xl px-5 py-2.5 text-xs font-bold inline-block"
+          >
+            View all {list.length} listings in Directory →
+          </Link>
+        </div>
       )}
     </main>
   );

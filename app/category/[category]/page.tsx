@@ -23,19 +23,15 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
 export default async function CategoryPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ category: string }>;
-  searchParams: Promise<{ page?: string }>;
 }) {
   const { category } = await params;
-  const { page } = await searchParams;
   const cat = getCategory(category);
   const list = searchBusinesses({ category });
   const cities = Array.from(new Set(list.map((b) => b.city))).slice(0, 16);
   const pageSize = 24;
-  const safePage = Math.min(Math.max(1, Number(page || 1) || 1), Math.max(1, Math.ceil(list.length / pageSize)));
-  const slice = list.slice((safePage - 1) * pageSize, safePage * pageSize);
+  const slice = list.slice(0, pageSize);
   const pages = Math.max(1, Math.ceil(list.length / pageSize));
 
   return (
@@ -87,19 +83,14 @@ export default async function CategoryPage({
         ))}
       </div>
       {pages > 1 && (
-        <p className="text-sm text-center">
-          {safePage > 1 && (
-            <Link href={`/category/${category}?page=${safePage - 1}`} className="text-[#d80621] font-bold mr-4">
-              ← Previous
-            </Link>
-          )}
-          Page {safePage} / {pages}
-          {safePage < pages && (
-            <Link href={`/category/${category}?page=${safePage + 1}`} className="text-[#d80621] font-bold ml-4">
-              Next →
-            </Link>
-          )}
-        </p>
+        <div className="text-center pt-4">
+          <Link
+            href={`/directory?category=${category}`}
+            className="btn-navy rounded-xl px-5 py-2.5 text-xs font-bold inline-block"
+          >
+            View all {list.length} listings in Directory →
+          </Link>
+        </div>
       )}
     </main>
   );

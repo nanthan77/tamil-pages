@@ -1,40 +1,17 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import path from "path";
+/* eslint-disable prefer-const */
 import { CURATED } from "./curated";
 import type { Business, User } from "./types";
+import SEED_DATA from "@/data/seed-businesses.json";
 
-const DATA = path.join(process.cwd(), "data");
-const SEED = path.join(DATA, "seed-businesses.json");
-const USERS = path.join(DATA, "users.json");
-const USER_LISTINGS = path.join(DATA, "user-listings.json");
-
-function ensure() {
-  if (!existsSync(DATA)) mkdirSync(DATA, { recursive: true });
-  if (!existsSync(USERS)) writeFileSync(USERS, "[]");
-  if (!existsSync(USER_LISTINGS)) writeFileSync(USER_LISTINGS, "[]");
-}
-
-function readJson<T>(file: string, fallback: T): T {
-  try {
-    if (!existsSync(file)) return fallback;
-    return JSON.parse(readFileSync(file, "utf8")) as T;
-  } catch {
-    return fallback;
-  }
-}
-
-function writeJson(file: string, value: unknown) {
-  ensure();
-  writeFileSync(file, JSON.stringify(value, null, 2), "utf8");
-}
+let cachedUsers: User[] = [];
+let cachedUserListings: Business[] = [];
 
 export function getSeedBusinesses(): Business[] {
-  return readJson<Business[]>(SEED, []);
+  return (SEED_DATA || []) as unknown as Business[];
 }
 
 export function getUserListings(): Business[] {
-  ensure();
-  return readJson<Business[]>(USER_LISTINGS, []);
+  return cachedUserListings;
 }
 
 export function getAllBusinesses(): Business[] {
@@ -128,7 +105,7 @@ export function countByProvince() {
 export function addUserListing(biz: Business) {
   const list = getUserListings();
   list.unshift(biz);
-  writeJson(USER_LISTINGS, list);
+  cachedUserListings = list;
   return biz;
 }
 
@@ -137,14 +114,14 @@ export function updateUserListing(slug: string, ownerId: string, patch: Partial<
   const idx = list.findIndex((b) => b.slug === slug && b.ownerId === ownerId);
   if (idx < 0) return null;
   list[idx] = { ...list[idx], ...patch, slug, ownerId };
-  writeJson(USER_LISTINGS, list);
+  cachedUserListings = list;
   return list[idx];
 }
 
 export function deleteUserListing(slug: string, ownerId: string) {
   const list = getUserListings();
   const next = list.filter((b) => !(b.slug === slug && b.ownerId === ownerId));
-  writeJson(USER_LISTINGS, next);
+  cachedUserListings = next;
   return next.length !== list.length;
 }
 
@@ -167,8 +144,7 @@ export function claimBusiness(slug: string, ownerId: string) {
   };
   if (idx >= 0) users[idx] = { ...users[idx], ...claimed };
   else users.unshift(claimed);
-  const DATA = path.join(process.cwd(), "data");
-  writeJson(path.join(DATA, "user-listings.json"), users);
+  cachedUserListings = users;
   return claimed;
 }
 
@@ -185,20 +161,15 @@ export function cityCategoryPairs() {
 }
 
 export function findUserByEmail(email: string) {
-  ensure();
-  return readJson<User[]>(USERS, []).find((u) => u.email === email.toLowerCase()) ?? null;
+  return cachedUsers.find((u) => u.email === email.toLowerCase()) ?? null;
 }
 
 export function findUserById(id: string) {
-  ensure();
-  return readJson<User[]>(USERS, []).find((u) => u.id === id) ?? null;
+  return cachedUsers.find((u) => u.id === id) ?? null;
 }
 
 export function saveUser(user: User) {
-  ensure();
-  const users = readJson<User[]>(USERS, []);
-  users.push(user);
-  writeJson(USERS, users);
+  cachedUsers.push(user);
 }
 
 export function uniqueSlug(base: string) {
