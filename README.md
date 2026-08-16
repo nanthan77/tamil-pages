@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# tamilpages.ca
 
-## Getting Started
+Canada Tamil business directory — same dark navy + emerald look as [slpages.lk](https://slpages.lk/), rebuilt for the Tamil diaspora in Toronto and across Canada.
 
-First, run the development server:
+## What you get
+
+- Search by keyword, category, and city
+- 360+ starter listings (Tamil / Sri Lankan / South Indian businesses collected from public Canadian web pages)
+- Free account + **post a listing immediately** (no admin wait)
+- Call, WhatsApp, and Google Maps on each profile
+- Scarborough, Markham, Ajax, Toronto, Montreal, Vancouver, Calgary, and more
+
+This is an independent app. It is **not** affiliated with slpages.lk and does **not** copy their Sri Lanka vendor database.
+
+## Run it
 
 ```bash
+cd tamilpages
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Browse the home page and directory
+2. Create Account → Post your business (goes live right away)
+3. Sign in later from Dashboard to remove a listing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Refresh public seed listings
 
-## Learn More
+From the project root:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+python3 scripts/crawl_canada_tamil.py
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Then re-filter if you want a tighter Tamil-only set. Raw crawl output lands in `data/seed-businesses.json`; the app reads `tamilpages/data/seed-businesses.json`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Money
 
-## Deploy on Vercel
+- **Basic listing** — free for the first year (until 16 August 2027)
+- **Featured / Spotlight / ads** — paid now ($29 / $79 / from $149 per month)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See `/pricing` and `/advertise`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Google
+
+Every listing, city, and city+category page has a public URL and is listed in `/sitemap.xml` and `/robots.txt`. After you deploy:
+
+1. Add the site in [Google Search Console](https://search.google.com/search-console)
+2. Submit `https://your-domain/sitemap.xml`
+3. Set `NEXT_PUBLIC_SITE_URL` to your live domain
+
+## Stack
+
+Next.js 15 · TypeScript · Tailwind · file-based JSON store (no database required)
