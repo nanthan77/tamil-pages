@@ -38,6 +38,8 @@ export function getAllBusinesses(): Business[] {
   });
 }
 
+import { executeSearch, getAutocompleteSuggestions, type SortOption } from "./search";
+
 export function getBusiness(slug: string) {
   return getAllBusinesses().find((b) => b.slug === slug) ?? null;
 }
@@ -47,33 +49,13 @@ export function searchBusinesses(opts: {
   category?: string;
   city?: string;
   province?: string;
+  sort?: SortOption;
 }) {
-  const q = (opts.q || "").trim().toLowerCase();
-  const category = (opts.category || "").trim();
-  const city = (opts.city || "").trim().toLowerCase();
-  const province = (opts.province || "").trim().toUpperCase();
+  return executeSearch(getAllBusinesses(), opts);
+}
 
-  return getAllBusinesses().filter((b) => {
-    if (category && b.category !== category) return false;
-    
-    if (city) {
-      const bCity = (b.city || "").toLowerCase();
-      const citySlug = bCity.replace(/[^a-z0-9]+/g, "-");
-      const targetSlug = city.replace(/[^a-z0-9]+/g, "-");
-      if (bCity !== city && citySlug !== targetSlug && !bCity.includes(city)) {
-        return false;
-      }
-    }
-    
-    if (province && (b.province || "").toUpperCase() !== province) {
-      return false;
-    }
-    
-    if (!q) return true;
-    
-    const hay = `${b.name} ${b.tamilName || ""} ${b.description} ${b.address} ${b.city} ${b.province} ${b.category}`.toLowerCase();
-    return hay.includes(q);
-  });
+export function autocomplete(query: string, limit = 8) {
+  return getAutocompleteSuggestions(getAllBusinesses(), query, limit);
 }
 
 export function countByCategory() {

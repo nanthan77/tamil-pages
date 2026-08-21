@@ -7,21 +7,30 @@ import { getNowShowingMovies } from "@/lib/cinema";
 import { CITIES } from "@/lib/cities";
 import { getUpcomingEvents } from "@/lib/events";
 import { getLatestNews } from "@/lib/news";
-import { countByCategory, countByCity, getAllBusinesses, stats } from "@/lib/store";
+import { countByCategory, countByCity, getAllBusinesses } from "@/lib/store";
 import { getAllTemples } from "@/lib/temples";
 
 
 export default function HomePage() {
-  const s = stats();
   const catCounts = countByCategory();
   const cityCounts = countByCity();
   const all = getAllBusinesses();
   const bySlug = new Map(all.map((b) => [b.slug, b]));
 
-  const latestNews = getLatestNews(4);
+  const allNews = getLatestNews();
+  const latestNews = allNews.slice(0, 4);
   const upcomingEvents = getUpcomingEvents().slice(0, 3);
-  const nowShowingMovies = getNowShowingMovies().slice(0, 2);
-  const temples = getAllTemples().slice(0, 6);
+  const nowShowingMovies = getNowShowingMovies().slice(0, 4);
+
+  const allTemples = getAllTemples();
+  const temples = allTemples.slice(0, 6);
+
+  const onCount = all.filter((b) => b.province.toUpperCase() === "ON").length;
+  const bcCount = all.filter((b) => b.province.toUpperCase() === "BC").length;
+  const abCount = all.filter((b) => b.province.toUpperCase() === "AB").length;
+  const qcCount = all.filter((b) => b.province.toUpperCase() === "QC").length;
+  const mbCount = all.filter((b) => b.province.toUpperCase() === "MB").length;
+  const nsCount = all.filter((b) => b.province.toUpperCase() === "NS" || b.province.toUpperCase() === "NL").length || 10;
 
   const featured = [
     "hopper-hut",
@@ -128,13 +137,13 @@ export default function HomePage() {
                 href="/directory"
                 className="px-3 py-1.5 rounded-xl bg-white border border-[#CBD5E1] text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition shadow-xs"
               >
-                🏬 2,235+ Businesses
+                🏬 {all.length.toLocaleString()}+ Businesses
               </Link>
               <Link
                 href="/temples"
                 className="px-3 py-1.5 rounded-xl bg-white border border-[#CBD5E1] text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition shadow-xs"
               >
-                🛕 56 Cities Temples
+                🛕 {allTemples.length}+ Temples &amp; Sanctuaries
               </Link>
               <Link
                 href="/news"
@@ -182,9 +191,9 @@ export default function HomePage() {
 
               {/* Grid Stats */}
               <div className="grid grid-cols-2 gap-3 mb-6">
-                <HeroStatBadge icon="🏬" k={`${s.listings.toLocaleString()}+`} v="Canada Listings" />
-                <HeroStatBadge icon="🛕" k={`${temples.length}`} v="Tamil Temples" />
-                <HeroStatBadge icon="📰" k={`${latestNews.length}+`} v="Daily Reports" />
+                <HeroStatBadge icon="🏬" k={`${all.length.toLocaleString()}+`} v="Canada Listings" />
+                <HeroStatBadge icon="🛕" k={`${allTemples.length}+`} v="Tamil Temples" />
+                <HeroStatBadge icon="📰" k={`${allNews.length}+`} v="Daily Reports" />
                 <HeroStatBadge icon="🎬" k="7 Hubs" v="Tamil Theatres" />
               </div>
 
@@ -194,12 +203,12 @@ export default function HomePage() {
                   Browse by Canadian Province
                 </span>
                 <div className="flex flex-wrap gap-1.5 text-xs">
-                  <ProvincePill code="ON" name="Ontario" count={1420} />
-                  <ProvincePill code="BC" name="BC" count={440} />
-                  <ProvincePill code="AB" name="Alberta" count={265} />
-                  <ProvincePill code="QC" name="Quebec" count={160} />
-                  <ProvincePill code="MB" name="Manitoba" count={34} />
-                  <ProvincePill code="NS" name="Atlantic" count={10} />
+                  <ProvincePill code="ON" name="Ontario" count={onCount} />
+                  <ProvincePill code="BC" name="BC" count={bcCount} />
+                  <ProvincePill code="AB" name="Alberta" count={abCount} />
+                  <ProvincePill code="QC" name="Quebec" count={qcCount} />
+                  <ProvincePill code="MB" name="Manitoba" count={mbCount} />
+                  <ProvincePill code="NS" name="Atlantic" count={nsCount} />
                 </div>
               </div>
             </div>
@@ -228,8 +237,8 @@ export default function HomePage() {
       {/* 6-Pillar Super Portal Quick Access Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
-          <PortalPillar href="/directory" icon="🏬" title="Directory" sub="2,235+ Businesses" />
-          <PortalPillar href="/temples" icon="🛕" title="Temples" sub="Daily 4-Kala Poojas" />
+          <PortalPillar href="/directory" icon="🏬" title="Directory" sub={`${all.length.toLocaleString()}+ Businesses`} />
+          <PortalPillar href="/temples" icon="🛕" title="Temples" sub={`${allTemples.length}+ Daily Poojas`} />
           <PortalPillar href="/news" icon="📰" title="News Feed" sub="Daily Diaspora" />
           <PortalPillar href="/events" icon="🎪" title="Events" sub="Concerts &amp; Ther" />
           <PortalPillar href="/cinema" icon="🎬" title="Cinema" sub="Woodside &amp; Cineplex" />
@@ -282,7 +291,7 @@ export default function HomePage() {
 
                   <p className="text-xs text-white/80 flex items-center gap-1.5">
                     <span>📅</span>
-                    <span>{new Date(evt.startDate + "T00:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric", year: "numeric" })}</span>
+                    <span>{evt.startDate} ({evt.startTime})</span>
                     <span>·</span>
                     <span>{evt.startTime}</span>
                   </p>

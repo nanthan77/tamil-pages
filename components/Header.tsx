@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getSessionUser } from "@/lib/auth";
 import { stats } from "@/lib/store";
+import HeaderSearchTrigger from "./HeaderSearchTrigger";
 import MobileNav from "./MobileNav";
 
 export default async function Header() {
@@ -81,8 +82,10 @@ export default async function Header() {
               </Link>
             </nav>
 
-            {/* Stats & Action Area */}
+            {/* Stats, Search & Action Area */}
             <div className="flex items-center gap-2 sm:gap-3">
+              <HeaderSearchTrigger />
+
               <div className="hidden 2xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] text-white/90 font-medium">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>{s.listings.toLocaleString()} Canada Listings</span>

@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import AdSlot from "@/components/AdSlot";
 import BusinessCard from "@/components/BusinessCard";
 import JsonLd from "@/components/JsonLd";
@@ -11,6 +11,7 @@ import { itemListJsonLd } from "@/lib/seo";
 import { CATEGORIES } from "@/lib/categories";
 import { CITIES, PROVINCES } from "@/lib/cities";
 import { countByCategory, countByCity, countByProvince, searchBusinesses } from "@/lib/store";
+import type { SortOption } from "@/lib/search";
 
 export default function DirectoryPage() {
   return (
@@ -21,15 +22,17 @@ export default function DirectoryPage() {
 }
 
 function DirectoryContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const q = searchParams.get("q") || "";
   const category = searchParams.get("category") || "";
   const city = searchParams.get("city") || "";
   const province = (searchParams.get("province") || "").toUpperCase();
+  const sort = (searchParams.get("sort") || (q ? "relevance" : "featured")) as SortOption;
   const page = Math.max(1, Number(searchParams.get("page") || 1) || 1);
   const pageSize = 24;
 
-  const results = searchBusinesses({ q, category, city, province });
+  const results = searchBusinesses({ q, category, city, province, sort });
   const pages = Math.max(1, Math.ceil(results.length / pageSize));
   const safePage = Math.min(page, pages);
   const slice = results.slice((safePage - 1) * pageSize, safePage * pageSize);
@@ -40,12 +43,21 @@ function DirectoryContent() {
     if (category) p.set("category", category);
     if (city) p.set("city", city);
     if (province) p.set("province", province);
+    if (sort && sort !== "featured" && sort !== "relevance") p.set("sort", sort);
     Object.entries(extra).forEach(([k, v]) => {
       if (v) p.set(k, String(v));
       else p.delete(k);
     });
     const s = p.toString();
     return s ? `?${s}` : "";
+  };
+
+  const handleSortChange = (newSort: string) => {
+    const p = new URLSearchParams(searchParams.toString());
+    if (newSort) p.set("sort", newSort);
+    else p.delete("sort");
+    p.set("page", "1");
+    router.push(`/directory?${p.toString()}`);
   };
 
   const catCounts = countByCategory();
@@ -75,12 +87,34 @@ function DirectoryContent() {
             கனடா முழுவதும் உள்ள தமிழ் நிறுவனங்கள், உணவகங்கள், சட்ட ஆலோசகர்கள், மருத்துவர்கள் மற்றும் சேவைகள்.
           </p>
           <p className="text-white/80 text-xs sm:text-sm max-w-2xl leading-relaxed">
-            Browse verified listings across Scarborough, Toronto, Markham, Montreal, Vancouver, Calgary, and across Canada. Direct phone numbers, addresses, and instant WhatsApp chat.
+            Browse {results.length.toLocaleString()} verified listings across Scarborough, Toronto, Markham, Montreal, Vancouver, Calgary, Edmonton, and nationwide with smart fuzzy search &amp; transliteration.
           </p>
         </div>
 
         <div className="mt-6 relative z-10">
-          <SearchForm />
+          <SearchForm q={q} category={category} city={city} province={province} large />
+        </div>
+
+        {/* Quick Search Intent Pills */}
+        <div className="mt-4 flex flex-wrap items-center gap-2 text-xs font-semibold relative z-10 text-white/90">
+          <span className="text-[11px] uppercase tracking-wider text-white/70 font-extrabold">Popular Searches:</span>
+          {[
+            { label: "🔥 Hoppers & Kothu", q: "kothu" },
+            { label: "🛕 Temples", q: "temple" },
+            { label: "⚖️ Immigration Lawyers", q: "immigration" },
+            { label: "🦷 Dental Clinics", q: "dentist" },
+            { label: "📊 Tax & CPA", q: "tax" },
+            { label: "💍 22K Gold & Sarees", q: "saree" },
+            { label: "🚗 Auto Mechanics", q: "mechanic" },
+          ].map((chip) => (
+            <Link
+              key={chip.q}
+              href={`/directory?q=${encodeURIComponent(chip.q)}`}
+              className="px-2.5 py-1 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs transition"
+            >
+              {chip.label}
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -103,8 +137,55 @@ function DirectoryContent() {
               )}
             </div>
 
+            {/* Active Filters Summary */}
+            {(q || category || city || province) && (
+              <div className="space-y-1.5 pt-1">
+                <span className="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">
+                  Active Filters
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {q && (
+                    <Link
+                      href={`/directory${qs({ q: "", page: 1 })}`}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-50 text-[#E00624] text-xs font-bold border border-red-200"
+                    >
+                      <span>🔍 &quot;{q}&quot;</span>
+                      <span className="text-xs">✕</span>
+                    </Link>
+                  )}
+                  {category && (
+                    <Link
+                      href={`/directory${qs({ category: "", page: 1 })}`}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-[#002D62] text-xs font-bold border border-blue-200"
+                    >
+                      <span>🏷️ {CATEGORIES.find((c) => c.slug === category)?.name || category}</span>
+                      <span className="text-xs">✕</span>
+                    </Link>
+                  )}
+                  {city && (
+                    <Link
+                      href={`/directory${qs({ city: "", page: 1 })}`}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200"
+                    >
+                      <span>🍁 {city}</span>
+                      <span className="text-xs">✕</span>
+                    </Link>
+                  )}
+                  {province && (
+                    <Link
+                      href={`/directory${qs({ province: "", page: 1 })}`}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200"
+                    >
+                      <span>Province: {province}</span>
+                      <span className="text-xs">✕</span>
+                    </Link>
+                  )}
+                </div>
+              </div>
+            )}
+
             {/* Province Filter */}
-            <div className="space-y-2">
+            <div className="space-y-2 border-t border-[#E2E8F0] pt-4">
               <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#64748B]">
                 Province / Territory
               </label>
@@ -143,7 +224,7 @@ function DirectoryContent() {
             {/* Category Filter */}
             <div className="space-y-2 border-t border-[#E2E8F0] pt-4">
               <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#64748B]">
-                Category
+                Category ({CATEGORIES.length})
               </label>
               <div className="space-y-0.5 max-h-64 overflow-y-auto pr-1">
                 <Link
@@ -170,7 +251,6 @@ function DirectoryContent() {
                       }`}
                     >
                       <span className="truncate flex items-center gap-1.5">
-                        <span>{c.icon}</span>
                         <span>{c.name}</span>
                       </span>
                       <span className={`text-[10px] ml-1 shrink-0 ${active ? "text-white" : "text-[#94A3B8]"}`}>
@@ -185,7 +265,7 @@ function DirectoryContent() {
             {/* City Filter */}
             <div className="space-y-2 border-t border-[#E2E8F0] pt-4">
               <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#64748B]">
-                Top Cities
+                Top Canadian Cities
               </label>
               <div className="flex flex-wrap gap-1 max-h-48 overflow-y-auto pr-1">
                 <Link
@@ -199,7 +279,7 @@ function DirectoryContent() {
                   All Cities
                 </Link>
                 {CITIES.map((c) => {
-                  const count = cityCounts[c.name] || 0;
+                  const count = cityCounts[c.name.toLowerCase()] || 0;
                   if (count === 0 && city.toLowerCase() !== c.name.toLowerCase()) return null;
                   const active = city.toLowerCase() === c.name.toLowerCase();
                   return (
@@ -228,7 +308,7 @@ function DirectoryContent() {
           <div className="bg-white rounded-2xl border border-[#CBD5E1] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
             <div>
               <p className="text-xs font-extrabold text-[#002D62] uppercase tracking-wider">
-                Showing {slice.length} of {results.length} Canadian businesses
+                Showing {slice.length} of {results.length.toLocaleString()} Canadian businesses
               </p>
               <p className="text-xs text-[#64748B] mt-0.5">
                 {q && `Keyword: "${q}" · `}
@@ -239,12 +319,30 @@ function DirectoryContent() {
               </p>
             </div>
 
-            <Link
-              href="/add-business"
-              className="btn-primary rounded-xl px-4 py-2 text-xs font-extrabold shadow-sm shrink-0 self-start sm:self-auto"
-            >
-              + Add Free Listing
-            </Link>
+            {/* Sort & Action controls */}
+            <div className="flex items-center gap-3 self-start sm:self-auto shrink-0">
+              <div className="flex items-center gap-1.5 text-xs">
+                <span className="text-[#64748B] font-bold">Sort:</span>
+                <select
+                  value={sort}
+                  onChange={(e) => handleSortChange(e.target.value)}
+                  className="rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] px-2.5 py-1.5 text-xs font-bold text-[#0F172A] outline-none cursor-pointer"
+                >
+                  <option value="relevance">Most Relevant</option>
+                  <option value="featured">Featured First</option>
+                  <option value="name-asc">Name (A–Z)</option>
+                  <option value="name-desc">Name (Z–A)</option>
+                  <option value="verified">Verified First</option>
+                </select>
+              </div>
+
+              <Link
+                href="/add-business"
+                className="btn-primary rounded-xl px-3.5 py-1.5 text-xs font-extrabold shadow-sm shrink-0"
+              >
+                + Add Listing
+              </Link>
+            </div>
           </div>
 
           {slice.length === 0 ? (

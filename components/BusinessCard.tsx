@@ -3,15 +3,15 @@ import { getCategory } from "@/lib/categories";
 import type { Business } from "@/lib/types";
 import { initials, mapsLink, telLink, whatsappLink } from "@/lib/utils";
 
-export default function BusinessCard({
-  biz,
-  compact = false,
-}: {
-  biz: Business;
+export default function BusinessCard(props: {
+  biz?: Business;
+  business?: Business;
   compact?: boolean;
 }) {
-  const cat = getCategory(biz.category);
-  const wa = whatsappLink(biz.whatsapp || (biz.phone.startsWith("+") ? biz.phone : ""));
+  const item = props.biz || props.business;
+  if (!item) return null;
+  const cat = getCategory(item.category);
+  const wa = whatsappLink(item.whatsapp || (item.phone.startsWith("+") ? item.phone : ""));
 
   return (
     <div className="bg-white rounded-3xl border border-[#E2E8F0] hover:border-[#002D62] shadow-sm hover:shadow-card-hover transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-1 relative">
@@ -22,26 +22,26 @@ export default function BusinessCard({
         {/* Top Badges */}
         <div className="flex items-center justify-between text-[11px] gap-2">
           <span className="px-3 py-1 rounded-full bg-[#F0F7FF] text-[#002D62] border border-[#CCE3F8] font-extrabold uppercase tracking-wider text-[10px]">
-            {cat?.name || biz.category}
+            {cat?.name || item.category}
           </span>
           <span className="text-[#334155] font-bold text-xs flex items-center gap-1 bg-[#F8FAFC] px-2.5 py-1 rounded-full border border-[#E2E8F0] shrink-0">
             <span>🍁</span>
-            <span>{biz.city}, {biz.province}</span>
+            <span>{item.city}, {item.province}</span>
           </span>
         </div>
 
         {/* Name & Avatar */}
         <div className="flex items-start gap-3">
           <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#002D62] to-[#0A4D92] text-white shrink-0 flex items-center justify-center font-outfit font-black text-sm shadow-xs group-hover:from-[#E00624] group-hover:to-[#B0041B] transition-all duration-300">
-            {initials(biz.name)}
+            {initials(item.name)}
           </div>
           <div className="min-w-0 flex-1">
             <h3 className="font-outfit font-extrabold text-lg text-[#0F172A] group-hover:text-[#002D62] transition-colors line-clamp-1 leading-snug">
-              <Link href={`/directory/${biz.slug}`}>{biz.name}</Link>
+              <Link href={`/directory/${item.slug}`}>{item.name}</Link>
             </h3>
-            {biz.tamilName && (
-              <p className="tamil text-xs font-semibold text-[#E00624] mt-0.5 line-clamp-1">
-                {biz.tamilName}
+            {item.tamilName && (
+              <p className="tamil text-xs font-bold text-[#E00624] mt-0.5 line-clamp-1">
+                {item.tamilName}
               </p>
             )}
           </div>
@@ -49,7 +49,7 @@ export default function BusinessCard({
 
         {/* Verification & Quick Info */}
         <div className="flex items-center gap-2 text-xs flex-wrap pt-1">
-          {biz.verified ? (
+          {item.verified ? (
             <span className="inline-flex items-center gap-1 text-emerald-700 font-bold text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
               <span>✓</span> Verified Canada Listing
             </span>
@@ -58,74 +58,70 @@ export default function BusinessCard({
               ● Community Post
             </span>
           )}
-          {biz.featured && (
+          {item.featured && (
             <span className="inline-flex items-center gap-1 text-[#E00624] font-extrabold text-[11px] bg-red-50 px-2 py-0.5 rounded-md border border-red-200">
               ★ Featured
+            </span>
+          )}
+          {item.rating && (
+            <span className="inline-flex items-center gap-1 text-amber-800 font-extrabold text-[11px] bg-amber-100 px-2 py-0.5 rounded-md">
+              <span>★</span> {item.rating.toFixed(1)} ({item.reviewCount || 10})
             </span>
           )}
         </div>
 
         {/* Description */}
-        {!compact && (
-          <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2">
-            {biz.description}
-          </p>
-        )}
+        <p className="text-xs text-[#64748B] line-clamp-2 leading-relaxed">
+          {item.description}
+        </p>
 
-        {/* Address preview */}
-        {biz.address && !compact && (
-          <div className="text-[11px] text-[#64748B] flex items-center gap-1.5 truncate pt-1 border-t border-slate-100">
-            <span className="text-slate-400">📍</span>
-            <span className="truncate">{biz.address}</span>
-          </div>
-        )}
+        {/* Address */}
+        <div className="text-xs text-[#475569] flex items-center gap-1.5 truncate">
+          <span>📍</span>
+          <span className="truncate">{item.address}</span>
+        </div>
       </div>
 
-      {/* Action Footer Bar */}
-      <div className="px-5 py-3.5 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between gap-2">
+      {/* Footer Actions */}
+      <div className="p-4 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          {biz.phone ? (
+          {item.phone && (
             <a
-              href={telLink(biz.phone)}
-              className="btn-primary rounded-xl px-3.5 py-1.5 text-xs font-bold flex items-center gap-1.5"
+              href={telLink(item.phone)}
+              className="btn-primary rounded-xl px-3 py-1.5 text-xs font-bold flex items-center gap-1"
+              title="Call Business"
             >
               <span>📞</span>
               <span>Call</span>
             </a>
-          ) : (
-            <span className="text-[11px] text-[#94A3B8]">No phone</span>
           )}
-
-          {biz.address && (
-            <a
-              href={mapsLink(biz.address, biz.name)}
-              target="_blank"
-              rel="noreferrer"
-              title="Get Google Maps Directions"
-              className="p-1.5 rounded-xl border border-[#CBD5E1] bg-white text-[#002D62] hover:bg-[#F0F7FF] text-xs font-bold transition flex items-center gap-1"
-            >
-              <span>🗺️</span>
-            </a>
-          )}
-
           {wa && (
             <a
               href={wa}
               target="_blank"
               rel="noreferrer"
-              title="Message on WhatsApp"
-              className="p-1.5 rounded-xl bg-[#25D366] text-white hover:bg-[#1EBE5D] text-xs font-bold transition flex items-center"
+              className="p-1.5 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 text-xs font-bold transition flex items-center gap-1"
+              title="WhatsApp"
             >
               <i className="fa-brands fa-whatsapp text-sm" />
             </a>
           )}
+          <a
+            href={mapsLink(item.address, item.name)}
+            target="_blank"
+            rel="noreferrer"
+            className="p-1.5 rounded-xl border border-[#CBD5E1] bg-white text-[#002D62] hover:bg-[#F0F7FF] text-xs font-bold transition flex items-center gap-1"
+            title="Google Maps"
+          >
+            <span>🗺️</span>
+          </a>
         </div>
 
         <Link
-          href={`/directory/${biz.slug}`}
-          className="text-xs font-extrabold text-[#002D62] hover:text-[#E00624] transition flex items-center gap-1 ml-auto"
+          href={`/directory/${item.slug}`}
+          className="btn-navy rounded-xl px-3.5 py-1.5 text-xs font-bold shadow-xs flex items-center gap-1"
         >
-          <span>Details</span>
+          <span>View</span>
           <span>→</span>
         </Link>
       </div>

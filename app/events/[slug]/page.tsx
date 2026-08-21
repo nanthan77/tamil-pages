@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllEvents, getEventBySlug } from "@/lib/events";
-import { mapsLink } from "@/lib/utils";
+import { formatDisplayDate, mapsLink } from "@/lib/utils";
+
+
+
 
 export async function generateStaticParams() {
   return getAllEvents().map((e) => ({ slug: e.slug }));
@@ -92,13 +95,9 @@ export default async function EventDetailPage({
               Date &amp; Schedule
             </span>
             <p className="font-outfit font-extrabold text-base text-[#002D62]">
-              📅 {new Date(evt.startDate + "T00:00:00").toLocaleDateString("en-CA", {
-                weekday: "long",
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
+              📅 {formatDisplayDate(evt.startDate)}
             </p>
+
             <p className="text-xs text-[#64748B] font-bold mt-1">🕒 {evt.startTime}</p>
           </div>
 

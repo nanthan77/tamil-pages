@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 
-export default function TemplePhotoUpload({ templeName }: { templeName: string }) {
+export default function TemplePhotoUpload(props: {
+  templeName: string;
+  templeSlug?: string;
+}) {
+  const { templeName } = props;
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [photographer, setPhotographer] = useState("");

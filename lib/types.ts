@@ -14,6 +14,10 @@ export type Business = {
   description: string;
   verified: boolean;
   featured: boolean;
+  rating?: number;
+  reviewCount?: number;
+  tags?: string[];
+  keywords?: string[];
   source: "public-web" | "community" | "curated";
   ownerId?: string;
   createdAt?: string;

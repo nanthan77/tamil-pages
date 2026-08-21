@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import EventSubmissionModal from "@/components/EventSubmissionModal";
 import { countEventsByCity, getAllEvents, getEventsByCity } from "@/lib/events";
-import { mapsLink } from "@/lib/utils";
+import { formatDisplayDate, mapsLink } from "@/lib/utils";
 
 export default function EventsPage() {
   return (
@@ -151,15 +151,11 @@ function EventsContent() {
                   <div className="flex items-center gap-2">
                     <span className="text-[#002D62] font-black text-sm">📅</span>
                     <span className="font-extrabold text-[#0F172A]">
-                      {new Date(evt.startDate + "T00:00:00").toLocaleDateString("en-CA", {
-                        weekday: "short",
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
+                      {formatDisplayDate(evt.startDate)}
                     </span>
                     <span className="text-[#64748B]">·</span>
                     <span className="text-[#64748B] font-bold">{evt.startTime}</span>
+
                   </div>
 
                   <div className="flex items-start gap-2 border-t border-[#E2E8F0] pt-2">

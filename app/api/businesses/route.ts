@@ -2,8 +2,34 @@ import { randomBytes } from "crypto";
 import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/auth";
 import { CATEGORIES } from "@/lib/categories";
-import { addUserListing, uniqueSlug } from "@/lib/store";
+import { addUserListing, searchBusinesses, uniqueSlug } from "@/lib/store";
 import { slugify } from "@/lib/utils";
+import type { SortOption } from "@/lib/search";
+
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const q = searchParams.get("q") || "";
+  const category = searchParams.get("category") || "";
+  const city = searchParams.get("city") || "";
+  const province = searchParams.get("province") || "";
+  const sort = (searchParams.get("sort") || "relevance") as SortOption;
+  const page = Math.max(1, Number(searchParams.get("page") || 1) || 1);
+  const limit = Math.min(Math.max(1, Number(searchParams.get("limit") || 24)), 100);
+
+  const allMatching = searchBusinesses({ q, category, city, province, sort });
+  const total = allMatching.length;
+  const totalPages = Math.ceil(total / limit);
+  const slice = allMatching.slice((page - 1) * limit, page * limit);
+
+  return NextResponse.json({
+    ok: true,
+    total,
+    page,
+    totalPages,
+    pageSize: limit,
+    businesses: slice,
+  });
+}
 
 export async function POST(req: Request) {
   const user = await getSessionUser();

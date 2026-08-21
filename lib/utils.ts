@@ -2,7 +2,7 @@ export function slugify(text: string) {
   return text
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 80) || "listing";
@@ -35,4 +35,35 @@ export function telLink(phone: string) {
 
 export function citySlug(city: string) {
   return slugify(city);
+}
+
+// Timezone-safe date formatting that never shifts day backwards
+export function formatDisplayDate(dateStr: string): string {
+  if (!dateStr) return "";
+  const clean = dateStr.split("T")[0];
+  const [y, m, d] = clean.split("-").map(Number);
+  if (!y || !m || !d) return dateStr;
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  return `${months[m - 1]} ${d}, ${y}`;
+}
+
+export function formatDisplayDateShort(dateStr: string): string {
+  if (!dateStr) return "";
+  const clean = dateStr.split("T")[0];
+  const [y, m, d] = clean.split("-").map(Number);
+  if (!y || !m || !d) return dateStr;
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${months[m - 1]} ${d}, ${y}`;
+}
+
+export function getCanadianTodayFormatted(): string {
+  return new Date().toLocaleDateString("en-CA", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
