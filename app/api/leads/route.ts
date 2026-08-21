@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import { NextResponse } from "next/server";
 import { addLead } from "@/lib/leads";
 import type { LeadKind } from "@/lib/types";

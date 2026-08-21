@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import { NextResponse } from "next/server";
 import { addReview } from "@/lib/leads";
 import { getBusiness } from "@/lib/store";

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { CANADA_BOX_OFFICE, getAllMovies, getAllTheatres } from "@/lib/cinema";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 export async function GET() {
   const movies = getAllMovies();
