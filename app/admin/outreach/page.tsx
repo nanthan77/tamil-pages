@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import AdminSecurityGuard from "@/components/AdminSecurityGuard";
 import seedData from "@/data/seed-businesses.json";
 import type { Business } from "@/lib/types";
 
@@ -222,7 +223,8 @@ export default function AdminOutreachPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC] py-10 px-4 sm:px-6 lg:px-8 space-y-8">
+    <AdminSecurityGuard>
+      <main className="min-h-screen bg-[#F8FAFC] py-10 px-4 sm:px-6 lg:px-8 space-y-8">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="bg-gradient-to-r from-[#002D62] via-[#0A4D92] to-[#002D62] rounded-3xl p-8 sm:p-10 text-white shadow-card flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative overflow-hidden">
@@ -761,5 +763,6 @@ export default function AdminOutreachPage() {
         </div>
       )}
     </main>
+    </AdminSecurityGuard>
   );
 }

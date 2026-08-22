@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import AdminSecurityGuard from "@/components/AdminSecurityGuard";
 import seedData from "@/data/seed-businesses.json";
 import leadsData from "@/data/leads.json";
 import reviewsData from "@/data/reviews.json";
@@ -102,7 +103,8 @@ export default function MasterAdminPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC] pb-16">
+    <AdminSecurityGuard>
+      <main className="min-h-screen bg-[#F8FAFC] pb-16">
       {/* Top Navbar */}
       <header className="bg-[#002D62] text-white sticky top-0 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -770,5 +772,6 @@ export default function MasterAdminPage() {
         </div>
       )}
     </main>
+    </AdminSecurityGuard>
   );
 }
