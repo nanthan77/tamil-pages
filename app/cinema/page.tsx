@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { CANADA_BOX_OFFICE, getAllTheatres, getNowShowingMovies } from "@/lib/cinema";
+import { CANADA_BOX_OFFICE, getAllTheatres, getAllMovies, type MovieListing } from "@/lib/cinema";
 import { getCanadianTodayFormatted, mapsLink, telLink } from "@/lib/utils";
 
 export default function CinemaPage() {
@@ -19,14 +19,15 @@ function CinemaContent() {
   const city = searchParams.get("city") || "";
 
   const theatres = getAllTheatres();
-  const nowShowing = getNowShowingMovies();
+  const allMovies = getAllMovies();
   const boxOffice = CANADA_BOX_OFFICE;
 
-  const [currentDateDisplay, setCurrentDateDisplay] = useState<string>("Thursday, August 20, 2026");
-  const [lastSyncTime, setLastSyncTime] = useState<string>("August 20, 2026 · 6:30 PM EST");
+  const [currentDateDisplay, setCurrentDateDisplay] = useState<string>("Today");
+  const [lastSyncTime, setLastSyncTime] = useState<string>("Synced Daily at 6:30 PM EST");
   const [syncing, setSyncing] = useState(false);
   const [activeTrailerId, setActiveTrailerId] = useState<string | null>(null);
   const [selectedDay, setSelectedDay] = useState<"today" | "tomorrow" | "weekend">("today");
+  const [movieFilter, setMovieFilter] = useState<"all" | "Now Showing" | "Advance Booking" | "Coming Soon">("all");
 
   useEffect(() => {
     setCurrentDateDisplay(getCanadianTodayFormatted());
@@ -38,6 +39,14 @@ function CinemaContent() {
   const filteredTheatres = city
     ? theatres.filter((t) => t.city.toLowerCase() === city.toLowerCase())
     : theatres;
+
+  const displayedMovies = allMovies.filter((m) => {
+    if (movieFilter !== "all" && m.status !== movieFilter) return false;
+    if (city) {
+      return m.theatreShowtimes.some((st) => st.city.toLowerCase() === city.toLowerCase());
+    }
+    return true;
+  });
 
   const cinemaCities = ["Scarborough", "Toronto", "Montreal", "Surrey", "Calgary", "Edmonton", "Ottawa", "Winnipeg", "Halifax"];
 
@@ -132,7 +141,7 @@ function CinemaContent() {
 
         {/* Box Office Table Grid */}
         <div className="overflow-x-auto pt-6">
-          <table className="w-full text-left text-xs sm:text-sm">
+          <table className="w-full text-left text-xs sm:text-sm min-w-[650px]">
             <thead>
               <tr className="border-b border-white/15 text-[11px] font-black uppercase tracking-wider text-slate-400">
                 <th className="pb-3 pr-4">Rank</th>
@@ -171,7 +180,7 @@ function CinemaContent() {
                     {entry.occupancy}
                   </td>
                   <td className="py-4">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30 whitespace-nowrap">
                       {entry.verdict}
                     </span>
                   </td>
@@ -182,14 +191,32 @@ function CinemaContent() {
         </div>
       </section>
 
-      {/* Showtime Schedule Day Selector Tabs */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-3xl border border-[#CBD5E1] shadow-xs">
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-black text-[#002D62] uppercase tracking-wider">📅 Select Date:</span>
+      {/* Showtime Schedule Day Selector & Status Filters */}
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-3xl border border-[#CBD5E1] shadow-xs">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-black text-[#002D62] uppercase tracking-wider mr-1">🎬 Release Filter:</span>
+          {(["all", "Now Showing", "Advance Booking", "Coming Soon"] as const).map((filterVal) => (
+            <button
+              key={filterVal}
+              type="button"
+              onClick={() => setMovieFilter(filterVal)}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                movieFilter === filterVal
+                  ? "bg-[#E00624] text-white shadow-xs"
+                  : "bg-[#F8FAFC] text-[#475569] border border-[#CBD5E1] hover:text-[#002D62]"
+              }`}
+            >
+              {filterVal === "all" ? `All Releases (${allMovies.length})` : filterVal}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-black text-[#002D62] uppercase tracking-wider mr-1">📅 Day:</span>
           <button
             type="button"
             onClick={() => setSelectedDay("today")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
               selectedDay === "today"
                 ? "bg-[#002D62] text-white shadow-xs"
                 : "bg-[#F8FAFC] text-[#475569] border border-[#CBD5E1] hover:text-[#002D62]"
@@ -200,7 +227,7 @@ function CinemaContent() {
           <button
             type="button"
             onClick={() => setSelectedDay("tomorrow")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
               selectedDay === "tomorrow"
                 ? "bg-[#002D62] text-white shadow-xs"
                 : "bg-[#F8FAFC] text-[#475569] border border-[#CBD5E1] hover:text-[#002D62]"
@@ -211,7 +238,7 @@ function CinemaContent() {
           <button
             type="button"
             onClick={() => setSelectedDay("weekend")}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
               selectedDay === "weekend"
                 ? "bg-[#002D62] text-white shadow-xs"
                 : "bg-[#F8FAFC] text-[#475569] border border-[#CBD5E1] hover:text-[#002D62]"
@@ -220,22 +247,10 @@ function CinemaContent() {
             Weekend Matinees
           </button>
         </div>
-
-        <div className="text-xs text-[#64748B]">
-          Official Woodside booking portal:{" "}
-          <a
-            href="https://www.newwoodsidecinemas.com/showtimes"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#E00624] font-bold underline hover:text-[#B0041B]"
-          >
-            newwoodsidecinemas.com ↗
-          </a>
-        </div>
       </div>
 
       {/* Cinema Hub City Bar */}
-      <div className="bg-white rounded-3xl border border-[#CBD5E1] p-4 shadow-sm space-y-3">
+      <div className="bg-white rounded-3xl border border-[#CBD5E1] p-4 sm:p-5 shadow-sm space-y-3">
         <div className="flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-[#64748B] px-1">
           <span className="flex items-center gap-1.5 text-[#002D62]">
             <span>📍</span> Filter Theatres by Canadian City
@@ -273,147 +288,201 @@ function CinemaContent() {
         </div>
       </div>
 
-      {/* Now Showing Movies Section */}
+      {/* Movie Showcase Cards */}
       <section className="space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A]">
-              Now Showing in Canadian Theatres
+              Featured Tamil Movies &amp; Showtimes
             </h2>
             <p className="tamil text-xs sm:text-sm text-[#E00624] font-semibold mt-0.5">
-              திரையரங்குகளில் இப்போது திரையிடப்படும் முக்கிய படங்கள் ({currentDateDisplay})
+              திரையரங்குகளில் இப்போது திரையிடப்படும் &amp; வரவிருக்கும் முக்கிய படங்கள் ({currentDateDisplay})
             </p>
           </div>
-          <span className="text-xs font-bold text-[#E00624] bg-red-50 px-3 py-1 rounded-full border border-red-200">
-            ★ Verified Daily Showtimes
+          <span className="text-xs font-bold text-[#E00624] bg-red-50 px-3 py-1 rounded-full border border-red-200 self-start sm:self-auto">
+            ★ Verified Live Showtimes
           </span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {nowShowing.map((movie) => (
-            <article
-              key={movie.slug}
-              className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-6 sm:p-8 space-y-6 shadow-card relative overflow-hidden flex flex-col justify-between"
-            >
-              <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62] absolute top-0 left-0 right-0" />
+        {displayedMovies.length === 0 ? (
+          <div className="bg-white rounded-3xl border border-[#CBD5E1] p-12 text-center text-[#64748B]">
+            No movies found for the selected city or filter.{" "}
+            <Link href="/cinema" className="text-[#E00624] font-bold underline">
+              View all Canada releases
+            </Link>
+          </div>
+        ) : (
+          <div className="grid lg:grid-cols-2 gap-8">
+            {displayedMovies.map((movie) => (
+              <article
+                key={movie.slug}
+                className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-6 sm:p-8 space-y-6 shadow-card relative overflow-hidden flex flex-col justify-between hover:shadow-card-hover transition"
+              >
+                <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62] absolute top-0 left-0 right-0" />
 
-              <div className="space-y-4 pt-1">
-                <div className="flex flex-wrap items-center gap-2 text-xs">
-                  <span className="px-3 py-1 rounded-full bg-[#E00624] text-white font-black uppercase text-[10px] tracking-wider">
-                    {movie.status}
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#F0F7FF] text-[#002D62] border border-[#CCE3F8] font-bold text-[11px]">
-                    {movie.certification} · {movie.duration}
-                  </span>
-                  {movie.boxOfficeCanadaCAD && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-extrabold text-[11px]">
-                      🇨🇦 {movie.boxOfficeCanadaCAD}
-                    </span>
-                  )}
-                  {movie.criticRating && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-extrabold text-[11px]">
-                      {movie.criticRating}
-                    </span>
-                  )}
-                </div>
-
-                <div>
-                  <h3 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A]">
-                    {movie.title}
-                  </h3>
-                  <p className="tamil text-base font-bold text-[#E00624] mt-0.5">
-                    {movie.tamilTitle}
-                  </p>
-                </div>
-
-                <div className="text-xs text-[#64748B] space-y-1 bg-[#F8FAFC] p-4 rounded-2xl border border-[#CBD5E1]">
-                  <p>
-                    <strong className="text-[#0F172A]">Director:</strong> {movie.director}
-                  </p>
-                  <p>
-                    <strong className="text-[#0F172A]">Starring:</strong> {movie.cast.join(", ")}
-                  </p>
-                  <p>
-                    <strong className="text-[#0F172A]">Genre:</strong> {movie.genre.join(" · ")}
-                  </p>
-                </div>
-
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  {movie.synopsis}
-                </p>
-
-                {/* Showtimes per Canadian Hub */}
-                <div className="space-y-2 pt-2">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#002D62] block">
-                    Canadian Showtimes &amp; Theatres ({selectedDay === "today" ? currentDateDisplay : selectedDay === "tomorrow" ? "Tomorrow" : "Weekend Special"}):
-                  </span>
-                  <div className="space-y-2">
-                    {movie.theatreShowtimes.map((st) => (
-                      <div
-                        key={st.theatreId}
-                        className="bg-[#F8FAFC] p-3.5 rounded-2xl border border-[#CBD5E1] flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-[#002D62] transition"
-                      >
-                        <div>
-                          <p className="font-bold text-xs text-[#0F172A]">{st.theatreName}</p>
-                          <p className="text-[11px] text-[#64748B]">🍁 {st.city}, {st.province}</p>
+                <div className="space-y-4 pt-1">
+                  {/* Visual Poster & Trailer Trigger Banner */}
+                  <div
+                    className={`relative w-full h-48 sm:h-56 rounded-3xl overflow-hidden bg-gradient-to-r ${movie.posterBg} shadow-md group cursor-pointer`}
+                    onClick={() => movie.trailerYoutubeId && setActiveTrailerId(movie.trailerYoutubeId)}
+                  >
+                    {movie.posterImg ? (
+                      <img
+                        src={movie.posterImg}
+                        alt={movie.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onError={(e) => {
+                          if (movie.trailerYoutubeId) {
+                            (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${movie.trailerYoutubeId}/hqdefault.jpg`;
+                          }
+                        }}
+                      />
+                    ) : movie.trailerYoutubeId ? (
+                      <img
+                        src={`https://img.youtube.com/vi/${movie.trailerYoutubeId}/hqdefault.jpg`}
+                        alt={movie.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : null}
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-center justify-center">
+                      {movie.trailerYoutubeId && (
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#E00624] text-white flex items-center justify-center text-xl shadow-xl transition-transform duration-300 group-hover:scale-110">
+                          ▶
                         </div>
-                        <div className="flex flex-wrap items-center gap-1.5">
-                          {st.times.map((t) => (
-                            <span
-                              key={t}
-                              className="px-2.5 py-1 rounded-lg bg-[#002D62] text-white text-[11px] font-black shadow-xs"
-                            >
-                              {t}
-                            </span>
-                          ))}
-                          {st.bookingLink && (
-                            <a
-                              href={st.bookingLink}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="px-2.5 py-1 rounded-lg bg-[#E00624] text-white text-[11px] font-bold hover:bg-[#B0041B] transition ml-1 shadow-xs"
-                            >
-                              Tickets →
-                            </a>
-                          )}
+                      )}
+                    </div>
+
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                      <span className="bg-black/60 backdrop-blur-xs px-3 py-1 rounded-xl font-bold">
+                        🎬 {movie.genre.join(" · ")}
+                      </span>
+                      {movie.audienceScore && (
+                        <span className="bg-amber-400 text-black px-2.5 py-1 rounded-xl font-black shadow-xs">
+                          ★ {movie.audienceScore}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Badges & Status */}
+                  <div className="flex flex-wrap items-center gap-2 text-xs">
+                    <span className="px-3 py-1 rounded-full bg-[#E00624] text-white font-black uppercase text-[10px] tracking-wider">
+                      {movie.status}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#F0F7FF] text-[#002D62] border border-[#CCE3F8] font-bold text-[11px]">
+                      {movie.certification} · {movie.duration}
+                    </span>
+                    {movie.boxOfficeCanadaCAD && (
+                      <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-extrabold text-[11px]">
+                        🇨🇦 {movie.boxOfficeCanadaCAD}
+                      </span>
+                    )}
+                    {movie.criticRating && (
+                      <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-extrabold text-[11px]">
+                        {movie.criticRating}
+                      </span>
+                    )}
+                  </div>
+
+                  <div>
+                    <h3 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A]">
+                      {movie.title}
+                    </h3>
+                    <p className="tamil text-base font-bold text-[#E00624] mt-0.5">
+                      {movie.tamilTitle}
+                    </p>
+                  </div>
+
+                  <div className="text-xs text-[#64748B] space-y-1 bg-[#F8FAFC] p-4 rounded-2xl border border-[#CBD5E1]">
+                    <p>
+                      <strong className="text-[#0F172A]">Director:</strong> {movie.director}
+                    </p>
+                    <p>
+                      <strong className="text-[#0F172A]">Starring:</strong> {movie.cast.join(", ")}
+                    </p>
+                    <p>
+                      <strong className="text-[#0F172A]">Language:</strong> {movie.language}
+                    </p>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                    {movie.synopsis}
+                  </p>
+
+                  {/* Showtimes per Canadian Hub */}
+                  <div className="space-y-2 pt-2">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#002D62] block">
+                      Canadian Showtimes &amp; Theatres ({selectedDay === "today" ? currentDateDisplay : selectedDay === "tomorrow" ? "Tomorrow" : "Weekend Special"}):
+                    </span>
+                    <div className="space-y-2">
+                      {movie.theatreShowtimes.map((st) => (
+                        <div
+                          key={st.theatreId}
+                          className="bg-[#F8FAFC] p-3.5 rounded-2xl border border-[#CBD5E1] flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-[#002D62] transition"
+                        >
+                          <div>
+                            <p className="font-bold text-xs text-[#0F172A]">{st.theatreName}</p>
+                            <p className="text-[11px] text-[#64748B]">🍁 {st.city}, {st.province}</p>
+                          </div>
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            {st.times.map((t) => (
+                              <span
+                                key={t}
+                                className="px-2.5 py-1 rounded-lg bg-[#002D62] text-white text-[11px] font-black shadow-xs"
+                              >
+                                {t}
+                              </span>
+                            ))}
+                            {st.bookingLink && (
+                              <a
+                                href={st.bookingLink}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="px-2.5 py-1 rounded-lg bg-[#E00624] text-white text-[11px] font-bold hover:bg-[#B0041B] transition ml-1 shadow-xs whitespace-nowrap"
+                              >
+                                Tickets →
+                              </a>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3">
-                <span className="text-xs text-[#64748B]">
-                  Verified via Woodside (newwoodsidecinemas.com), Albion, Cineplex &amp; Landmark
-                </span>
-                <div className="flex items-center gap-2">
-                  {movie.trailerYoutubeId && (
-                    <button
-                      type="button"
-                      onClick={() => setActiveTrailerId(movie.trailerYoutubeId)}
-                      className="btn-navy rounded-xl px-4 py-2 text-xs font-bold flex items-center gap-1.5 shadow-xs"
+                <div className="pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3">
+                  <span className="text-xs text-[#64748B]">
+                    Verified via Woodside, Albion, Cineplex &amp; Landmark
+                  </span>
+                  <div className="flex items-center gap-2">
+                    {movie.trailerYoutubeId && (
+                      <button
+                        type="button"
+                        onClick={() => setActiveTrailerId(movie.trailerYoutubeId)}
+                        className="btn-navy rounded-xl px-4 py-2 text-xs font-bold flex items-center gap-1.5 shadow-xs cursor-pointer"
+                      >
+                        <span>▶️</span> Watch Trailer
+                      </button>
+                    )}
+                    <Link
+                      href="/cinema#theatres"
+                      className="btn-primary rounded-xl px-4 py-2 text-xs font-black shadow-xs flex items-center gap-1"
                     >
-                      <span>▶️</span> Watch Trailer
-                    </button>
-                  )}
-                  <Link
-                    href="/cinema#theatres"
-                    className="btn-primary rounded-xl px-4 py-2 text-xs font-black shadow-xs flex items-center gap-1"
-                  >
-                    <span>All Theatres</span>
-                    <span>→</span>
-                  </Link>
+                      <span>All Theatres</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
 
-      {/* Trailer Modal */}
+      {/* Full-Screen Trailer Modal */}
       {activeTrailerId && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fadeIn">
           <div className="relative w-full max-w-3xl bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/20">
             <div className="flex items-center justify-between p-4 bg-slate-900 text-white">
               <span className="text-sm font-bold flex items-center gap-2">
@@ -422,7 +491,7 @@ function CinemaContent() {
               <button
                 type="button"
                 onClick={() => setActiveTrailerId(null)}
-                className="text-white/70 hover:text-white px-2 py-1 rounded-lg text-sm font-bold bg-white/10"
+                className="text-white/70 hover:text-white px-3 py-1 rounded-lg text-sm font-bold bg-white/10 hover:bg-white/20 transition cursor-pointer"
               >
                 ✕ Close
               </button>
@@ -442,7 +511,7 @@ function CinemaContent() {
 
       {/* Canadian Theatres Directory with Directions */}
       <section id="theatres" className="space-y-6 pt-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A]">
               Canadian Tamil Cinema Theatres Directory
@@ -519,7 +588,7 @@ function CinemaContent() {
                     href={th.bookingUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn-navy rounded-xl px-4 py-2 text-xs font-bold text-center shadow-xs"
+                    className="btn-navy rounded-xl px-4 py-2 text-xs font-bold text-center shadow-xs whitespace-nowrap"
                   >
                     Tickets ↗
                   </a>
