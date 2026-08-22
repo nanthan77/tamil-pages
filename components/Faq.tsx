@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const ITEMS = [
   {
-    q: "What is tamilpages.ca?",
-    a: "tamilpages.ca is the Canada-wide digital Yellow-Pages-style community directory for the Tamil diaspora. It connects Tamil families in Toronto, Scarborough, Markham, Brampton, Mississauga, Montreal, Vancouver, Calgary, Edmonton, Ottawa, and across Canada with verified local restaurants, grocers, lawyers, clinics, tutors, temples, and trades — with direct 0% commission phone and WhatsApp calls.",
+    q: "What is tamilcanadianpages.ca?",
+    a: "tamilcanadianpages.ca is the Canada-wide digital Yellow-Pages-style community directory for the Tamil diaspora. It connects Tamil families in Toronto, Scarborough, Markham, Brampton, Mississauga, Montreal, Vancouver, Calgary, Edmonton, Ottawa, and across Canada with verified local restaurants, grocers, lawyers, clinics, tutors, temples, and trades — with direct 0% commission phone and WhatsApp calls.",
   },
   {
     q: "Can I list my business for free?",

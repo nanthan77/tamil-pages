@@ -26,7 +26,7 @@ export async function generateMetadata({
   const cat = getCategory(category);
   return {
     title: categoryTitle(cat?.name || category, name),
-    description: `Tamil ${cat?.name || "businesses"} in ${name}, Canada. Phone numbers, addresses, and reviews on tamilpages.ca.`,
+    description: `Tamil ${cat?.name || "businesses"} in ${name}, Canada. Phone numbers, addresses, and reviews on tamilcanadianpages.ca.`,
     alternates: { canonical: `/c/${city}/${category}` },
   };
 }

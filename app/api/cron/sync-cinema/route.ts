@@ -12,7 +12,7 @@ export async function GET() {
     status: "success",
     timestamp: "2026-08-20T18:30:00.000Z",
     date: "Thursday, August 20, 2026",
-    agent: "TamilPages Canada Live Automated Cinema & Box Office Scanner v4.0",
+    agent: "TamilCanadianPages Canada Live Automated Cinema & Box Office Scanner v4.0",
     summary: {
       theatresScanned: theatres.length,
       activeMovies: movies.length,

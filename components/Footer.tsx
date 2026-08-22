@@ -74,7 +74,7 @@ export default function Footer() {
               🍁
             </div>
             <span className="font-outfit font-black text-white text-2xl tracking-tight">
-              tamilpages<span className="text-[#E00624]">.ca</span>
+              tamilcanadianpages<span className="text-[#E00624]">.ca</span>
             </span>
           </div>
 

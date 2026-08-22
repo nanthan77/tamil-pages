@@ -216,7 +216,7 @@ export default function AdminOutreachPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", `tamilpages_outreach_${cityFilter}_${filtered.length}.csv`);
+    link.setAttribute("download", `tamilcanadianpages_outreach_${cityFilter}_${filtered.length}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

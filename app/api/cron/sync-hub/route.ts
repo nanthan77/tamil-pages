@@ -18,7 +18,7 @@ export async function GET() {
   const syncReport = {
     status: "success",
     timestamp: new Date().toISOString(),
-    agent: "TamilPages Canada Daily Automated Content & Crawler Agent v2.0",
+    agent: "TamilCanadianPages Canada Daily Automated Content & Crawler Agent v2.0",
     metrics: {
       activeListings: directoryStats.listings,
       canadianCities: directoryStats.cities,
