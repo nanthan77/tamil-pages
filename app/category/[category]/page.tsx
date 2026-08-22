@@ -61,7 +61,7 @@ export default async function CategoryPage({
           {cat?.name || "Category"} in Canada
         </h1>
         <p className="text-sm text-white/80 max-w-2xl mt-1">
-          {list.length} verified businesses across Canadian cities.
+          {list.length} directory listings across Canadian cities. Confirm important details directly with the business.
         </p>
       </div>
 

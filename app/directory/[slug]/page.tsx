@@ -3,12 +3,10 @@ import { notFound } from "next/navigation";
 import BusinessCard from "@/components/BusinessCard";
 import BusinessShareBar from "@/components/BusinessShareBar";
 import JsonLd from "@/components/JsonLd";
-import LeadForm from "@/components/LeadForm";
-import ReviewForm from "@/components/ReviewForm";
 import { getCategory } from "@/lib/categories";
 import { getReviews, reviewStats } from "@/lib/leads";
-import { breadcrumbJsonLd, listingDescription, listingTitle, localBusinessJsonLd } from "@/lib/seo";
-import { QUOTE_CATEGORIES } from "@/lib/site";
+import { breadcrumbJsonLd, listingDescription, listingTitle } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 import { getAllBusinesses, getBusiness } from "@/lib/store";
 import { getTempleBySlug } from "@/lib/temples";
 import { citySlug, getCategoryTheme, getYouTubeEmbedUrl, initials, mapsLink, telLink, whatsappLink } from "@/lib/utils";
@@ -28,12 +26,12 @@ export async function generateMetadata({
   return {
     title: listingTitle(biz),
     description: listingDescription(biz),
-    alternates: { canonical: `https://tamilcanadianpages.ca/directory/${biz.slug}` },
+    alternates: { canonical: `${SITE_URL}/directory/${biz.slug}` },
     openGraph: {
       title: listingTitle(biz),
       description: listingDescription(biz),
       type: "website",
-      url: `https://tamilcanadianpages.ca/directory/${biz.slug}`,
+      url: `${SITE_URL}/directory/${biz.slug}`,
       siteName: "TamilCanadianPages.ca",
     },
   };
@@ -62,7 +60,7 @@ export default async function BusinessPage({
   const stats = reviewStats(slug);
   const cityPath = `/c/${citySlug(biz.city)}`;
   const catPath = `${cityPath}/${biz.category}`;
-  const pageUrl = `https://tamilcanadianpages.ca/directory/${biz.slug}`;
+  const pageUrl = `${SITE_URL}/directory/${biz.slug}`;
 
   // Localized AI SEO Hashtags
   const cleanCity = biz.city.replace(/\s+/g, "");
@@ -82,15 +80,12 @@ export default async function BusinessPage({
   return (
     <main className="min-h-screen bg-[#F8FAFC] pb-16 space-y-8">
       <JsonLd
-        data={[
-          breadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: biz.city, path: cityPath },
-            { name: cat?.name || "Category", path: catPath },
-            { name: biz.name, path: `/directory/${biz.slug}` },
-          ]),
-          localBusinessJsonLd(biz, stats),
-        ]}
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: biz.city, path: cityPath },
+          { name: cat?.name || "Category", path: catPath },
+          { name: biz.name, path: `/directory/${biz.slug}` },
+        ])}
       />
 
       {/* 1. Category-Themed Top Accent Bar */}
@@ -122,6 +117,15 @@ export default async function BusinessPage({
           <span>/</span>
           <span className="text-[#0F172A] truncate max-w-xs">{biz.name}</span>
         </nav>
+
+        <aside
+          role="note"
+          className="rounded-3xl border border-amber-300 bg-amber-50 p-5 text-sm leading-relaxed text-amber-950 shadow-sm"
+        >
+          <strong>Community-submitted listing:</strong> confirm the address, contact details,
+          credentials, pricing, availability, and payment instructions directly with the business
+          before visiting or paying.
+        </aside>
 
         {/* 3. Temple Banner (if also a temple) */}
         {temple && (
@@ -162,9 +166,8 @@ export default async function BusinessPage({
                   <span>🍁</span>
                   <span>{biz.city}, {biz.province}</span>
                 </span>
-                <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-extrabold flex items-center gap-1">
-                  <span>✓</span>
-                  <span>Verified Canadian Listing</span>
+                <span className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1">
+                  <span>Community directory profile</span>
                 </span>
               </div>
 
@@ -245,7 +248,7 @@ export default async function BusinessPage({
                   className="p-3.5 rounded-2xl bg-white border-2 border-slate-300 hover:border-[#002D62] text-slate-800 flex flex-col items-center justify-center gap-1 shadow-xs transition group text-center"
                 >
                   <i className="fa-solid fa-globe text-lg text-[#002D62] group-hover:scale-110 transition" />
-                  <span className="text-xs font-black uppercase tracking-wider">Official Website</span>
+                  <span className="text-xs font-black uppercase tracking-wider">Business Website</span>
                   <span className="text-[10px] text-slate-500 truncate max-w-full">Visit Site ↗</span>
                 </a>
               ) : (
@@ -265,7 +268,7 @@ export default async function BusinessPage({
               <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 flex flex-wrap items-center justify-between gap-3">
                 <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                   <span>🌐</span>
-                  <span>Official Social Media Channels:</span>
+                  <span>Listed social media links:</span>
                 </span>
                 <div className="flex flex-wrap items-center gap-2">
                   {biz.instagram && (
@@ -463,7 +466,7 @@ export default async function BusinessPage({
                 ))}
               </div>
               <p className="text-[11px] text-slate-400 leading-relaxed pt-1">
-                Indexed for Tamil Canadians in <strong>{biz.city}, {biz.province}</strong> searching for certified <em>{cat?.name || biz.category}</em>, telephone contact numbers, WhatsApp inquiries, and verified reviews.
+                Indexed for Tamil Canadians in <strong>{biz.city}, {biz.province}</strong> searching for <em>{cat?.name || biz.category}</em> listings, telephone contact numbers, WhatsApp inquiries, and community-submitted reviews.
               </p>
             </div>
 
@@ -504,42 +507,16 @@ export default async function BusinessPage({
               Do you own or manage {biz.name}?
             </h3>
             <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
-              Claim this listing in 30 seconds for 100% free. Update opening hours, direct WhatsApp inquiry links, photos, and receive genuine customer quote leads.
+              Owner claim and update requests are temporarily paused while they are moved to authenticated, persistent storage.
             </p>
           </div>
 
-          <Link
-            href={`/claim/${biz.slug}`}
-            className="px-6 py-3.5 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-900 font-black text-xs uppercase tracking-wider shrink-0 shadow-lg transition"
-          >
-            Claim This Listing Free →
-          </Link>
+          <span className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-center text-xs font-black text-amber-200">
+            Secure claim workflow in progress
+          </span>
         </section>
 
-        {/* 14. Quote / Lead Inquiry Form (For Service Categories) */}
-        {QUOTE_CATEGORIES.has(biz.category) && (
-          <section className="bg-white rounded-3xl border border-[#CBD5E1] p-6 sm:p-8 space-y-4 shadow-card">
-            <div className="space-y-1">
-              <span className="text-xs font-black uppercase tracking-wider text-[#002D62]">
-                💬 Free Customer Inquiry
-              </span>
-              <h2 className="font-outfit font-extrabold text-2xl text-[#0F172A]">
-                Request a Free Quote from {biz.name}
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-500">
-                Send your service request directly. You will receive a response on your phone or WhatsApp within 24 hours.
-              </p>
-            </div>
-            <LeadForm
-              kind="quote"
-              slug={biz.slug}
-              business={biz.name}
-              cta={`Request Free Quote from ${biz.name}`}
-            />
-          </section>
-        )}
-
-        {/* 15. Reviews & Ratings Section */}
+        {/* Reviews & Ratings Section */}
         <section className="bg-white rounded-3xl border border-[#CBD5E1] p-6 sm:p-8 space-y-6 shadow-card">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
             <div className="space-y-1">
@@ -547,7 +524,7 @@ export default async function BusinessPage({
                 Customer Reviews &amp; Ratings
               </h2>
               <p className="text-xs text-slate-500">
-                Genuine feedback from the Canadian Tamil community.
+                Community-submitted feedback. Reviews are not independently verified; confirm important details directly.
               </p>
             </div>
 
@@ -558,7 +535,7 @@ export default async function BusinessPage({
               </div>
             ) : (
               <span className="text-xs font-bold text-slate-400 italic">
-                Be the first to write a review!
+                No community reviews are currently on file.
               </span>
             )}
           </div>
@@ -578,13 +555,9 @@ export default async function BusinessPage({
             </div>
           )}
 
-          {/* Review Submission Form */}
-          <div className="pt-2">
-            <h3 className="font-outfit font-bold text-sm text-[#002D62] mb-3">
-              Leave a Review for {biz.name}
-            </h3>
-            <ReviewForm slug={biz.slug} />
-          </div>
+          <p className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-950">
+            New review submissions are paused until authenticated, persistent moderation is available.
+          </p>
         </section>
 
         {/* 16. Related Businesses in Same City / Category */}

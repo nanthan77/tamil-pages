@@ -20,7 +20,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              The verified digital directory connecting over 300,000 Tamil Canadians across Ontario, Quebec, British Columbia, Alberta, and nationwide.
+              A business directory and community guide serving Tamil communities across Canada.
             </p>
 
             <div className="pt-1 flex items-center gap-2">
@@ -164,6 +164,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
+                <Link href="/alerts" className="hover:text-amber-300 transition flex items-center gap-1.5 font-bold">
+                  <span>🔔</span> Movie &amp; Weekend Alerts
+                </Link>
+              </li>
+              <li>
                 <Link href="/temples" className="hover:text-amber-300 transition flex items-center gap-1.5 font-medium">
                   <span>🛕</span> Temples &amp; Darshan
                 </Link>
@@ -213,6 +218,8 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-slate-200 transition">Privacy</Link>
             <span>·</span>
             <Link href="/terms" className="hover:text-slate-200 transition">Terms</Link>
+            <span>·</span>
+            <Link href="/alerts/manage" className="hover:text-slate-200 transition">Unsubscribe</Link>
             <span>·</span>
             <Link href="/sitemap.xml" className="hover:text-slate-200 transition">Sitemap</Link>
             <span>·</span>

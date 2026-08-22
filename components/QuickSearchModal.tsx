@@ -211,7 +211,7 @@ export default function QuickSearchModal({
           {results.businesses.length > 0 && (
             <div className="space-y-1.5">
               <p className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2">
-                Verified Businesses
+                Business Listings
               </p>
               <div className="space-y-1">
                 {results.businesses.map((b) => (

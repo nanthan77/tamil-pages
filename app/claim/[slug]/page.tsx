@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import BusinessClaimForm from "@/components/BusinessClaimForm";
 import { getAllBusinesses, getBusiness } from "@/lib/store";
+
+export const metadata: Metadata = {
+  title: "Listing claims temporarily paused",
+  robots: { index: false, follow: false },
+};
 
 export async function generateStaticParams() {
   return getAllBusinesses().map((b) => ({ slug: b.slug }));
@@ -19,13 +25,13 @@ export default async function ClaimPage({ params }: { params: Promise<{ slug: st
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <img src="/logo-dark.png" alt="tamilcanadianpages.ca" width="240" height="40" className="h-8 object-contain" />
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F7FF] text-[#002D62] border border-[#CCE3F8] text-[11px] font-black uppercase tracking-wider">
-            <span>🍁</span> Free Verification &amp; Claim
+            <span>🔒</span> Secure workflow in progress
           </div>
         </div>
 
         <div className="space-y-2">
           <h1 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A]">
-            Claim {biz.name}
+            Claim requests are temporarily paused
           </h1>
           {biz.tamilName && (
             <p className="tamil text-sm font-bold text-[#E00624]">
@@ -33,20 +39,17 @@ export default async function ClaimPage({ params }: { params: Promise<{ slug: st
             </p>
           )}
           <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed">
-            Verify ownership of <strong>{biz.name}</strong> ({biz.city}, {biz.province}) to manage your official profile, update opening hours, receive customer inquiries directly on WhatsApp, and earn the Verified Badge.
+            The previous claim form for <strong>{biz.name}</strong> ({biz.city}, {biz.province}) depended on a server route that is not available on static Hosting. It has been disabled so ownership details are not submitted into a non-persistent workflow.
           </p>
         </div>
 
-        {/* 1-Step High Converting Claim Form */}
         <div className="border-t border-[#E2E8F0] pt-6">
-          <BusinessClaimForm
-            slug={slug}
-            businessName={biz.name}
-            city={biz.city}
-            category={biz.category}
-            existingPhone={biz.phone}
-            existingEmail={biz.email}
-          />
+          <p className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+            A Firebase-authenticated owner verification and moderation flow is being prepared.
+          </p>
+          <Link href={`/directory/${slug}`} className="btn-navy mt-4 inline-flex min-h-12 items-center rounded-xl px-5 py-3 text-sm font-black">
+            Return to this listing
+          </Link>
         </div>
       </div>
     </main>

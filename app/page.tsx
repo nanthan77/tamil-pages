@@ -3,10 +3,7 @@ import BusinessCard from "@/components/BusinessCard";
 import Faq from "@/components/Faq";
 import SearchForm from "@/components/SearchForm";
 import { CATEGORIES } from "@/lib/categories";
-import { getNowShowingMovies } from "@/lib/cinema";
 import { CITIES } from "@/lib/cities";
-import { getUpcomingEvents } from "@/lib/events";
-import { getLatestNews } from "@/lib/news";
 import { countByCategory, countByCity, getAllBusinesses } from "@/lib/store";
 import { getAllTemples } from "@/lib/temples";
 
@@ -17,20 +14,8 @@ export default function HomePage() {
   const all = getAllBusinesses();
   const bySlug = new Map(all.map((b) => [b.slug, b]));
 
-  const allNews = getLatestNews();
-  const latestNews = allNews.slice(0, 4);
-  const upcomingEvents = getUpcomingEvents().slice(0, 3);
-  const nowShowingMovies = getNowShowingMovies().slice(0, 4);
-
   const allTemples = getAllTemples();
   const temples = allTemples.slice(0, 6);
-
-  const onCount = all.filter((b) => b.province.toUpperCase() === "ON").length;
-  const bcCount = all.filter((b) => b.province.toUpperCase() === "BC").length;
-  const abCount = all.filter((b) => b.province.toUpperCase() === "AB").length;
-  const qcCount = all.filter((b) => b.province.toUpperCase() === "QC").length;
-  const mbCount = all.filter((b) => b.province.toUpperCase() === "MB").length;
-  const nsCount = all.filter((b) => b.province.toUpperCase() === "NS" || b.province.toUpperCase() === "NL").length || 10;
 
   const featured = [
     "hopper-hut",
@@ -71,146 +56,74 @@ export default function HomePage() {
 
   return (
     <main className="space-y-12 sm:space-y-16">
-      {/* Breaking News Ticker */}
-      <div className="bg-[#0B1D3A] text-white py-2 px-4 border-b border-white/10 text-xs">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 overflow-hidden truncate">
-            <span className="px-2 py-0.5 rounded-md bg-[#E00624] text-white font-black text-[10px] uppercase tracking-wider shrink-0 animate-pulse">
-              ⚡ LIVE NEWS
-            </span>
-            <span className="truncate text-white/90 font-medium">
-              {latestNews[0]?.title || "Canadian Tamil Community Daily Dispatch & Updates"}
-            </span>
-          </div>
-          <Link
-            href="/news"
-            className="text-amber-300 hover:text-white font-bold shrink-0 hidden sm:inline"
-          >
-            All News →
+      <div className="border-b border-white/10 bg-[#0B1D3A] px-4 py-2.5 text-xs text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+          <span className="font-semibold text-white/90">🍁 Serving Tamil communities across Canada</span>
+          <Link className="shrink-0 font-black text-amber-300 hover:text-white" href="/alerts">
+            Join alert early access →
           </Link>
         </div>
       </div>
 
-      {/* Hero Section */}
       <section className="hero-grid border-b border-[#CBD5E1]/60 py-10 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            {/* Canadian Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F0F7FF] border border-[#CCE3F8] text-[11px] font-black uppercase tracking-wider text-[#002D62]">
-              <span className="text-sm">🍁</span>
-              <span>Canada’s All-in-One Tamil Diaspora Super-Portal</span>
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
+          <div className="space-y-6 lg:col-span-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#CCE3F8] bg-[#F0F7FF] px-3.5 py-1.5 text-[11px] font-black uppercase tracking-wider text-[#002D62]">
+              <span>🎬</span>
+              <span>Movies and weekends, selected for your city</span>
             </div>
 
-            {/* Headline */}
-            <h1 className="font-outfit font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#0F172A] leading-[1.15] tracking-tight">
-              Directory, Temples, News, Events &amp; Cinema in{" "}
-              <span className="text-[#E00624] relative inline-block">
-                Canada
-                <svg
-                  className="absolute left-0 -bottom-2 w-full h-2.5 text-[#002D62]"
-                  viewBox="0 0 100 12"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0,8 Q50,0 100,8" fill="none" stroke="currentColor" strokeWidth="4" />
-                </svg>
-              </span>
+            <h1 className="font-outfit text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl">
+              Tamil Canada,
+              <span className="block text-[#E00624]">in one place.</span>
             </h1>
 
-            {/* Bilingual subtitle */}
-            <div className="space-y-1">
-              <p className="tamil text-[#B0041B] font-semibold text-base sm:text-lg">
-                கனடா வாழ் தமிழர்களுக்கான முழுமையான இணையதளம் — வணிகங்கள், கோவில்கள், செய்திகள், கலைநிகழ்ச்சிகள் &amp; சினிமா.
+            <div className="max-w-2xl space-y-2">
+              <p className="tamil text-base font-semibold text-[#990014] sm:text-lg" lang="ta">
+                உங்கள் நகரத்திற்கான தமிழ் திரைப்படங்கள், வார இறுதி நிகழ்வுகள் மற்றும் உள்ளூர் வணிகங்கள்.
               </p>
-              <p className="text-[#475569] text-sm sm:text-base leading-relaxed max-w-2xl">
-                The authoritative digital ecosystem connecting over 300,000 Tamil Canadians across Toronto, Scarborough, Markham, Montreal, Vancouver, Calgary, Edmonton, and nationwide.
+              <p className="text-sm leading-7 text-[#475569] sm:text-base">
+                Find Tamil businesses and temples today. Join early access for email alerts that will include official source links and clear last-checked times.
               </p>
             </div>
 
-            {/* Search Box */}
-            <div className="pt-2">
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link className="btn-primary inline-flex min-h-12 items-center justify-center rounded-xl px-6 text-sm font-black" href="/alerts">
+                Get Movie &amp; Weekend Alerts
+              </Link>
+              <Link className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#002D62] bg-white px-6 text-sm font-black text-[#002D62] hover:bg-blue-50" href="/directory">
+                Find a Tamil Business
+              </Link>
+            </div>
+
+            <div className="pt-1">
+              <p className="mb-2 text-xs font-bold text-slate-500">Search the directory</p>
               <SearchForm large />
-            </div>
-
-            {/* Quick Hub Navigation Pills */}
-            <div className="flex flex-wrap items-center gap-2 pt-2 text-xs font-bold">
-              <Link
-                href="/directory"
-                className="px-3 py-1.5 rounded-xl bg-white border border-[#CBD5E1] text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition shadow-xs"
-              >
-                🏬 {all.length.toLocaleString()}+ Businesses
-              </Link>
-              <Link
-                href="/temples"
-                className="px-3 py-1.5 rounded-xl bg-white border border-[#CBD5E1] text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition shadow-xs"
-              >
-                🛕 {allTemples.length}+ Temples &amp; Sanctuaries
-              </Link>
-              <Link
-                href="/news"
-                className="px-3 py-1.5 rounded-xl bg-white border border-[#CBD5E1] text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition shadow-xs"
-              >
-                📰 Daily News
-              </Link>
-              <Link
-                href="/events"
-                className="px-3 py-1.5 rounded-xl bg-white border border-[#CBD5E1] text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition shadow-xs"
-              >
-                🎪 Upcoming Events
-              </Link>
-              <Link
-                href="/cinema"
-                className="px-3 py-1.5 rounded-xl bg-white border border-[#CBD5E1] text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition shadow-xs"
-              >
-                🎬 Tamil Cinema
-              </Link>
-              <Link
-                href="/tuition"
-                className="px-3 py-1.5 rounded-xl bg-white border border-[#CBD5E1] text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition shadow-xs"
-              >
-                🎓 Culture &amp; Tuition
-              </Link>
             </div>
           </div>
 
-          {/* Right Hero Feature Card */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md bg-gradient-to-br from-white via-[#FAFCFF] to-[#F0F7FF] rounded-[2.5rem] border-2 border-[#002D62]/20 p-8 shadow-card-hover relative overflow-hidden">
-              <div className="absolute top-4 right-4 text-3xl opacity-20 select-none">🍁</div>
-              
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#002D62] to-[#0A4D92] text-white flex items-center justify-center text-2xl shadow-md">
-                  🍁
-                </div>
-                <div>
-                  <h3 className="font-outfit font-black text-2xl text-[#002D62]">tamilcanadianpages.ca</h3>
-                  <p className="text-xs text-[#E00624] font-bold uppercase tracking-wider">
-                    Canada Tamil Super-Portal
-                  </p>
-                </div>
+          <div className="flex justify-center lg:col-span-5">
+            <div className="relative w-full max-w-md overflow-hidden rounded-[2.25rem] border-2 border-[#002D62]/20 bg-gradient-to-br from-white via-[#FAFCFF] to-[#F0F7FF] p-7 shadow-card-hover sm:p-8">
+              <div className="absolute right-5 top-4 select-none text-4xl opacity-15">🍁</div>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#E00624]">My Tamil Canada Alerts</p>
+              <h2 className="mt-2 font-outfit text-2xl font-extrabold text-[#002D62]">Your Friday plans, before the weekend.</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Choose a city, the updates you want, and English, Tamil or bilingual delivery.
+              </p>
+
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <AlertBenefit icon="🎬" title="Movie alerts" text="New releases and schedule changes" />
+                <AlertBenefit icon="🗓️" title="Friday digest" text="Events, temples and family ideas" />
               </div>
 
-              {/* Grid Stats */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <HeroStatBadge icon="🏬" k={`${all.length.toLocaleString()}+`} v="Canada Listings" />
-                <HeroStatBadge icon="🛕" k={`${allTemples.length}+`} v="Tamil Temples" />
-                <HeroStatBadge icon="📰" k={`${allNews.length}+`} v="Daily Reports" />
-                <HeroStatBadge icon="🎬" k="7 Hubs" v="Tamil Theatres" />
+              <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950">
+                <p className="font-extrabold">Email-first early access</p>
+                <p className="mt-1 text-xs leading-5">Explicit opt-in · confirm by email · unsubscribe anytime</p>
               </div>
 
-              {/* Quick Province Jump bar */}
-              <div className="border-t border-[#E2E8F0] pt-4">
-                <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#64748B] block mb-2">
-                  Browse by Canadian Province
-                </span>
-                <div className="flex flex-wrap gap-1.5 text-xs">
-                  <ProvincePill code="ON" name="Ontario" count={onCount} />
-                  <ProvincePill code="BC" name="BC" count={bcCount} />
-                  <ProvincePill code="AB" name="Alberta" count={abCount} />
-                  <ProvincePill code="QC" name="Quebec" count={qcCount} />
-                  <ProvincePill code="MB" name="Manitoba" count={mbCount} />
-                  <ProvincePill code="NS" name="Atlantic" count={nsCount} />
-                </div>
-              </div>
+              <Link className="btn-navy mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-xl px-5 text-sm font-black" href="/alerts">
+                Choose my alerts →
+              </Link>
             </div>
           </div>
         </div>
@@ -238,10 +151,10 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
           <PortalPillar href="/directory" icon="🏬" title="Directory" sub={`${all.length.toLocaleString()}+ Businesses`} />
-          <PortalPillar href="/temples" icon="🛕" title="Temples" sub={`${allTemples.length}+ Daily Poojas`} />
-          <PortalPillar href="/news" icon="📰" title="News Feed" sub="Daily Diaspora" />
+          <PortalPillar href="/temples" icon="🛕" title="Temples" sub={`${allTemples.length}+ Directory Entries`} />
+          <PortalPillar href="/news" icon="📰" title="News Feed" sub="Source Checks Pending" />
           <PortalPillar href="/events" icon="🎪" title="Events" sub="Concerts &amp; Ther" />
-          <PortalPillar href="/cinema" icon="🎬" title="Cinema" sub="Woodside &amp; Cineplex" />
+          <PortalPillar href="/cinema" icon="🎬" title="Cinema" sub="Theatre Reference Links" />
           <PortalPillar href="/tuition" icon="🎓" title="Tuition &amp; Arts" sub="Language &amp; Dance" />
         </div>
       </section>
@@ -269,48 +182,12 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
-            {upcomingEvents.map((evt) => (
-              <div
-                key={evt.slug}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 hover:border-white/40 transition flex flex-col justify-between space-y-4 hover:-translate-y-1"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#E00624] text-white font-black text-[10px] uppercase">
-                      {evt.category}
-                    </span>
-                    <span className="text-[10px] text-white/80 font-bold">
-                      🍁 {evt.city}, {evt.province}
-                    </span>
-                  </div>
-
-                  <h3 className="font-outfit font-extrabold text-lg text-white hover:text-amber-300 transition leading-snug">
-                    <Link href={`/events/${evt.slug}`}>{evt.title}</Link>
-                  </h3>
-
-                  <p className="text-xs text-white/80 flex items-center gap-1.5">
-                    <span>📅</span>
-                    <span>{evt.startDate} ({evt.startTime})</span>
-                    <span>·</span>
-                    <span>{evt.startTime}</span>
-                  </p>
-
-                  <p className="text-xs text-white/75 line-clamp-2">{evt.description}</p>
-                </div>
-
-                <div className="pt-2 border-t border-white/15 flex items-center justify-between">
-                  <span className="text-xs font-bold text-amber-300">{evt.ticketType}</span>
-                  <Link
-                    href={`/events/${evt.slug}`}
-                    className="text-xs font-black text-white hover:text-amber-300 transition flex items-center gap-1"
-                  >
-                    <span>Details</span>
-                    <span>→</span>
-                  </Link>
-                </div>
-              </div>
-            ))}
+          <div className="rounded-3xl border border-amber-300/40 bg-white/10 p-6 backdrop-blur-md sm:p-8">
+            <p className="text-xs font-black uppercase tracking-wider text-amber-300">Source verification in progress</p>
+            <h3 className="mt-2 font-outfit text-xl font-extrabold text-white">No source-verified events are featured yet.</h3>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-white/80">
+              Event cards will return only after each listing includes an official organizer link, accurate dates and a clear last-checked time.
+            </p>
           </div>
         </div>
       </section>
@@ -321,63 +198,29 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <span className="text-[11px] font-extrabold text-[#002D62] uppercase tracking-widest flex items-center gap-1">
-                <span>🎬</span> Canada Box Office
+                <span>🎬</span> Theatre reference
               </span>
               <h2 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A] mt-1">
-                Tamil Cinema &amp; Showtimes in Canadian Theatres
+                Tamil Cinema &amp; Canadian Theatre Links
               </h2>
               <p className="text-[#64748B] text-sm mt-1">
-                Woodside Cinemas (Scarborough), Albion Cinemas (Etobicoke), Cineplex Forum (Montreal), and Landmark (Surrey).
+                Cinema information is being checked. Confirm current showtimes, availability and tickets on the theatre&apos;s official website before travelling.
               </p>
             </div>
             <Link
               href="/cinema"
               className="text-xs font-extrabold text-[#002D62] hover:text-[#E00624] transition flex items-center gap-1"
             >
-              <span>View All Showtimes &amp; Theatres</span>
+              <span>View Cinema Reference Page</span>
               <span>→</span>
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {nowShowingMovies.map((m) => (
-              <div
-                key={m.slug}
-                className="bg-white rounded-[2rem] border border-[#CBD5E1] p-6 space-y-4 shadow-sm hover:border-[#002D62] transition flex flex-col justify-between"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#E00624] text-white font-black text-[10px] uppercase">
-                      {m.status}
-                    </span>
-                    <span className="text-xs font-bold text-[#64748B]">
-                      {m.certification} · {m.duration}
-                    </span>
-                  </div>
-
-                  <h3 className="font-outfit font-extrabold text-xl text-[#0F172A]">
-                    {m.title}
-                  </h3>
-                  <p className="tamil text-xs font-bold text-[#E00624]">{m.tamilTitle}</p>
-                  <p className="text-xs text-[#64748B]">
-                    <strong className="text-[#0F172A]">Starring:</strong> {m.cast.slice(0, 3).join(", ")}
-                  </p>
-                  <p className="text-xs text-[#475569] line-clamp-2">{m.synopsis}</p>
-                </div>
-
-                <div className="pt-3 border-t border-[#E2E8F0] flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#002D62]">
-                    🎟️ {m.theatreShowtimes.length} Theatres Screening
-                  </span>
-                  <Link
-                    href="/cinema"
-                    className="btn-navy rounded-xl px-4 py-2 text-xs font-bold"
-                  >
-                    Check Showtimes →
-                  </Link>
-                </div>
-              </div>
-            ))}
+          <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
+            <p className="text-xs font-black uppercase tracking-wider text-amber-900">Source check pending</p>
+            <p className="mt-2 text-sm leading-6 text-amber-950">
+              Hardcoded movie, showtime, rating and box-office cards have been removed from the homepage. Source-linked listings will be added after a manual verification workflow is operating.
+            </p>
           </div>
         </div>
       </section>
@@ -388,45 +231,25 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <div className="inline-flex items-center gap-1.5 text-[11px] font-black text-[#E00624] uppercase tracking-wider bg-red-50 px-3 py-1 rounded-full border border-red-200">
-                <span>📰</span> Daily Community Feed
+                <span>📰</span> Community updates
               </div>
               <h2 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A] mt-2">
-                Latest Canadian Tamil News &amp; Stories
+                Source-Checked Canadian Tamil Stories
               </h2>
             </div>
             <Link
               href="/news"
               className="btn-navy rounded-xl px-4 py-2.5 text-xs font-bold shrink-0 self-start sm:self-auto"
             >
-              Explore All News Articles →
+              View News Verification Status →
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {latestNews.map((n) => (
-              <article
-                key={n.slug}
-                className="bg-white rounded-3xl border border-[#CBD5E1] p-5 shadow-xs hover:shadow-card hover:border-[#002D62] transition flex flex-col justify-between space-y-3 group hover:-translate-y-1"
-              >
-                <div className="space-y-2">
-                  <span className="text-[10px] font-black uppercase text-[#002D62] block">
-                    {n.category}
-                  </span>
-                  <h3 className="font-outfit font-bold text-sm text-[#0F172A] group-hover:text-[#002D62] leading-snug line-clamp-2">
-                    <Link href={`/news/${n.slug}`}>{n.title}</Link>
-                  </h3>
-                  <p className="text-[11px] text-[#64748B] line-clamp-3 leading-relaxed">
-                    {n.summary}
-                  </p>
-                </div>
-                <div className="pt-2 border-t border-[#E2E8F0] flex items-center justify-between text-[10px] text-[#64748B]">
-                  <span>📍 {n.city}</span>
-                  <Link href={`/news/${n.slug}`} className="font-bold text-[#E00624] hover:underline">
-                    Read →
-                  </Link>
-                </div>
-              </article>
-            ))}
+          <div className="rounded-3xl border border-amber-200 bg-white p-6 shadow-xs sm:p-8">
+            <p className="text-xs font-black uppercase tracking-wider text-amber-900">Editorial source checks pending</p>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-[#475569]">
+              Unsupported community stories are not being featured on the homepage. Future articles must include their original source and a visible last-checked date.
+            </p>
           </div>
         </div>
       </section>
@@ -564,7 +387,7 @@ export default function HomePage() {
                 </h3>
                 <p className="tamil text-xs text-[#E00624] font-semibold mt-0.5">{c.tamil}</p>
                 <p className="text-[11px] text-[#64748B] font-medium mt-2">
-                  {c.count} verified listings
+                  {c.count} directory listings
                 </p>
               </Link>
             ))}
@@ -680,26 +503,12 @@ function PortalPillar({ href, icon, title, sub }: { href: string; icon: string; 
   );
 }
 
-function HeroStatBadge({ icon, k, v }: { icon: string; k: string; v: string }) {
+function AlertBenefit({ icon, title, text }: { icon: string; title: string; text: string }) {
   return (
-    <div className="bg-white rounded-2xl border border-[#CBD5E1] p-3 shadow-xs">
-      <div className="flex items-center gap-1.5">
-        <span className="text-sm">{icon}</span>
-        <div className="font-outfit font-black text-[#002D62] text-lg">{k}</div>
-      </div>
-      <div className="text-[10px] text-[#64748B] font-bold uppercase tracking-wider mt-0.5">{v}</div>
+    <div className="rounded-2xl border border-[#CBD5E1] bg-white p-4 shadow-xs">
+      <span className="text-xl">{icon}</span>
+      <p className="mt-2 text-sm font-extrabold text-[#0F172A]">{title}</p>
+      <p className="mt-1 text-xs leading-5 text-[#64748B]">{text}</p>
     </div>
-  );
-}
-
-function ProvincePill({ code, name, count }: { code: string; name: string; count: number }) {
-  return (
-    <Link
-      href={`/directory?province=${code}`}
-      className="px-2.5 py-1 rounded-xl bg-white border border-[#CBD5E1] text-[11px] font-bold text-[#002D62] hover:border-[#E00624] hover:text-[#E00624] transition flex items-center gap-1"
-    >
-      <span>{name}</span>
-      <span className="text-[#64748B] text-[10px]">({count})</span>
-    </Link>
   );
 }

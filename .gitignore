@@ -33,6 +33,17 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Firebase local deployment cache
+/.firebase/
+
+# Private operational exports and local lead records
+/data/leads.json
+/data/whatsapp_broadcast_all.csv
+/data/whatsapp_batches/
+/public/whatsapp_broadcast_all.csv
+/public/data/whatsapp_broadcast_all.csv
+/temp_*.csv
+
 # vercel
 .vercel
 

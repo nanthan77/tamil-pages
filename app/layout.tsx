@@ -13,6 +13,7 @@ const outfit = Outfit({
   variable: "--font-outfit",
   weight: ["600", "700", "800", "900"],
   display: "swap",
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
   preload: true,
 });
 
@@ -21,6 +22,7 @@ const work = Work_Sans({
   variable: "--font-work",
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
   preload: true,
 });
 
@@ -29,6 +31,7 @@ const tamil = Noto_Sans_Tamil({
   variable: "--font-tamil",
   weight: ["400", "600", "700"],
   display: "swap",
+  fallback: ["Noto Sans Tamil", "Latha", "Vijaya", "system-ui", "sans-serif"],
   preload: true,
 });
 
@@ -114,10 +117,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="preconnect" href="https://apis.google.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://tamil-pages-961fd.firebaseapp.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://apis.google.com" />
-        <link rel="dns-prefetch" href="https://tamil-pages-961fd.firebaseapp.com" />
       </head>
       <body
         className={`${outfit.variable} ${work.variable} ${tamil.variable} font-work antialiased bg-[#F8FAFC] text-[#0F172A] flex flex-col min-h-full selection:bg-[#E00624] selection:text-white`}

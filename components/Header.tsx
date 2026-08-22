@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { getSessionUser } from "@/lib/auth";
 import { stats } from "@/lib/store";
 import HeaderSearchTrigger from "./HeaderSearchTrigger";
 import MobileNav from "./MobileNav";
 
-export default async function Header() {
-  const user = await getSessionUser();
+export default function Header() {
   const s = stats();
 
   return (
@@ -60,6 +58,13 @@ export default async function Header() {
                 <span>Cinema</span>
               </Link>
               <Link
+                href="/alerts"
+                className="px-2.5 py-1.5 rounded-xl text-xs font-black text-amber-300 hover:text-white hover:bg-white/10 transition flex items-center gap-1"
+              >
+                <span>🔔</span>
+                <span>Alerts</span>
+              </Link>
+              <Link
                 href="/tuition"
                 className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-white/90 hover:text-white hover:bg-white/10 transition flex items-center gap-1"
               >
@@ -78,44 +83,13 @@ export default async function Header() {
               </div>
 
               <Link
-                href="/add-business"
+                href="/alerts"
                 className="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-extrabold bg-[#E00624] text-white hover:bg-[#B0041B] shadow-md transition hover:-translate-y-0.5 shrink-0"
               >
-                <span>+</span> Add Free Listing
+                <span>🔔</span> Get Alerts
               </Link>
 
-              {user ? (
-                <>
-                  <Link
-                    href="/dashboard"
-                    className="text-xs font-bold text-white hover:text-white/80 px-2 py-1.5 rounded-lg bg-white/10"
-                  >
-                    Dashboard
-                  </Link>
-                  <form action="/api/auth/logout" method="post">
-                    <button className="text-xs font-semibold text-white/80 hover:text-white px-2 py-1.5 cursor-pointer">
-                      Sign out
-                    </button>
-                  </form>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href="/login"
-                    className="text-xs font-bold text-white hover:text-white/80 px-2.5 py-1.5 rounded-lg hover:bg-white/10 transition"
-                  >
-                    Sign In
-                  </Link>
-                  <Link
-                    href="/register"
-                    className="hidden xl:inline text-xs font-bold text-white/90 hover:text-white px-2.5 py-1.5 rounded-lg border border-white/25 hover:bg-white/10 transition"
-                  >
-                    Register
-                  </Link>
-                </>
-              )}
-
-              <MobileNav loggedIn={Boolean(user)} />
+              <MobileNav />
             </div>
           </div>
         </div>

@@ -1,13 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import AuthForm from "@/components/AuthForm";
-import { getSessionUser } from "@/lib/auth";
 
+export const metadata: Metadata = {
+  title: "Vendor registration temporarily unavailable",
+  robots: { index: false, follow: false },
+};
 
-export default async function RegisterPage() {
-  const user = await getSessionUser();
-  if (user) redirect("/add-business");
-
+export default function RegisterPage() {
   return (
     <main className="max-w-md mx-auto px-4 py-14">
       <div className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-8 space-y-5 shadow-card relative overflow-hidden">
@@ -16,20 +15,22 @@ export default async function RegisterPage() {
         <div className="text-center space-y-2 pt-2">
           <img src="/logo-dark.png" alt="tamilcanadianpages.ca" width="240" height="40" className="h-10 mx-auto object-contain" />
           <h1 className="font-outfit font-extrabold text-2xl text-[#0F172A] mt-2">
-            List Your Business Free
+            Vendor registration is being upgraded
           </h1>
           <p className="text-xs text-[#64748B]">
-            Reach thousands of Tamil and South Asian families across Canadian cities.
+            The legacy registration form is disabled because its server persistence is not available on static Hosting.
           </p>
         </div>
 
-        <AuthForm mode="register" />
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+          No account or password is collected here. A Firebase-authenticated owner workflow will replace this page.
+        </div>
 
         <div className="border-t border-[#E2E8F0] pt-4 text-center">
           <p className="text-xs text-[#64748B]">
-            Already have a vendor account?{" "}
-            <Link href="/login" className="text-[#002D62] font-black hover:text-[#E00624] transition">
-              Sign In →
+            Existing listings remain available.{" "}
+            <Link href="/directory" className="text-[#002D62] font-black hover:text-[#E00624] transition">
+              Browse the directory →
             </Link>
           </p>
         </div>

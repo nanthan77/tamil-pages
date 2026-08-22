@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { MenuIcon, CloseIcon } from "@/components/Icons";
 
-export default function MobileNav({ loggedIn }: { loggedIn: boolean }) {
+export default function MobileNav() {
   const [open, setOpen] = useState(false);
   return (
     <div className="lg:hidden">
@@ -12,13 +12,21 @@ export default function MobileNav({ loggedIn }: { loggedIn: boolean }) {
         type="button"
         aria-label="Open menu"
         onClick={() => setOpen((v) => !v)}
-        className="w-10 h-10 rounded-xl border border-white/25 bg-white/10 text-white flex items-center justify-center transition hover:bg-white/20 cursor-pointer"
+        className="w-11 h-11 rounded-xl border border-white/25 bg-white/10 text-white flex items-center justify-center transition hover:bg-white/20 cursor-pointer"
       >
         {open ? <CloseIcon className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
       </button>
       {open && (
         <div className="absolute left-0 right-0 top-[4.5rem] bg-[#002D62] border-b-2 border-[#E00624] p-5 space-y-3 shadow-2xl z-50 text-sm">
           <div className="grid grid-cols-2 gap-2 pb-2 border-b border-white/10">
+            <Link
+              href="/alerts"
+              onClick={() => setOpen(false)}
+              className="col-span-2 flex min-h-11 items-center justify-center gap-2 rounded-xl bg-amber-300 px-3 py-2 font-black text-[#0B1D3A]"
+            >
+              <span>🔔</span>
+              <span>Get Movie &amp; Weekend Alerts</span>
+            </Link>
             <Link
               href="/directory"
               onClick={() => setOpen(false)}
@@ -120,41 +128,13 @@ export default function MobileNav({ loggedIn }: { loggedIn: boolean }) {
             Advertise
           </Link>
           <Link
-            href="/add-business"
+            href="/alerts/manage"
             onClick={() => setOpen(false)}
-            className="flex items-center justify-center gap-2 py-2.5 px-4 font-extrabold rounded-xl bg-[#E00624] text-white shadow"
+            className="flex items-center justify-center gap-2 py-2.5 px-4 font-extrabold rounded-xl bg-white/10 text-white shadow"
           >
-            <span>+</span>
-            <span>Add Free Listing</span>
+            <span>✉</span>
+            <span>Manage or Unsubscribe</span>
           </Link>
-          <div className="pt-2 border-t border-white/10 flex justify-between items-center text-xs">
-            {loggedIn ? (
-              <Link
-                href="/dashboard"
-                onClick={() => setOpen(false)}
-                className="py-2 font-bold text-white"
-              >
-                My Dashboard →
-              </Link>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  onClick={() => setOpen(false)}
-                  className="py-2 font-bold text-white/90 hover:text-white"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/register"
-                  onClick={() => setOpen(false)}
-                  className="py-2 font-bold text-white/90 hover:text-white"
-                >
-                  Register Free
-                </Link>
-              </>
-            )}
-          </div>
         </div>
       )}
     </div>

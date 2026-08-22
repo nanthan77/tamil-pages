@@ -5,7 +5,7 @@ import { useState } from "react";
 const ITEMS = [
   {
     q: "What is tamilcanadianpages.ca?",
-    a: "tamilcanadianpages.ca is the Canada-wide digital Yellow-Pages-style community directory for the Tamil diaspora. It connects Tamil families in Toronto, Scarborough, Markham, Brampton, Mississauga, Montreal, Vancouver, Calgary, Edmonton, Ottawa, and across Canada with verified local restaurants, grocers, lawyers, clinics, tutors, temples, and trades — with direct 0% commission phone and WhatsApp calls.",
+    a: "tamilcanadianpages.ca is a community directory for the Tamil diaspora in Canada. It helps people discover community-submitted business and organization profiles and contact them directly by phone, WhatsApp, website, or map link. Please confirm important details with the listed organization before visiting or paying.",
   },
   {
     q: "Can I list my business for free?",
@@ -17,7 +17,7 @@ const ITEMS = [
   },
   {
     q: "Which Canadian cities and provinces are covered?",
-    a: "Our directory covers 56 Canadian cities and municipalities across Ontario (GTA, Durham, York, Halton, Waterloo, Eastern & Southwestern ON), Quebec (Montreal, Laval, Brossard), British Columbia (Metro Vancouver, Surrey, Burnaby, Fraser Valley), Alberta (Calgary, Edmonton), Manitoba (Winnipeg), Saskatchewan (Saskatoon, Regina), and Atlantic Canada (Halifax, St. John's).",
+    a: "The directory currently includes community-submitted listings from cities in Ontario, Quebec, British Columbia, Alberta, Manitoba, Saskatchewan, and Atlantic Canada. Coverage varies by city and category, so use the filters to see what is actually available.",
   },
   {
     q: "How do customers contact my business?",

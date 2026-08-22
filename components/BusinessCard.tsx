@@ -48,25 +48,19 @@ export default function BusinessCard(props: {
           </div>
         </div>
 
-        {/* Verification & Quick Info */}
+        {/* Listing status & quick info */}
         <div className="flex items-center gap-2 text-xs flex-wrap pt-1">
-          {item.verified ? (
-            <span className="inline-flex items-center gap-1 text-emerald-700 font-bold text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
-              <span>✓</span> Verified Canada Listing
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1 text-amber-700 font-medium text-[11px] bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">
-              ● Community Post
-            </span>
-          )}
+          <span className="inline-flex items-center gap-1 rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700">
+            Community directory profile
+          </span>
           {item.featured && (
             <span className="inline-flex items-center gap-1 text-[#E00624] font-extrabold text-[11px] bg-red-50 px-2 py-0.5 rounded-md border border-red-200">
               ★ Featured
             </span>
           )}
-          {item.rating && (
+          {item.rating && (item.reviewCount ?? 0) > 0 && (
             <span className="inline-flex items-center gap-1 text-amber-800 font-extrabold text-[11px] bg-amber-100 px-2 py-0.5 rounded-md">
-              <span>★</span> {item.rating.toFixed(1)} ({item.reviewCount || 10})
+              <span>★</span> {item.rating.toFixed(1)} ({item.reviewCount})
             </span>
           )}
         </div>

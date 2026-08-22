@@ -77,7 +77,7 @@ export default async function CityCategoryPage({
           {cat?.name || "Listings"} in {name}
         </h1>
         <p className="text-sm text-white/80 max-w-2xl mt-1">
-          {list.length} verified Tamil &amp; South Asian {cat?.name?.toLowerCase()} listings in {name}.
+          {list.length} Tamil &amp; South Asian {cat?.name?.toLowerCase()} directory listings in {name}.
         </p>
       </div>
 

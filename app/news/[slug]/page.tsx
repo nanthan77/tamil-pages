@@ -15,8 +15,10 @@ export async function generateMetadata({
   const article = getNewsBySlug(slug);
   if (!article) return { title: "Article Not Found" };
   return {
-    title: `${article.title} · Canadian Tamil News`,
-    description: article.summary,
+    title: `${article.title} · Community Story (Source Check Pending)`,
+    description:
+      "Community-submitted story awaiting source checks. Confirm important claims with a relevant primary source.",
+    robots: { index: false, follow: true },
   };
 }
 
@@ -51,6 +53,15 @@ export default async function NewsArticlePage({
         <span>/</span>
         <span className="text-[#0F172A] truncate max-w-xs">{article.title}</span>
       </nav>
+
+      <aside
+        role="note"
+        className="rounded-3xl border border-amber-300 bg-amber-50 p-5 text-sm leading-relaxed text-amber-950 shadow-sm"
+      >
+        <strong>Source check pending:</strong> this community story has not yet been independently
+        verified. Confirm names, dates, quotations, guidance, and other important claims with a
+        relevant primary source before relying on them.
+      </aside>
 
       {/* Article Container */}
       <article className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-6 sm:p-12 space-y-8 shadow-card relative overflow-hidden">
@@ -92,7 +103,7 @@ export default async function NewsArticlePage({
             </div>
             <div>
               <p className="font-bold text-[#0F172A]">{article.author}</p>
-              <p className="text-[11px] text-[#64748B]">tamilcanadianpages.ca Canadian Editorial Desk</p>
+              <p className="text-[11px] text-[#64748B]">TamilCanadianPages.ca community story index</p>
             </div>
           </div>
         </div>
@@ -156,7 +167,7 @@ export default async function NewsArticlePage({
         </section>
       )}
 
-      {/* SafeNet Creations Official Link Banner */}
+      {/* SafeNet Creations link banner */}
       <div className="bg-white rounded-3xl border border-[#CBD5E1] p-6 text-center space-y-1 shadow-xs">
         <p className="text-xs text-[#64748B]">
           Digital Community News System powered by{" "}

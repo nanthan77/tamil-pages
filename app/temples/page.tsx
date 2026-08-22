@@ -107,7 +107,7 @@ function TemplesContent() {
             </p>
 
             <p className="text-[#FDE68A]/90 text-sm sm:text-base leading-relaxed max-w-3xl">
-              Find verified opening darshan timings, daily 4-kala pooja schedules, annual Ther Thiruvizha (Chariot Festivals), Vedic priest services, and authentic temple prasadam / Annadhanam across Ontario, Quebec, BC, Alberta, Manitoba, and Nova Scotia.
+              Browse community directory entries for temples across Ontario, Quebec, BC, Alberta, Manitoba and Nova Scotia. Confirm current hours, poojas, festivals and services directly with the temple before travelling.
             </p>
 
             {/* Spiritual Search Bar */}
@@ -131,11 +131,11 @@ function TemplesContent() {
               </button>
             </form>
 
-            {/* Quick Live Stats */}
+            {/* Directory coverage summary */}
             <div className="flex flex-wrap gap-4 pt-2 text-xs font-bold text-[#FEF3C7]">
               <div className="flex items-center gap-1.5 bg-black/20 px-3 py-1.5 rounded-xl border border-white/10">
                 <span className="text-amber-400">🛕</span>
-                <span>{getAllTemples().length} Consecrated Temples</span>
+                <span>{getAllTemples().length} Temple Directory Entries</span>
               </div>
               <div className="flex items-center gap-1.5 bg-black/20 px-3 py-1.5 rounded-xl border border-white/10">
                 <span className="text-amber-400">🍁</span>
@@ -143,11 +143,11 @@ function TemplesContent() {
               </div>
               <div className="flex items-center gap-1.5 bg-black/20 px-3 py-1.5 rounded-xl border border-white/10">
                 <span className="text-amber-400">🪔</span>
-                <span>Daily 4-Kala Agamic Poojas</span>
+                <span>Listed Pooja Schedules</span>
               </div>
               <div className="flex items-center gap-1.5 bg-black/20 px-3 py-1.5 rounded-xl border border-white/10">
                 <span className="text-amber-400">✓</span>
-                <span>Verified Canadian Registered Charities</span>
+                <span>Confirm Details Directly</span>
               </div>
             </div>
           </div>
@@ -333,7 +333,7 @@ function TemplesContent() {
                     <div className="flex items-start gap-2.5 border-t border-[#F59E0B]/20 pt-2.5">
                       <span className="text-[#D97706] font-extrabold text-base shrink-0">🪔</span>
                       <div>
-                        <span className="font-black text-[#78350F]">Daily Agamic Poojas:</span>
+                        <span className="font-black text-[#78350F]">Listed Pooja Times:</span>
                         <p className="text-[#450A0A] font-semibold mt-0.5">
                           {temple.poojaTimings.map((p) => p.name + " (" + p.time + ")").join(" · ")}
                         </p>
@@ -442,7 +442,7 @@ function TemplesContent() {
             </div>
 
             <p className="text-xs text-white/60 pt-2">
-              Official SafeNet Creations Canada Directory Architecture · Verified Canadian Registered Charities &amp; Hindu Religious Sanctuaries
+              Independent Canadian Tamil community directory · Confirm time-sensitive details directly with each temple
             </p>
           </div>
         </section>

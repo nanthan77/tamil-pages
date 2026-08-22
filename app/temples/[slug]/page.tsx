@@ -101,8 +101,8 @@ export default async function TempleProfilePage({
                 🍁 {temple.city}, {temple.province}
               </span>
               <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold flex items-center gap-1">
-                <span>✓</span>
-                <span>Verified Canadian Religious Sanctuary</span>
+                <span>ℹ</span>
+                <span>Community Directory Entry</span>
               </span>
             </div>
 
@@ -113,6 +113,9 @@ export default async function TempleProfilePage({
               </h1>
               <p className="tamil text-2xl sm:text-3xl font-bold text-[#991B1B]">
                 {temple.tamilName}
+              </p>
+              <p className="max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-950">
+                Temple details are a directory reference and have not been independently verified. Confirm current hours, poojas, festivals and services directly before travelling.
               </p>
               <div className="inline-flex items-center gap-2 bg-[#FFFBEB] px-4 py-2 rounded-xl border border-[#FDE68A] text-sm font-bold text-[#78350F] mt-2">
                 <span className="text-base">🪔</span>
@@ -242,7 +245,7 @@ export default async function TempleProfilePage({
               </div>
               <div>
                 <h2 className="font-outfit font-extrabold text-xl sm:text-2xl text-[#450A0A]">
-                  Daily 4-Kala Agamic Poojas
+                  Listed Pooja Schedule
                 </h2>
                 <p className="tamil text-xs text-[#991B1B] font-semibold">தினசரி நித்திய கால பூசை விபரங்கள்</p>
               </div>
@@ -456,7 +459,7 @@ export default async function TempleProfilePage({
             </div>
 
             <p className="text-xs text-white/60 pt-2">
-              Official SafeNet Creations Canada Directory Architecture · Verified Canadian Registered Charities &amp; Hindu Religious Sanctuaries
+              Independent Canadian Tamil community directory · Confirm time-sensitive details directly with the temple
             </p>
           </div>
         </section>

@@ -3,7 +3,13 @@ import { cookies } from "next/headers";
 import { findUserByEmail, findUserById, saveUser } from "./store";
 import type { SessionUser, User } from "./types";
 
-const SECRET = process.env.TAMPAGES_SECRET || "tamilpages-local-dev-secret-change-me";
+function getSessionSecret() {
+  const secret = process.env.TAMILPAGES_SESSION_SECRET || process.env.TAMPAGES_SECRET;
+  if (!secret || secret.length < 32) {
+    throw new Error("TAMILPAGES_SESSION_SECRET must be set to a strong value before using legacy session routes.");
+  }
+  return secret;
+}
 
 function hashPassword(password: string, salt: string) {
   return scryptSync(password, salt, 32).toString("hex");
@@ -39,14 +45,14 @@ export function verifyPassword(user: User, password: string) {
 
 function sign(payload: object) {
   const body = Buffer.from(JSON.stringify(payload)).toString("base64url");
-  const sig = createHmac("sha256", SECRET).update(body).digest("base64url");
+  const sig = createHmac("sha256", getSessionSecret()).update(body).digest("base64url");
   return `${body}.${sig}`;
 }
 
 function unsign(token: string): { uid: string; exp: number } | null {
   const [body, sig] = token.split(".");
   if (!body || !sig) return null;
-  const expect = createHmac("sha256", SECRET).update(body).digest("base64url");
+  const expect = createHmac("sha256", getSessionSecret()).update(body).digest("base64url");
   const a = Buffer.from(sig);
   const b = Buffer.from(expect);
   if (a.length !== b.length || !timingSafeEqual(a, b)) return null;
@@ -64,6 +70,7 @@ export async function setSession(userId: string) {
   const jar = await cookies();
   jar.set("tp_session", token, {
     httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
     maxAge: 60 * 60 * 24 * 30,

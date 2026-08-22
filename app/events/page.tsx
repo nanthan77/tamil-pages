@@ -3,7 +3,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import EventSubmissionModal from "@/components/EventSubmissionModal";
 import { countEventsByCity, getAllEvents, getEventsByCity } from "@/lib/events";
 import { formatDisplayDate, mapsLink } from "@/lib/utils";
 
@@ -52,14 +51,25 @@ function EventsContent() {
           </p>
 
           <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-            Discover live Carnatic &amp; fusion concerts, temple chariot festivals, community sports tournaments, and business expos across Canadian cities.
+            Browse community-submitted concert, festival, sports, and business-event entries across Canadian cities. Confirm the date, venue, and ticket details before making plans.
           </p>
 
           <div className="pt-2">
-            <EventSubmissionModal />
+            <p className="inline-flex rounded-xl border border-white/20 bg-white/10 px-4 py-2.5 text-xs font-bold text-white/90">
+              Event submissions are paused until the source-verification workflow is ready.
+            </p>
           </div>
         </div>
       </div>
+
+      <aside
+        role="note"
+        className="rounded-3xl border border-amber-300 bg-amber-50 p-5 text-sm leading-relaxed text-amber-950 shadow-sm"
+      >
+        <strong>Source check pending:</strong> event details have not yet been independently verified.
+        Before travelling or paying, confirm the date, time, venue, organizer, ticket seller, refund
+        policy, and accessibility with the organizer or venue.
+      </aside>
 
       {/* City Filters Bar */}
       <div className="bg-white rounded-3xl border border-[#CBD5E1] p-4 shadow-sm space-y-3">
@@ -67,7 +77,7 @@ function EventsContent() {
           <span className="flex items-center gap-1.5 text-[#002D62]">
             <span>📍</span> Filter Events by Canadian City
           </span>
-          <span className="text-[#E00624]">{getAllEvents().length} Events Scheduled</span>
+          <span className="text-[#E00624]">{getAllEvents().length} Community Entries</span>
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -109,7 +119,7 @@ function EventsContent() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <h2 className="font-outfit font-extrabold text-xl sm:text-2xl text-[#0F172A]">
-            {city ? `${city} Events` : "All Upcoming Canadian Events"} ({events.length})
+            {city ? `${city} Event Entries` : "Canadian Community Event Entries"} ({events.length})
           </h2>
           {city && (
             <Link href="/events" className="text-xs font-bold text-[#E00624] hover:underline">

@@ -207,10 +207,9 @@ export function getCategoryTheme(categorySlug: string): CategoryTheme {
         badgeBg: "bg-slate-50 border-slate-200",
         badgeText: "text-[#002D62]",
         borderColor: "border-slate-200",
-        highlightTag: "Verified Canadian Tamil Business",
-        tamilTag: "கனடா வாழ் தமிழ் சமூகத்தின் அங்கீகரிக்கப்பட்ட வணிகம்",
-        features: ["Direct Customer Connect", "Verified Business Details", "100% Commission-Free", "Fast Turnaround & Support"],
+        highlightTag: "Canadian Tamil Business Listing",
+        tamilTag: "கனடா வாழ் தமிழ் சமூக வணிகப் பட்டியல்",
+        features: ["Direct Customer Contact", "Community Directory Details", "100% Commission-Free", "Confirm Details Before Visiting"],
       };
   }
 }
-

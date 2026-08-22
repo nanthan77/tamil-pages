@@ -3,7 +3,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import NewsSubmissionModal from "@/components/NewsSubmissionModal";
 import { getAllNews, getNewsByCategory, searchNews, type NewsCategory } from "@/lib/news";
 
 export default function NewsPage() {
@@ -50,7 +49,7 @@ function NewsContent() {
         <div className="max-w-3xl space-y-4 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-black uppercase tracking-wider text-white">
             <span>📰</span>
-            <span>Canadian Tamil Community Daily News Feed</span>
+            <span>Canadian Tamil Community Story Index</span>
           </div>
 
           <h1 className="font-outfit font-extrabold text-3xl sm:text-5xl text-white leading-tight">
@@ -62,14 +61,26 @@ function NewsContent() {
           </p>
 
           <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-            Daily verified coverage of Tamil Heritage Month in Canada, business achievements, youth initiatives, university updates, immigration guidance, and community sports.
+            Browse community story drafts covering culture, business, education, immigration, and sport. Source checks are still in progress.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-3">
-            <NewsSubmissionModal />
+            <p className="inline-flex rounded-xl border border-white/20 bg-white/10 px-4 py-2.5 text-xs font-bold text-white/90">
+              Story submissions are paused until the editorial source-check workflow is ready.
+            </p>
           </div>
         </div>
       </div>
+
+      <aside
+        role="note"
+        className="rounded-3xl border border-amber-300 bg-amber-50 p-5 text-sm leading-relaxed text-amber-950 shadow-sm"
+      >
+        <strong>Source check pending:</strong> these community stories have not yet been independently
+        verified. Do not rely on them for immigration, legal, medical, travel, or event decisions;
+        confirm important information with the relevant government agency, organization, or primary
+        source.
+      </aside>
 
       {/* Category Pills Bar */}
       <div className="bg-white rounded-3xl border border-[#CBD5E1] p-4 shadow-sm space-y-3">
@@ -77,7 +88,7 @@ function NewsContent() {
           <span className="flex items-center gap-1.5 text-[#002D62]">
             <span>🏷️</span> Filter News by Category
           </span>
-          <span className="text-[#E00624]">{allArticles.length} Stories Published</span>
+          <span className="text-[#E00624]">{allArticles.length} Community Entries</span>
         </div>
 
         <div className="flex flex-wrap gap-2">

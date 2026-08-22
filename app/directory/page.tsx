@@ -28,7 +28,8 @@ function DirectoryContent() {
   const category = searchParams.get("category") || "";
   const city = searchParams.get("city") || "";
   const province = (searchParams.get("province") || "").toUpperCase();
-  const sort = (searchParams.get("sort") || (q ? "relevance" : "featured")) as SortOption;
+  const requestedSort = searchParams.get("sort") || (q ? "relevance" : "featured");
+  const sort = (requestedSort === "verified" ? "featured" : requestedSort) as SortOption;
   const page = Math.max(1, Number(searchParams.get("page") || 1) || 1);
   const pageSize = 24;
 
@@ -78,7 +79,7 @@ function DirectoryContent() {
       <section className="bg-gradient-to-br from-[#002D62] via-[#083777] to-[#0F172A] rounded-[2.5rem] p-6 sm:p-10 lg:p-12 text-white shadow-card relative overflow-hidden">
         <div className="max-w-3xl space-y-3 relative z-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-[11px] font-black uppercase tracking-wider">
-            <span>🇨🇦</span> All 10 Provinces &amp; 3 Territories Covered
+            <span>🇨🇦</span> Canadian Community Directory
           </div>
           <h1 className="font-outfit font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
             Canadian Tamil <span className="text-[#E00624] bg-white px-2 py-0.5 rounded-xl">Business Directory</span>
@@ -87,7 +88,7 @@ function DirectoryContent() {
             கனடா முழுவதும் உள்ள தமிழ் நிறுவனங்கள், உணவகங்கள், சட்ட ஆலோசகர்கள், மருத்துவர்கள் மற்றும் சேவைகள்.
           </p>
           <p className="text-white/80 text-xs sm:text-sm max-w-2xl leading-relaxed">
-            Browse {results.length.toLocaleString()} verified listings across Scarborough, Toronto, Markham, Montreal, Vancouver, Calgary, Edmonton, and nationwide with smart fuzzy search &amp; transliteration.
+            Browse {results.length.toLocaleString()} community-submitted listings with search and transliteration. Confirm contact, location, credentials, pricing, and availability directly with the listed organization.
           </p>
         </div>
 
@@ -315,7 +316,7 @@ function DirectoryContent() {
                 {category && `Category: "${CATEGORIES.find((c) => c.slug === category)?.name || category}" · `}
                 {city && `City: ${city} · `}
                 {province && `Province: ${province}`}
-                {!q && !category && !city && !province && "All verified businesses nationwide"}
+                {!q && !category && !city && !province && "Community directory listings"}
               </p>
             </div>
 
@@ -332,7 +333,6 @@ function DirectoryContent() {
                   <option value="featured">Featured First</option>
                   <option value="name-asc">Name (A–Z)</option>
                   <option value="name-desc">Name (Z–A)</option>
-                  <option value="verified">Verified First</option>
                 </select>
               </div>
 

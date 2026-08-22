@@ -17,10 +17,19 @@ export const firebaseConfig = {
 export const app: FirebaseApp =
   getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
+// Export singletons
 export const auth: Auth = getAuth(app);
 export const db: Firestore = getFirestore(app);
 
-// Analytics runs exclusively on the browser (client-side)
+export function getFirebaseAuth(): Auth {
+  return auth;
+}
+
+export function getFirebaseDb(): Firestore {
+  return db;
+}
+
+// Analytics runs exclusively on the browser (client-side) after idle
 let analyticsInstance: Analytics | null = null;
 export async function getFirebaseAnalytics(): Promise<Analytics | null> {
   if (typeof window !== "undefined") {

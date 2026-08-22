@@ -19,8 +19,10 @@ export async function generateMetadata({
   const evt = getEventBySlug(slug);
   if (!evt) return { title: "Event Not Found" };
   return {
-    title: `${evt.title} · ${evt.city}, Canada Events`,
-    description: evt.description,
+    title: `${evt.title} · Community Event Entry (Source Check Pending)`,
+    description:
+      "Community-submitted event entry awaiting source checks. Confirm all details with the organizer or venue.",
+    robots: { index: false, follow: true },
   };
 }
 
@@ -55,6 +57,15 @@ export default async function EventDetailPage({
         <span>/</span>
         <span className="text-[#0F172A] truncate max-w-xs">{evt.title}</span>
       </nav>
+
+      <aside
+        role="note"
+        className="rounded-3xl border border-amber-300 bg-amber-50 p-5 text-sm leading-relaxed text-amber-950 shadow-sm"
+      >
+        <strong>Source check pending:</strong> this community event entry has not yet been
+        independently verified. Confirm the date, time, venue, organizer, ticket seller, pricing,
+        refund policy, and accessibility before travelling or paying.
+      </aside>
 
       {/* Main Event Article */}
       <article className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-6 sm:p-12 space-y-8 shadow-card relative overflow-hidden">
@@ -151,7 +162,7 @@ export default async function EventDetailPage({
               className="btn-navy rounded-2xl px-6 py-3.5 text-xs font-black shadow flex items-center gap-2"
             >
               <span>🎟️</span>
-              <span>Official Event Tickets / Info</span>
+              <span>Organizer / ticket link — verify details</span>
             </a>
           )}
           {evt.phone && (
@@ -160,7 +171,7 @@ export default async function EventDetailPage({
               className="rounded-2xl px-5 py-3.5 text-xs font-bold border border-[#CBD5E1] bg-[#F8FAFC] text-[#002D62] hover:bg-white flex items-center gap-2"
             >
               <span>📞</span>
-              <span>Contact Organizer ({evt.phone})</span>
+              <span>Call listed contact ({evt.phone})</span>
             </a>
           )}
         </div>
@@ -170,7 +181,7 @@ export default async function EventDetailPage({
       {related.length > 0 && (
         <section className="space-y-4">
           <h2 className="font-outfit font-extrabold text-xl text-[#0F172A]">
-            More Upcoming Canadian Tamil Events
+            More Canadian Tamil Event Entries
           </h2>
           <div className="grid md:grid-cols-3 gap-5">
             {related.map((e) => (
@@ -199,7 +210,7 @@ export default async function EventDetailPage({
         </section>
       )}
 
-      {/* SafeNet Creations Official Link Banner */}
+      {/* SafeNet Creations link banner */}
       <div className="bg-white rounded-3xl border border-[#CBD5E1] p-6 text-center space-y-1 shadow-xs">
         <p className="text-xs text-[#64748B]">
           Digital Event Calendar &amp; Ticketing Architecture by{" "}

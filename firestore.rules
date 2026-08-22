@@ -1,0 +1,210 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: alertSubscriptions
+    // Document ID: the Firebase Auth uid of the confirmed subscriber
+    // Fields (all required; no additional fields are accepted):
+    //   - uid: string (immutable; must equal the document ID and Auth uid)
+    //   - email: string (immutable; verified Auth-token email, 3-254 chars)
+    //   - city: string (one supported Canadian city slug)
+    //   - topics: list (1-4 allowed topic IDs)
+    //   - language: string (en, ta, or bilingual)
+    //   - frequency: string (friday, daily, or instant)
+    //   - channels: list (exactly ["email"])
+    //   - status: string (exactly "active")
+    //   - consentVersion: string (exactly "2026-08-22-v1")
+    //   - consentText: string (the exact approved consent statement)
+    //   - source: string (exactly "alerts_page")
+    //   - createdAt: timestamp (immutable; server time on create)
+    //   - updatedAt: timestamp (server time on every write)
+    //   - confirmedAt: timestamp (server time on every confirmation write)
+    //
+    // Subscribers can read and manage only their own document. The single
+    // bootstrapped, email-verified administrator can read subscription data
+    // for the private dashboard, but cannot write through these rules.
+    // Everything else is denied by default.
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() &&
+        request.auth.token.email_verified == true &&
+        request.auth.uid == userId;
+    }
+
+    // Creation integrity: the stored uid must come from the Auth identity.
+    function uidUnchanged() {
+      return isAuthenticated() &&
+        request.resource.data.uid is string &&
+        request.resource.data.uid == request.auth.uid;
+    }
+
+    // Update integrity: ownership cannot be moved to another uid.
+    function uidNotModified() {
+      return isAuthenticated() &&
+        request.resource.data.uid is string &&
+        resource.data.uid is string &&
+        request.resource.data.uid == resource.data.uid &&
+        request.resource.data.uid == request.auth.uid;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        request.auth.token.email_verified == true &&
+        request.auth.token.email == 'info@safenetcreations.com';
+    }
+
+    function hasExactAlertFields(data) {
+      let fields = [
+        'uid',
+        'email',
+        'city',
+        'topics',
+        'language',
+        'frequency',
+        'channels',
+        'status',
+        'consentVersion',
+        'consentText',
+        'source',
+        'createdAt',
+        'updatedAt',
+        'confirmedAt'
+      ];
+      return data.keys().hasAll(fields) && data.keys().hasOnly(fields);
+    }
+
+    function isValidEmail(email) {
+      return email is string &&
+        email.size() >= 3 &&
+        email.size() <= 254 &&
+        email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$') &&
+        request.auth.token.email == email;
+    }
+
+    function isValidCity(city) {
+      return city is string &&
+        city.size() >= 4 &&
+        city.size() <= 32 &&
+        city in [
+          'scarborough', 'toronto', 'markham', 'brampton', 'mississauga',
+          'ajax', 'pickering', 'whitby', 'oshawa', 'richmond-hill', 'vaughan',
+          'oakville', 'milton', 'burlington', 'ottawa', 'hamilton', 'waterloo',
+          'kitchener', 'cambridge', 'london', 'guelph', 'windsor', 'newmarket',
+          'caledon', 'montreal', 'laval', 'brossard', 'gatineau', 'vancouver',
+          'surrey', 'burnaby', 'richmond', 'coquitlam', 'abbotsford', 'delta',
+          'langley', 'victoria', 'calgary', 'edmonton', 'winnipeg', 'saskatoon',
+          'regina', 'halifax', 'st-johns'
+        ];
+    }
+
+    function hasValidTopics(topics) {
+      return topics is list &&
+        (
+          topics == ['movies'] ||
+          topics == ['weekend'] ||
+          topics == ['events'] ||
+          topics == ['temples'] ||
+          topics == ['movies', 'weekend'] ||
+          topics == ['movies', 'events'] ||
+          topics == ['movies', 'temples'] ||
+          topics == ['weekend', 'events'] ||
+          topics == ['weekend', 'temples'] ||
+          topics == ['events', 'temples'] ||
+          topics == ['movies', 'weekend', 'events'] ||
+          topics == ['movies', 'weekend', 'temples'] ||
+          topics == ['movies', 'events', 'temples'] ||
+          topics == ['weekend', 'events', 'temples'] ||
+          topics == ['movies', 'weekend', 'events', 'temples']
+        );
+    }
+
+    // Domain validator. It is intentionally called for both create and update.
+    function isValidAlertSubscription(data) {
+      return hasExactAlertFields(data) &&
+        data.uid is string &&
+        data.uid.size() >= 1 &&
+        data.uid.size() <= 128 &&
+        isValidEmail(data.email) &&
+        isValidCity(data.city) &&
+        hasValidTopics(data.topics) &&
+        data.language is string &&
+        data.language.size() >= 2 &&
+        data.language.size() <= 9 &&
+        data.language in ['en', 'ta', 'bilingual'] &&
+        data.frequency is string &&
+        data.frequency.size() >= 5 &&
+        data.frequency.size() <= 7 &&
+        data.frequency in ['friday', 'daily', 'instant'] &&
+        data.channels is list &&
+        data.channels == ['email'] &&
+        data.status is string &&
+        data.status.size() == 6 &&
+        data.status == 'active' &&
+        data.consentVersion is string &&
+        data.consentVersion.size() == 13 &&
+        data.consentVersion == '2026-08-22-v1' &&
+        data.consentText is string &&
+        data.consentText.size() >= 1 &&
+        data.consentText.size() <= 300 &&
+        data.consentText == 'I agree to receive Tamil Movie and Weekend Alert emails from TamilCanadianPages.ca based on my preferences. I can unsubscribe at any time.' &&
+        data.source is string &&
+        data.source.size() == 11 &&
+        data.source == 'alerts_page' &&
+        data.createdAt is timestamp &&
+        data.updatedAt is timestamp &&
+        data.confirmedAt is timestamp;
+    }
+
+    function hasValidCreateTimestamps(data) {
+      return data.createdAt == request.time &&
+        data.updatedAt == request.time &&
+        data.confirmedAt == request.time;
+    }
+
+    function hasValidUpdateTimestamps(data) {
+      return data.createdAt == resource.data.createdAt &&
+        data.updatedAt == request.time &&
+        data.confirmedAt == request.time;
+    }
+
+    match /alertSubscriptions/{userId} {
+      // PII is visible only to its owner or the verified administrator.
+      // isAdmin() is independent of document fields, so the dashboard's
+      // orderBy(createdAt, desc).limit(100) collection query is authorized.
+      allow read: if isOwner(userId) || isAdmin();
+
+      allow create: if isOwner(userId) &&
+        uidUnchanged() &&
+        request.resource.data.uid == userId &&
+        isValidAlertSubscription(request.resource.data) &&
+        hasValidCreateTimestamps(request.resource.data);
+
+      allow update: if isOwner(userId) &&
+        resource.data.uid == userId &&
+        uidNotModified() &&
+        request.resource.data.email == resource.data.email &&
+        isValidAlertSubscription(request.resource.data) &&
+        hasValidUpdateTimestamps(request.resource.data);
+
+      allow delete: if isOwner(userId) && resource.data.uid == userId;
+    }
+
+    // Explicit catch-all deny for any collection not listed above.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

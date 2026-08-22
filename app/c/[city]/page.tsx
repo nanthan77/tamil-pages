@@ -66,7 +66,7 @@ export default async function CityPage({
           {meta ? `, ${meta.province}` : ""}
         </h1>
         <p className="text-sm text-white/80 max-w-2xl mt-1">
-          {list.length} verified listings for Tamil and South Asian families in {name}.{" "}
+          {list.length} directory listings for Tamil and South Asian families in {name}. Confirm important details directly. {" "}
           {meta?.blurb}
         </p>
       </div>
