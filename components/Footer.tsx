@@ -28,7 +28,7 @@ export default function Footer() {
 
             <div className="pt-1 flex items-center gap-2">
               <span className="tamil text-[11px] font-bold text-amber-300/90 bg-amber-950/40 border border-amber-500/20 px-2.5 py-1 rounded-lg">
-                கனடா வாழ் தமிழ் சமூகத்தின் வணிக அடைவு
+                கனடா தமிழ் வணிகங்கள் &amp; சேவைகள் வழிகாட்டி
               </span>
             </div>
 

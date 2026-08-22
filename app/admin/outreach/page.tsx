@@ -717,7 +717,7 @@ export default function AdminOutreachPage() {
                 🗣️ தமிழ் உரையாடல் (Tamil Script):
               </span>
               <p className="tamil text-sm leading-relaxed font-semibold">
-                &quot;வணக்கம் அண்ணா / அக்கா! நான் <strong>TamilCanadianPages.ca</strong> (கனடா தமிழ் அடைவு) லிருந்து அழைக்கிறேன்.
+                &quot;வணக்கம் அண்ணா / அக்கா! நான் <strong>TamilCanadianPages.ca</strong> (கனடா தமிழ் வணிக வழிகாட்டி) லிருந்து அழைக்கிறேன்.
                 உங்கள் <strong>{activeCallBiz?.name || "கடையின் பெயர்"}</strong> விவரங்கள் எங்கள் இணையதளத்தில் பதிவு செய்யப்பட்டுள்ளது.
               </p>
               <p className="tamil text-sm leading-relaxed">
