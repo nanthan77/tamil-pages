@@ -13,17 +13,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Col 1: Brand & Mission (Spans 2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-xl bg-white flex items-center justify-center p-1 group-hover:scale-105 transition border border-white/20 shadow-xs overflow-hidden">
-                <img
-                  src="/logo.png"
-                  alt="TamilCanadianPages.ca"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className="font-outfit font-black text-xl text-white tracking-tight">
-                tamilcanadianpages<span className="text-[#E00624]">.ca</span>
-              </span>
+            <Link href="/" className="inline-flex items-center group py-1">
+              <img
+                src="/logo-white.png"
+                alt="tamilcanadianpages.ca"
+                className="h-8 sm:h-9 w-auto object-contain transition group-hover:scale-[1.02]"
+              />
             </Link>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">

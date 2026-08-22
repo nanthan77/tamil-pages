@@ -16,11 +16,18 @@ export default async function ClaimPage({ params }: { params: Promise<{ slug: st
       <div className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-7 sm:p-9 space-y-6 shadow-card relative overflow-hidden">
         <div className="h-2 w-full bg-gradient-to-r from-[#E00624] via-[#002D62] to-[#25D366] absolute top-0 left-0 right-0" />
 
-        <div className="space-y-2">
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <img
+            src="/logo-dark.png"
+            alt="tamilcanadianpages.ca"
+            className="h-8 object-contain"
+          />
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F7FF] text-[#002D62] border border-[#CCE3F8] text-[11px] font-black uppercase tracking-wider">
-            <span>🍁</span> Free Business Verification &amp; Claim
+            <span>🍁</span> Free Verification &amp; Claim
           </div>
+        </div>
 
+        <div className="space-y-2">
           <h1 className="font-outfit font-extrabold text-2xl sm:text-3xl text-[#0F172A]">
             Claim {biz.name}
           </h1>

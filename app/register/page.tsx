@@ -13,10 +13,12 @@ export default async function RegisterPage() {
       <div className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-8 space-y-5 shadow-card relative overflow-hidden">
         <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62] absolute top-0 left-0 right-0" />
 
-        <div className="text-center space-y-1 pt-2">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#E00624] border border-red-200 text-[11px] font-black uppercase tracking-wider">
-            <span>🍁</span> 100% Free Business Account
-          </div>
+        <div className="text-center space-y-2 pt-2">
+          <img
+            src="/logo-dark.png"
+            alt="tamilcanadianpages.ca"
+            className="h-10 mx-auto object-contain"
+          />
           <h1 className="font-outfit font-extrabold text-2xl text-[#0F172A] mt-2">
             List Your Business Free
           </h1>

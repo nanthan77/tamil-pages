@@ -13,10 +13,12 @@ export default async function LoginPage() {
       <div className="bg-white rounded-[2.5rem] border border-[#CBD5E1] p-8 space-y-5 shadow-card relative overflow-hidden">
         <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62] absolute top-0 left-0 right-0" />
         
-        <div className="text-center space-y-1 pt-2">
-          <div className="w-12 h-12 rounded-2xl bg-[#F0F7FF] text-[#002D62] flex items-center justify-center text-2xl mx-auto shadow-xs">
-            🍁
-          </div>
+        <div className="text-center space-y-2 pt-2">
+          <img
+            src="/logo-dark.png"
+            alt="tamilcanadianpages.ca"
+            className="h-10 mx-auto object-contain"
+          />
           <h1 className="font-outfit font-extrabold text-2xl text-[#0F172A]">Vendor Sign In</h1>
           <p className="text-xs text-[#64748B]">Manage your free TamilCanadianPages listings across Canada.</p>
         </div>

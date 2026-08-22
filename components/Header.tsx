@@ -18,24 +18,12 @@ export default async function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-18">
             {/* Logo */}
-            <Link href="/" className="inline-flex items-center gap-2.5 sm:gap-3 group select-none shrink-0">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 relative flex items-center justify-center rounded-2xl bg-white shadow-sm group-hover:scale-105 transition border-2 border-[#E00624]/20 p-1 overflow-hidden">
-                <img
-                  src="/logo.png"
-                  alt="TamilCanadianPages.ca"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <div className="flex items-center gap-1">
-                  <span className="font-outfit font-black text-lg sm:text-2xl tracking-tight leading-none text-white">
-                    tamilcanadianpages<span className="text-[#E00624] bg-white px-1 py-0.5 rounded-md ml-0.5 text-[10px] sm:text-xs font-black">.ca</span>
-                  </span>
-                </div>
-                <span className="text-[9px] sm:text-[10px] text-white/80 font-semibold tracking-wider uppercase mt-0.5 hidden sm:block">
-                  All-In-One Canada Tamil Portal
-                </span>
-              </div>
+            <Link href="/" className="inline-flex items-center group select-none shrink-0 py-1">
+              <img
+                src="/logo-white.png"
+                alt="tamilcanadianpages.ca"
+                className="h-8 sm:h-9 w-auto object-contain transition group-hover:scale-[1.02]"
+              />
             </Link>
 
             {/* Desktop Navigation Links */}
