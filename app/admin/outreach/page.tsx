@@ -14,6 +14,7 @@ type OutreachRecord = {
   province: string;
   phone: string;
   waPhone: string;
+  email?: string;
   website?: string;
   slug: string;
   message: string;
@@ -57,6 +58,7 @@ export default function AdminOutreachPage() {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
   const [hasWebsiteOnly, setHasWebsiteOnly] = useState(false);
+  const [hasEmailOnly, setHasEmailOnly] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusMap, setStatusMap] = useState<Record<string, StatusType>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -99,6 +101,7 @@ export default function AdminOutreachPage() {
           province: b.province,
           phone: b.phone,
           waPhone,
+          email: b.email,
           website: b.website,
           slug: b.slug,
           message: msg,
@@ -148,6 +151,7 @@ export default function AdminOutreachPage() {
       if (cityFilter !== "all" && r.city.toLowerCase() !== cityFilter.toLowerCase()) return false;
       if (categoryFilter !== "all" && r.category !== categoryFilter) return false;
       if (hasWebsiteOnly && !r.website) return false;
+      if (hasEmailOnly && !r.email) return false;
 
       const currentStatus = statusMap[r.id] || "pending";
       if (statusFilter !== "all" && currentStatus !== statusFilter) return false;
@@ -157,11 +161,12 @@ export default function AdminOutreachPage() {
         const matchesName = r.name.toLowerCase().includes(q);
         const matchesTamil = r.tamilName.toLowerCase().includes(q);
         const matchesPhone = r.phone.includes(q);
-        if (!matchesName && !matchesTamil && !matchesPhone) return false;
+        const matchesEmail = r.email ? r.email.toLowerCase().includes(q) : false;
+        if (!matchesName && !matchesTamil && !matchesPhone && !matchesEmail) return false;
       }
       return true;
     });
-  }, [allRecords, cityFilter, categoryFilter, statusFilter, hasWebsiteOnly, searchQuery, statusMap]);
+  }, [allRecords, cityFilter, categoryFilter, statusFilter, hasWebsiteOnly, hasEmailOnly, searchQuery, statusMap]);
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -336,7 +341,16 @@ export default function AdminOutreachPage() {
                 onChange={(e) => setHasWebsiteOnly(e.target.checked)}
                 className="rounded text-[#002D62] focus:ring-0"
               />
-              <span>🌐 Show only businesses with website</span>
+              <span>🌐 With website</span>
+            </label>
+            <label className="flex items-center gap-1.5 mt-1 cursor-pointer text-[11px] font-bold text-indigo-700">
+              <input
+                type="checkbox"
+                checked={hasEmailOnly}
+                onChange={(e) => setHasEmailOnly(e.target.checked)}
+                className="rounded text-indigo-600 focus:ring-0"
+              />
+              <span>✉️ With verified email</span>
             </label>
           </div>
         </div>
@@ -390,6 +404,18 @@ export default function AdminOutreachPage() {
 
                     <div className="flex items-center gap-3 text-xs text-slate-600 flex-wrap">
                       <span className="font-bold text-[#002D62]">📞 {r.phone}</span>
+                      {r.email && (
+                        <>
+                          <span>·</span>
+                          <a
+                            href={`mailto:${r.email}?subject=${encodeURIComponent(`TamilPages.ca: Claim your verified listing for ${r.name}`)}&body=${encodeURIComponent(r.message)}`}
+                            className="font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded hover:underline flex items-center gap-1"
+                          >
+                            <span>✉️</span>
+                            <span>{r.email}</span>
+                          </a>
+                        </>
+                      )}
                       <span>·</span>
                       {r.website ? (
                         <a
@@ -485,6 +511,18 @@ export default function AdminOutreachPage() {
                       <span>📱</span>
                       <span>SMS</span>
                     </a>
+
+                    {/* 2.5 Email Direct Dispatch */}
+                    {r.email && (
+                      <a
+                        href={`mailto:${r.email}?subject=${encodeURIComponent(`TamilPages.ca: Claim your verified listing for ${r.name}`)}&body=${encodeURIComponent(r.message)}`}
+                        className="px-3 py-2 rounded-xl text-xs font-black bg-indigo-600 hover:bg-indigo-700 text-white flex items-center gap-1.5 shadow-xs transition"
+                        title={`Send Direct Email to ${r.email}`}
+                      >
+                        <span>✉️</span>
+                        <span>Email</span>
+                      </a>
+                    )}
 
                     {/* 3. Phone Call */}
                     <a
