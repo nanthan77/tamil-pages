@@ -1,0 +1,102 @@
+{
+  "name": "Tamil Canadian Pages — Canada's #1 Tamil Business Directory",
+  "short_name": "TamilPages",
+  "description": "Canada's verified direct contact directory for 6,380+ Tamil businesses, 83 Hindu temples, cinema showtimes, and fine arts academies.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#002D62",
+  "theme_color": "#002D62",
+  "lang": "en-CA",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "shopping",
+    "lifestyle",
+    "news",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Business Directory",
+      "short_name": "Directory",
+      "description": "Browse 6,380+ verified Canadian Tamil businesses",
+      "url": "/directory?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Hindu Temples Hub",
+      "short_name": "Temples",
+      "description": "83 Canadian Hindu Temples with pooja timings & priests",
+      "url": "/temples?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Tamil Cinema & Showtimes",
+      "short_name": "Cinema",
+      "description": "Canadian Tamil movies, showtimes & Woodside/Albion tickets",
+      "url": "/cinema?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Tuitions & Arts Academies",
+      "short_name": "Tuition",
+      "description": "226 Canadian Bharatanatyam, Carnatic & STEM tutors",
+      "url": "/tuition?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

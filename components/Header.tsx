@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { stats } from "@/lib/store";
 import HeaderSearchTrigger from "./HeaderSearchTrigger";
+import PwaInstallButton from "./PwaInstallButton";
 import MobileNav from "./MobileNav";
 
 export default function Header() {
@@ -76,6 +77,7 @@ export default function Header() {
             {/* Stats, Search & Action Area */}
             <div className="flex items-center gap-2 sm:gap-3">
               <HeaderSearchTrigger />
+              <PwaInstallButton />
 
               <div className="hidden 2xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] text-white/90 font-medium">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />

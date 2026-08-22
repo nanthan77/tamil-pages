@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Sans_Tamil, Outfit, Work_Sans } from "next/font/google";
 import FirebaseAnalytics from "@/components/FirebaseAnalytics";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
+import PwaInstallPrompt from "@/components/PwaInstallPrompt";
+import PwaRegister from "@/components/PwaRegister";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -35,14 +37,22 @@ const tamil = Noto_Sans_Tamil({
   preload: true,
 });
 
+export const viewport: Viewport = {
+  themeColor: "#002D62",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  manifest: "/manifest.json",
   title: {
-    default: `${SITE_NAME} — Businesses, Temples & Community Guide`,
+    default: `${SITE_NAME} — Canada’s #1 Tamil Business & Services Directory`,
     template: `%s · ${SITE_NAME}`,
   },
   description:
-    "Find Tamil businesses, temples and community resources across Canada. Contact organizations directly and confirm time-sensitive details with the original source.",
+    "Canada’s verified directory for 6,380+ Tamil businesses, restaurants, lawyers, realtors, accountants, Hindu temples, movie showtimes, and cultural services across Toronto, Scarborough, Markham, Brampton, Montreal, Vancouver, and nationwide.",
   keywords: [
     "Tamil businesses Canada",
     "Tamil directory Toronto",
@@ -58,6 +68,15 @@ export const metadata: Metadata = {
   authors: [{ name: "SafeNet Creations Canada", url: "https://www.safenetcreations.com/canada/" }],
   creator: "SafeNet Creations Canada",
   publisher: SITE_NAME,
+  applicationName: "TamilPages",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "TamilPages",
+  },
+  formatDetection: {
+    telephone: true,
+  },
   robots: {
     index: true,
     follow: true,
@@ -74,8 +93,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     alternateLocale: ["ta_CA"],
-    title: `${SITE_NAME} — Businesses, Temples & Community Guide`,
-    description: "A Canadian Tamil business directory and community guide. Confirm time-sensitive details with the original source.",
+    url: SITE_URL,
+    title: `${SITE_NAME} — Canada’s #1 Tamil Business & Services Directory`,
+    description: "Verified direct contact directory for 6,380+ Canadian Tamil businesses, temples, and services.",
     images: [
       {
         url: `${SITE_URL}/og.png`,
@@ -88,22 +108,27 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — Canada’s Tamil Business & Services Directory`,
-    description: "A Canadian Tamil business directory and community guide. Confirm time-sensitive details with the original source.",
+    description: "Verified direct contact directory for 6,380+ Canadian Tamil businesses, temples, and services.",
     images: [`${SITE_URL}/og.png`],
   },
   icons: {
     icon: [
       { url: "/favicon.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: ["/favicon.ico"],
+  },
+  alternates: {
+    canonical: SITE_URL,
   },
   other: {
     "geo.region": "CA-ON",
     "geo.placename": "Greater Toronto Area, Ontario, Canada",
     "geo.position": "43.7764;-79.2318",
     "ICBM": "43.7764, -79.2318",
+    "mobile-web-app-capable": "yes",
   },
 };
 
@@ -113,15 +138,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#002D62" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body
         className={`${outfit.variable} ${work.variable} ${tamil.variable} font-work antialiased bg-[#F8FAFC] text-[#0F172A] flex flex-col min-h-full selection:bg-[#E00624] selection:text-white`}
       >
+        <PwaRegister />
         <FirebaseAnalytics />
         <JsonLd data={[websiteJsonLd(), organizationJsonLd()]} />
         <Header />
         {children}
         <Footer />
+        <PwaInstallPrompt />
+        <a
+          href="/add-business"
+          className="fixed bottom-24 sm:bottom-28 right-5 sm:right-6 z-40 btn-primary rounded-full px-5 py-3 text-xs font-black shadow-2xl flex items-center gap-2 hover:scale-105 transition border-2 border-white/20"
+        >
+          <span>🍁</span>
+          <span>+ Add Business Free</span>
+        </a>
       </body>
     </html>
   );
