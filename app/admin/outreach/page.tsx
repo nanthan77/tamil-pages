@@ -16,6 +16,11 @@ type OutreachRecord = {
   waPhone: string;
   email?: string;
   website?: string;
+  instagram?: string;
+  facebook?: string;
+  tiktok?: string;
+  youtube?: string;
+  linkedin?: string;
   slug: string;
   message: string;
   waLink: string;
@@ -59,6 +64,7 @@ export default function AdminOutreachPage() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [hasWebsiteOnly, setHasWebsiteOnly] = useState(false);
   const [hasEmailOnly, setHasEmailOnly] = useState(false);
+  const [hasSocialOnly, setHasSocialOnly] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusMap, setStatusMap] = useState<Record<string, StatusType>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -103,6 +109,11 @@ export default function AdminOutreachPage() {
           waPhone,
           email: b.email,
           website: b.website,
+          instagram: b.instagram,
+          facebook: b.facebook,
+          tiktok: b.tiktok,
+          youtube: b.youtube,
+          linkedin: b.linkedin,
           slug: b.slug,
           message: msg,
           waLink,
@@ -152,6 +163,7 @@ export default function AdminOutreachPage() {
       if (categoryFilter !== "all" && r.category !== categoryFilter) return false;
       if (hasWebsiteOnly && !r.website) return false;
       if (hasEmailOnly && !r.email) return false;
+      if (hasSocialOnly && !r.instagram && !r.facebook && !r.tiktok) return false;
 
       const currentStatus = statusMap[r.id] || "pending";
       if (statusFilter !== "all" && currentStatus !== statusFilter) return false;
@@ -166,7 +178,7 @@ export default function AdminOutreachPage() {
       }
       return true;
     });
-  }, [allRecords, cityFilter, categoryFilter, statusFilter, hasWebsiteOnly, hasEmailOnly, searchQuery, statusMap]);
+  }, [allRecords, cityFilter, categoryFilter, statusFilter, hasWebsiteOnly, hasEmailOnly, hasSocialOnly, searchQuery, statusMap]);
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -352,6 +364,15 @@ export default function AdminOutreachPage() {
               />
               <span>✉️ With verified email</span>
             </label>
+            <label className="flex items-center gap-1.5 mt-1 cursor-pointer text-[11px] font-bold text-pink-700">
+              <input
+                type="checkbox"
+                checked={hasSocialOnly}
+                onChange={(e) => setHasSocialOnly(e.target.checked)}
+                className="rounded text-pink-600 focus:ring-0"
+              />
+              <span>📸 With Social (IG/FB/TikTok)</span>
+            </label>
           </div>
         </div>
 
@@ -424,11 +445,41 @@ export default function AdminOutreachPage() {
                           rel="noreferrer"
                           className="text-blue-600 font-bold hover:underline flex items-center gap-1"
                         >
-                          <span>🌐 Official Website</span>
+                          <span>🌐 Website</span>
                           <span>↗</span>
                         </a>
                       ) : (
                         <span className="text-slate-400">No website listed</span>
+                      )}
+                      {r.instagram && (
+                        <>
+                          <span>·</span>
+                          <a
+                            href={r.instagram}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="font-bold text-pink-700 bg-pink-50 border border-pink-200 px-2 py-0.5 rounded hover:underline flex items-center gap-1"
+                          >
+                            <span>📸</span>
+                            <span>Instagram</span>
+                            <span>↗</span>
+                          </a>
+                        </>
+                      )}
+                      {r.facebook && (
+                        <>
+                          <span>·</span>
+                          <a
+                            href={r.facebook}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded hover:underline flex items-center gap-1"
+                          >
+                            <span>📘</span>
+                            <span>Facebook</span>
+                            <span>↗</span>
+                          </a>
+                        </>
                       )}
                     </div>
 
@@ -521,6 +572,34 @@ export default function AdminOutreachPage() {
                       >
                         <span>✉️</span>
                         <span>Email</span>
+                      </a>
+                    )}
+
+                    {/* 2.8 Instagram Direct Message */}
+                    {r.instagram && (
+                      <a
+                        href={r.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-2 rounded-xl text-xs font-black bg-gradient-to-r from-pink-600 to-purple-600 hover:opacity-90 text-white flex items-center gap-1.5 shadow-xs transition"
+                        title="Open Instagram Profile for DM"
+                      >
+                        <span>📸</span>
+                        <span>IG DM</span>
+                      </a>
+                    )}
+
+                    {/* 2.9 Facebook Message */}
+                    {r.facebook && (
+                      <a
+                        href={r.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-2 rounded-xl text-xs font-black bg-[#1877F2] hover:bg-blue-600 text-white flex items-center gap-1.5 shadow-xs transition"
+                        title="Open Facebook Page for Message"
+                      >
+                        <span>📘</span>
+                        <span>Facebook</span>
                       </a>
                     )}
 

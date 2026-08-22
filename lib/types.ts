@@ -11,6 +11,12 @@ export type Business = {
   website: string;
   email: string;
   whatsapp?: string;
+  instagram?: string;
+  facebook?: string;
+  tiktok?: string;
+  youtube?: string;
+  linkedin?: string;
+  twitter?: string;
   description: string;
   verified: boolean;
   featured: boolean;

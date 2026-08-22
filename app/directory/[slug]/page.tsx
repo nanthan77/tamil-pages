@@ -245,6 +245,69 @@ export default async function BusinessPage({
                 Claim This Listing Free →
               </Link>
             )}
+            {/* Official Social Links */}
+            {(biz.instagram || biz.facebook || biz.tiktok || biz.youtube || biz.linkedin) && (
+              <div className="w-full flex items-center gap-2 pt-3 border-t border-slate-100 flex-wrap">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#64748B] mr-1">
+                  Official Socials:
+                </span>
+                {biz.instagram && (
+                  <a
+                    href={biz.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-pink-50 border border-pink-200 text-pink-700 hover:bg-pink-100 text-xs font-bold flex items-center gap-1.5 transition"
+                  >
+                    <span>📸</span>
+                    <span>Instagram</span>
+                  </a>
+                )}
+                {biz.facebook && (
+                  <a
+                    href={biz.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 text-xs font-bold flex items-center gap-1.5 transition"
+                  >
+                    <span>📘</span>
+                    <span>Facebook</span>
+                  </a>
+                )}
+                {biz.tiktok && (
+                  <a
+                    href={biz.tiktok}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-300 text-slate-800 hover:bg-slate-200 text-xs font-bold flex items-center gap-1.5 transition"
+                  >
+                    <span>🎵</span>
+                    <span>TikTok</span>
+                  </a>
+                )}
+                {biz.youtube && (
+                  <a
+                    href={biz.youtube}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-red-50 border border-red-200 text-red-700 hover:bg-red-100 text-xs font-bold flex items-center gap-1.5 transition"
+                  >
+                    <span>📺</span>
+                    <span>YouTube</span>
+                  </a>
+                )}
+                {biz.linkedin && (
+                  <a
+                    href={biz.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-sky-50 border border-sky-200 text-sky-700 hover:bg-sky-100 text-xs font-bold flex items-center gap-1.5 transition"
+                  >
+                    <span>💼</span>
+                    <span>LinkedIn</span>
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </article>
