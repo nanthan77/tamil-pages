@@ -1,5 +1,39 @@
 [
   {
+    "id": "safenet-canada-001",
+    "slug": "safenet-creations-canada",
+    "name": "SafeNet Creations Canada",
+    "tamilName": "சேஃப்நெட் கிரியேஷன்ஸ் கனடா",
+    "category": "it-web",
+    "city": "Scarborough",
+    "province": "ON",
+    "address": "Scarborough / Markham / Greater Toronto Area, ON",
+    "phone": "+1 416-298-2228",
+    "website": "https://www.safenetcreations.com/canada/",
+    "email": "info@safenetcreations.com",
+    "description": "Official digital architecture & web engineering agency behind TamilCanadianPages.ca. Specialists in custom Next.js websites, mobile apps, WhatsApp CRM automations, Google SEO ranking, and branding for Canadian & international businesses.",
+    "verified": true,
+    "featured": true,
+    "source": "curated",
+    "instagram": "https://instagram.com/safenetcreations",
+    "facebook": "https://facebook.com/safenetcreations",
+    "tags": [
+      "safenet creations",
+      "web development",
+      "seo canada",
+      "software engineering",
+      "whatsapp crm",
+      "digital marketing toronto"
+    ],
+    "keywords": [
+      "வலைத்தள வடிவமைப்பு",
+      "மென்பொருள்",
+      "டிஜிட்டல் ஏஜென்சி",
+      "வெப்சைட்",
+      "web design scarborough"
+    ]
+  },
+  {
     "id": "leg-005",
     "slug": "montreal-tamil-legal-visa-center",
     "name": "Montreal Tamil Legal & Super Visa Center",
