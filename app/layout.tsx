@@ -12,33 +12,91 @@ const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
   weight: ["600", "700", "800", "900"],
+  display: "swap",
+  preload: true,
 });
 
 const work = Work_Sans({
   subsets: ["latin"],
   variable: "--font-work",
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  preload: true,
 });
 
 const tamil = Noto_Sans_Tamil({
   subsets: ["tamil"],
   variable: "--font-tamil",
   weight: ["400", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Canada’s Tamil Business & Services Directory`,
+    default: `${SITE_NAME} — Canada’s #1 Tamil Business & Services Directory`,
     template: `%s · ${SITE_NAME}`,
   },
   description:
-    "Find Tamil restaurants, grocers, lawyers, clinics, tutors, temples and trades across Toronto, Scarborough, Montreal, Vancouver, and Canada.",
-  robots: { index: true, follow: true },
+    "Canada’s verified directory for Tamil businesses, restaurants, lawyers, realtors, accountants, Hindu temples, movie showtimes, and cultural services across Toronto, Scarborough, Markham, Brampton, Montreal, Vancouver, and nationwide.",
+  keywords: [
+    "Tamil businesses Canada",
+    "Tamil directory Toronto",
+    "Scarborough Tamil restaurants",
+    "Tamil lawyer Ontario",
+    "Tamil realtor Brampton",
+    "Tamil temples Canada",
+    "Tamil cinema showtimes Canada",
+    "Tamil Canadian community",
+    "கனடா தமிழ் வணிகங்கள்",
+    "tamilcanadianpages.ca"
+  ],
+  authors: [{ name: "SafeNet Creations Canada", url: "https://www.safenetcreations.com/canada/" }],
+  creator: "SafeNet Creations Canada",
+  publisher: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     siteName: SITE_NAME,
     type: "website",
     locale: "en_CA",
+    alternateLocale: ["ta_CA"],
+    url: SITE_URL,
+    title: `${SITE_NAME} — Canada’s #1 Tamil Business & Services Directory`,
+    description: "Verified direct contact directory for 2,240+ Canadian Tamil businesses, temples, and services.",
+    images: [
+      {
+        url: `${SITE_URL}/og.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} — Canada Tamil Business Directory`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} — Canada’s Tamil Business & Services Directory`,
+    description: "Verified direct contact directory for 2,240+ Canadian Tamil businesses, temples, and services.",
+    images: [`${SITE_URL}/og.png`],
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
+  other: {
+    "geo.region": "CA-ON",
+    "geo.placename": "Greater Toronto Area, Ontario, Canada",
+    "geo.position": "43.7764;-79.2318",
+    "ICBM": "43.7764, -79.2318",
   },
 };
 
@@ -46,6 +104,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="h-full bg-[#F8FAFC]">
       <head>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
