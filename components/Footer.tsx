@@ -202,7 +202,7 @@ export default function Footer() {
       </div>
 
       {/* 3. Sleek, Modern Minimal Bottom Bar */}
-      <div className="border-t border-slate-900 bg-[#070D18] py-6 text-xs text-slate-400">
+      <div className="border-t border-slate-900 bg-[#070D18] py-8 pb-12 text-xs text-slate-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
           <div className="text-slate-400 text-center md:text-left">

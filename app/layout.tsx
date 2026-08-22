@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <a
           href="/add-business"
-          className="fixed bottom-6 right-6 z-40 btn-primary rounded-full px-5 py-3 text-xs font-black shadow-lg flex items-center gap-2 hover:scale-105 transition"
+          className="fixed bottom-24 sm:bottom-28 right-5 sm:right-6 z-40 btn-primary rounded-full px-5 py-3 text-xs font-black shadow-2xl flex items-center gap-2 hover:scale-105 transition border-2 border-white/20"
         >
           <span>🍁</span>
           <span>+ Add Business Free</span>
