@@ -14,8 +14,12 @@ export default function Footer() {
           {/* Col 1: Brand & Mission (Spans 2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-white text-base group-hover:scale-105 transition border border-white/10">
-                🍁
+              <div className="w-8 h-8 rounded-xl bg-white flex items-center justify-center p-1 group-hover:scale-105 transition border border-white/20 shadow-xs overflow-hidden">
+                <img
+                  src="/logo.png"
+                  alt="TamilCanadianPages.ca"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="font-outfit font-black text-xl text-white tracking-tight">
                 tamilcanadianpages<span className="text-[#E00624]">.ca</span>

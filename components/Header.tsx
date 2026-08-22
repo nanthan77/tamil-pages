@@ -19,10 +19,12 @@ export default async function Header() {
           <div className="flex justify-between items-center h-16 sm:h-18">
             {/* Logo */}
             <Link href="/" className="inline-flex items-center gap-2.5 sm:gap-3 group select-none shrink-0">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 relative flex items-center justify-center rounded-2xl bg-white shadow-sm group-hover:scale-105 transition border-2 border-[#E00624]/20">
-                <span className="text-lg sm:text-xl leading-none" aria-hidden>
-                  🍁
-                </span>
+              <div className="w-9 h-9 sm:w-10 sm:h-10 relative flex items-center justify-center rounded-2xl bg-white shadow-sm group-hover:scale-105 transition border-2 border-[#E00624]/20 p-1 overflow-hidden">
+                <img
+                  src="/logo.png"
+                  alt="TamilCanadianPages.ca"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col justify-center">
                 <div className="flex items-center gap-1">
