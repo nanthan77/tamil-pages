@@ -186,6 +186,41 @@ export default function AdminOutreachPage() {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
+  const downloadFilteredCsv = () => {
+    const sanitize = (s: unknown) => `"${String(s || "").replace(/"/g, '""')}"`;
+    const csvHeader =
+      "Phone,Email,BusinessName,TamilName,City,Province,Category,Website,Instagram,Facebook,TikTok,ClaimURL,WALink,Message\\n";
+    const csvRows = filtered
+      .map((r) => {
+        return [
+          sanitize("+" + r.waPhone),
+          sanitize(r.email),
+          sanitize(r.name),
+          sanitize(r.tamilName),
+          sanitize(r.city),
+          sanitize(r.province),
+          sanitize(r.category),
+          sanitize(r.website),
+          sanitize(r.instagram),
+          sanitize(r.facebook),
+          sanitize(r.tiktok),
+          sanitize(r.claimUrl),
+          sanitize(r.waLink),
+          sanitize(r.message.replace(/\\n/g, " \\\\n ")),
+        ].join(",");
+      })
+      .join("\\n");
+
+    const blob = new Blob([csvHeader + csvRows], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `tamilpages_outreach_${cityFilter}_${filtered.length}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <main className="min-h-screen bg-[#F8FAFC] py-10 px-4 sm:px-6 lg:px-8 space-y-8">
       <div className="max-w-7xl mx-auto space-y-6">
@@ -215,14 +250,13 @@ export default function AdminOutreachPage() {
               <span>📞</span>
               <span>Open 30-Sec Call Script</span>
             </button>
-            <a
-              href="/data/whatsapp_broadcast_all.csv"
-              download
-              className="rounded-2xl px-5 py-3 text-xs font-black bg-[#25D366] text-white hover:bg-[#1EBE5D] shadow-md flex items-center justify-center gap-2 transition"
+            <button
+              onClick={downloadFilteredCsv}
+              className="rounded-2xl px-5 py-3 text-xs font-black bg-[#25D366] text-white hover:bg-[#1EBE5D] shadow-md flex items-center justify-center gap-2 transition cursor-pointer"
             >
               <span>📥</span>
-              <span>Download Full CSV ({allRecords.length})</span>
-            </a>
+              <span>Download Filtered CSV ({filtered.length})</span>
+            </button>
           </div>
         </div>
 
