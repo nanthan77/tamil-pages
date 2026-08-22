@@ -18,9 +18,20 @@ export async function generateMetadata({
   const { slug } = await params;
   const temple = getTempleBySlug(slug);
   if (!temple) return { title: "Temple Not Found" };
+  const title = `${temple.name} · ${temple.city}, ${temple.province} — Community Directory Entry`;
+  const description = `Community directory information for ${temple.name} in ${temple.city}, Canada. Confirm current hours, poojas, festivals and services directly with the temple.`;
   return {
-    title: `${temple.name} · ${temple.city}, ${temple.province} — Darshan Hours & Pooja Timings`,
-    description: `Opening and closing darshan hours, 4-kala pooja timings, annual Ther Thiruvizha, priest booking, and directions for ${temple.name} in ${temple.city}, Canada.`,
+    title,
+    description,
+    alternates: { canonical: `/temples/${temple.slug}` },
+    openGraph: {
+      type: "website",
+      url: `/temples/${temple.slug}`,
+      title,
+      description,
+      siteName: "TamilPages Canada",
+      images: ["/og.png"],
+    },
   };
 }
 

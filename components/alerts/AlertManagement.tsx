@@ -77,9 +77,6 @@ export default function AlertManagement() {
       setEmail(storedEmail);
       void completeSignIn(storedEmail);
     }
-    // The completion function intentionally runs only for the email-link URL
-    // present at first load.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function completeSignIn(value: string) {

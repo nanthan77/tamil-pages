@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { autocomplete } from "@/lib/store";
+import { CATEGORIES } from "@/lib/categories";
+import { CITIES } from "@/lib/cities";
 import type { AutocompleteResult } from "@/lib/search";
 
 export default function QuickSearchModal({
@@ -33,13 +34,6 @@ export default function QuickSearchModal({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-        e.preventDefault();
-        if (isOpen) onClose();
-        else {
-          window.dispatchEvent(new CustomEvent("open-quick-search"));
-        }
-      }
       if (e.key === "Escape" && isOpen) {
         onClose();
       }
@@ -48,13 +42,32 @@ export default function QuickSearchModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
+  // Fast In-Memory Category & City Search (Zero 409KB DB Payload)
   useEffect(() => {
-    if (!query.trim()) {
+    const trimmed = query.trim().toLowerCase();
+    if (!trimmed || trimmed.length < 2) {
       setResults({ businesses: [], categories: [], cities: [] });
       return;
     }
-    const res = autocomplete(query.trim(), 6);
-    setResults(res);
+
+    const matchedCats = CATEGORIES.filter(
+      (c) =>
+        c.name.toLowerCase().includes(trimmed) ||
+        (c.tamil && c.tamil.includes(trimmed)) ||
+        c.slug.includes(trimmed)
+    ).slice(0, 5);
+
+    const matchedCities = CITIES.filter(
+      (c) =>
+        c.name.toLowerCase().includes(trimmed) ||
+        c.slug.toLowerCase().includes(trimmed)
+    ).slice(0, 5);
+
+    setResults({
+      businesses: [],
+      categories: matchedCats,
+      cities: matchedCities,
+    });
   }, [query]);
 
   if (!isOpen) return null;
@@ -72,27 +85,32 @@ export default function QuickSearchModal({
     results.cities.length > 0;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-      {/* Click outside backdrop */}
-      <div className="fixed inset-0" onClick={onClose} />
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 px-4 animate-fadeIn">
+      <div
+        className="fixed inset-0"
+        onClick={onClose}
+        aria-hidden="true"
+      />
 
       <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden z-10 flex flex-col max-h-[80vh]">
-        {/* Search Header Bar */}
-        <form onSubmit={handleSubmit} className="relative flex items-center border-b border-slate-100 px-4 py-3 bg-white">
-          <span className="text-xl mr-3 text-slate-400">🔍</span>
+        {/* Top Input Bar */}
+        <form onSubmit={handleSubmit} className="p-4 border-b border-slate-100 flex items-center gap-3">
+          <span className="text-slate-400 text-lg">🔍</span>
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search businesses, doctors, kothu, temples, cities, Tamil terms..."
-            className="w-full text-base sm:text-lg font-medium text-slate-800 placeholder:text-slate-400 outline-none bg-transparent"
+            placeholder="Search Tamil businesses, lawyers, restaurants, temples, cities…"
+            aria-label="Quick search directory"
+            className="w-full text-base sm:text-lg font-medium text-slate-900 outline-none placeholder-slate-400 bg-transparent"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition mr-2 text-xs"
+              className="text-slate-400 hover:text-slate-600 p-1 text-sm font-bold"
+              aria-label="Clear query"
             >
               ✕
             </button>
@@ -100,144 +118,89 @@ export default function QuickSearchModal({
           <button
             type="button"
             onClick={onClose}
-            className="px-2.5 py-1 rounded-xl text-xs font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 transition"
+            className="px-2.5 py-1 text-xs font-bold text-slate-500 hover:text-slate-800 bg-slate-100 rounded-lg"
           >
             ESC
           </button>
         </form>
 
-        {/* Results Container */}
-        <div className="overflow-y-auto p-4 space-y-4 flex-1">
-          {!query && (
-            <div className="py-4 space-y-3">
-              <p className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
-                Popular Quick Searches
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { label: "🔥 Kothu & Hoppers", q: "kothu" },
-                  { label: "🛕 Tamil Temples", q: "temple" },
-                  { label: "⚖️ Immigration Lawyers", q: "immigration" },
-                  { label: "🦷 Dental Clinics", q: "dentist" },
-                  { label: "📊 Tax & CPA", q: "tax" },
-                  { label: "💍 Gold & Sarees", q: "saree" },
-                  { label: "🚗 Auto Mechanics", q: "mechanic" },
-                  { label: "🏫 Tamil Schools", q: "tamil school" },
-                ].map((item) => (
-                  <button
-                    key={item.q}
-                    type="button"
-                    onClick={() => {
-                      onClose();
-                      router.push(`/directory?q=${encodeURIComponent(item.q)}`);
-                    }}
-                    className="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-[#F0F7FF] text-xs font-bold text-slate-700 hover:text-[#002D62] border border-slate-200 transition"
-                  >
-                    {item.label}
-                  </button>
-                ))}
+        {/* Results Body */}
+        <div className="overflow-y-auto p-4 space-y-4">
+          {!query.trim() && (
+            <div className="py-8 text-center space-y-3">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#F0F7FF] text-[#002D62] text-xl border border-[#CCE3F8]">
+                🍁
               </div>
+              <h3 className="font-outfit font-black text-slate-800 text-base">Search Canadian Tamil Directory</h3>
+              <p className="text-xs text-slate-500 max-w-xs mx-auto">
+                Search by business name, category, or Canadian city. Confirm important details directly with the organization.
+              </p>
             </div>
           )}
 
-          {query && !hasResults && (
-            <div className="text-center py-10 space-y-3">
-              <span className="text-3xl">🔍</span>
-              <p className="text-sm font-bold text-slate-700">
-                No direct matches found for &quot;{query}&quot;
-              </p>
-              <p className="text-xs text-slate-500 max-w-sm mx-auto">
-                Try searching with alternate spelling, a Canadian city name, or broader keywords.
-              </p>
+          {query.trim() && !hasResults && (
+            <div className="py-8 text-center space-y-3">
+              <p className="text-sm font-bold text-slate-700">Press Enter to search the full directory for &quot;{query}&quot;</p>
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="btn-primary rounded-xl px-4 py-2 text-xs font-bold"
+                className="btn-primary rounded-xl px-5 py-2.5 text-xs font-bold shadow-xs inline-flex items-center gap-1.5"
               >
-                Search Full Directory for &quot;{query}&quot; →
+                <span>Search Directory</span>
+                <span>→</span>
               </button>
             </div>
           )}
 
-          {/* Categories matches */}
+          {/* Categories Results */}
           {results.categories.length > 0 && (
-            <div className="space-y-1.5">
-              <p className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2">
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 px-2 block mb-1">
                 Matching Categories
-              </p>
+              </span>
               <div className="grid sm:grid-cols-2 gap-1.5">
-                {results.categories.map((c) => (
+                {results.categories.map((cat) => (
+                  <Link
+                    key={cat.slug}
+                    href={`/category/${cat.slug}`}
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0F7FF] border border-transparent hover:border-[#CCE3F8] transition"
+                  >
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-2">
+                      <span>🏷️</span>
+                      <span>{cat.name}</span>
+                    </span>
+                    {cat.tamil && (
+                      <span className="tamil text-[11px] font-bold text-[#E00624]">
+                        {cat.tamil}
+                      </span>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Cities Results */}
+          {results.cities.length > 0 && (
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 px-2 block mb-1">
+                Canadian Cities
+              </span>
+              <div className="grid sm:grid-cols-2 gap-1.5">
+                {results.cities.map((c) => (
                   <Link
                     key={c.slug}
-                    href={`/directory?category=${c.slug}`}
+                    href={`/c/${c.slug}`}
                     onClick={onClose}
-                    className="flex items-center justify-between p-2.5 rounded-2xl bg-slate-50 hover:bg-[#F0F7FF] border border-slate-100 hover:border-[#002D62] transition group"
+                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0F7FF] border border-transparent hover:border-[#CCE3F8] transition"
                   >
-                    <span className="text-xs font-bold text-slate-800 group-hover:text-[#002D62]">
-                      {c.name}
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-2">
+                      <span>🍁</span>
+                      <span>{c.name}, {c.province}</span>
                     </span>
-                    <span className="tamil text-[11px] text-[#E00624] font-semibold">
-                      {c.tamil}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Cities matches */}
-          {results.cities.length > 0 && (
-            <div className="space-y-1.5">
-              <p className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2">
-                Matching Canadian Cities
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {results.cities.map((city) => (
-                  <Link
-                    key={city.slug}
-                    href={`/directory?city=${encodeURIComponent(city.name)}`}
-                    onClick={onClose}
-                    className="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-[#F0F7FF] border border-slate-200 text-xs font-bold text-slate-700 hover:text-[#002D62] transition flex items-center gap-1.5"
-                  >
-                    <span>🍁</span>
-                    <span>{city.name}, {city.province}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Businesses matches */}
-          {results.businesses.length > 0 && (
-            <div className="space-y-1.5">
-              <p className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-2">
-                Business Listings
-              </p>
-              <div className="space-y-1">
-                {results.businesses.map((b) => (
-                  <Link
-                    key={b.slug}
-                    href={`/directory/${b.slug}`}
-                    onClick={onClose}
-                    className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-[#F0F7FF] border border-slate-100 hover:border-[#002D62] transition group shadow-xs"
-                  >
-                    <div className="min-w-0 pr-3">
-                      <div className="flex items-center gap-2">
-                        <span className="font-outfit font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#002D62] truncate">
-                          {b.name}
-                        </span>
-                        {b.tamilName && (
-                          <span className="tamil text-xs font-semibold text-[#E00624] shrink-0">
-                            {b.tamilName}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-[11px] text-slate-500 truncate mt-0.5">
-                        {b.categoryName} · {b.city}, {b.province}
-                      </p>
-                    </div>
-                    <span className="text-xs font-bold text-[#002D62] shrink-0 opacity-0 group-hover:opacity-100 transition">
-                      View →
+                    <span className="text-[10px] text-slate-400 font-medium">
+                      {c.region}
                     </span>
                   </Link>
                 ))}
@@ -246,19 +209,11 @@ export default function QuickSearchModal({
           )}
         </div>
 
-        {/* Footer info */}
-        {query && hasResults && (
-          <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>Press <strong>Enter</strong> to view all results in Directory</span>
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className="text-xs font-extrabold text-[#002D62] hover:text-[#E00624] transition"
-            >
-              See all results →
-            </button>
-          </div>
-        )}
+        {/* Footer */}
+        <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+          <span>Tip: Press <kbd className="font-bold bg-white px-1.5 py-0.5 rounded border border-slate-200">Enter</kbd> to search everything</span>
+          <span className="font-semibold text-[#002D62]">Canada-wide Tamil directory</span>
+        </div>
       </div>
     </div>
   );

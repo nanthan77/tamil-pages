@@ -18,10 +18,21 @@ export async function generateMetadata({
   const { slug } = await params;
   const evt = getEventBySlug(slug);
   if (!evt) return { title: "Event Not Found" };
+  const title = `${evt.title} · Community Event Entry (Source Check Pending)`;
+  const description =
+    "Community-submitted event entry awaiting source checks. Confirm all details with the organizer or venue.";
   return {
-    title: `${evt.title} · Community Event Entry (Source Check Pending)`,
-    description:
-      "Community-submitted event entry awaiting source checks. Confirm all details with the organizer or venue.",
+    title,
+    description,
+    alternates: { canonical: `/events/${evt.slug}` },
+    openGraph: {
+      type: "article",
+      url: `/events/${evt.slug}`,
+      title,
+      description,
+      siteName: "TamilPages Canada",
+      images: ["/og.png"],
+    },
     robots: { index: false, follow: true },
   };
 }

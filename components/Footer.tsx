@@ -190,7 +190,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/add-business" className="text-emerald-400 hover:text-emerald-300 font-bold transition flex items-center gap-1.5">
-                  <span>+</span> Post Business Free
+                  <span>🔒</span> Submission Status
                 </Link>
               </li>
               <li>

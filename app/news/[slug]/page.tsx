@@ -14,10 +14,21 @@ export async function generateMetadata({
   const { slug } = await params;
   const article = getNewsBySlug(slug);
   if (!article) return { title: "Article Not Found" };
+  const title = `${article.title} · Community Story (Source Check Pending)`;
+  const description =
+    "Community-submitted story awaiting source checks. Confirm important claims with a relevant primary source.";
   return {
-    title: `${article.title} · Community Story (Source Check Pending)`,
-    description:
-      "Community-submitted story awaiting source checks. Confirm important claims with a relevant primary source.",
+    title,
+    description,
+    alternates: { canonical: `/news/${article.slug}` },
+    openGraph: {
+      type: "article",
+      url: `/news/${article.slug}`,
+      title,
+      description,
+      siteName: "TamilPages Canada",
+      images: ["/og.png"],
+    },
     robots: { index: false, follow: true },
   };
 }

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Tamil Cinema & Theatre Links in Canada",
   description:
     "Browse Canadian cinema links for Tamil films and confirm current showtimes, tickets, and venue details directly with each cinema.",
+  alternates: { canonical: "/cinema" },
+  openGraph: { url: "/cinema" },
   keywords: [
     "Tamil movies Canada",
     "Woodside Cinemas",

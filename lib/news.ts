@@ -33,7 +33,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     summary:
       "From Parliament Hill in Ottawa to municipal halls in Toronto, Scarborough, Markham, Montreal, and Vancouver, Canadians mark Tamil Heritage Month with cultural showcases, historical exhibits, and community banquets.",
     content: [
-      "January marks official Tamil Heritage Month across Canada, commemorating the rich history, vibrant culture, literature, and enduring economic contributions of over 300,000 Tamil Canadians.",
+      "January marks Tamil Heritage Month across Canada, recognizing Tamil history, culture, literature, and community contributions.",
       "In Toronto and Scarborough, community celebrations kicked off with the raising of the traditional Tamil cultural flag at City Hall and the Scarborough Civic Centre, attended by provincial and federal representatives, municipal leaders, and community elders.",
       "Cultural organizations, including the Canadian Tamil Congress (CTC), Tamil Cultural Association of Waterloo, and Montreal Tamil Sangam, have organized classical music concerts, Bharatanatyam showcases, Tamil poetry recitals, and academic symposiums exploring the preservation of Tamil language in second- and third-generation Canadian youth.",
       "The month-long celebrations also emphasize philanthropic initiatives, including food bank drives, winter clothing collections for new immigrant families, and blood donation drives organized in partnership with Canadian Blood Services.",

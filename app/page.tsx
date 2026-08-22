@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import BusinessCard from "@/components/BusinessCard";
 import Faq from "@/components/Faq";
@@ -7,6 +8,10 @@ import { CITIES } from "@/lib/cities";
 import { countByCategory, countByCity, getAllBusinesses } from "@/lib/store";
 import { getAllTemples } from "@/lib/temples";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { url: "/" },
+};
 
 export default function HomePage() {
   const catCounts = countByCategory();
@@ -133,8 +138,8 @@ export default function HomePage() {
         <div className="rounded-3xl border border-[#CBD5E1] bg-white p-5 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <p className="text-[11px] font-black uppercase tracking-widest text-[#E00624]">For owners</p>
-            <p className="font-outfit font-extrabold text-[#0F172A]">Listing is free. Pay only to get more calls.</p>
-            <p className="text-xs text-[#64748B] mt-1">Boost $49 · Deals $39 · Jobs $49 · Featured $29/mo · Ads from $149/mo</p>
+            <p className="font-outfit font-extrabold text-[#0F172A]">Online listing submissions are paused during the security upgrade.</p>
+            <p className="text-xs text-[#64748B] mt-1">Paid product enquiries continue through direct WhatsApp contact; online submissions will return after the security review.</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <Link href="/boost" className="btn-primary rounded-xl px-4 py-2 text-xs font-black">
