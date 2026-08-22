@@ -128,7 +128,7 @@ export default function BusinessClaimForm({
             ← Back to Business Profile
           </Link>
           <a
-            href={`https://wa.me/14162982228?text=${encodeURIComponent(`Hi TamilPages, I just claimed ${businessName} (${slug}). Please verify my listing.`)}`}
+            href={`https://wa.me/14162982228?text=${encodeURIComponent(`Hi TamilCanadianPages, I just claimed ${businessName} (${slug}). Please verify my listing.`)}`}
             target="_blank"
             rel="noreferrer"
             className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-black flex items-center justify-center gap-1.5 shadow transition"

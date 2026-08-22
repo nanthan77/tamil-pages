@@ -92,7 +92,7 @@ export default async function NewsArticlePage({
             </div>
             <div>
               <p className="font-bold text-[#0F172A]">{article.author}</p>
-              <p className="text-[11px] text-[#64748B]">tamilpages.ca Canadian Editorial Desk</p>
+              <p className="text-[11px] text-[#64748B]">tamilcanadianpages.ca Canadian Editorial Desk</p>
             </div>
           </div>
         </div>

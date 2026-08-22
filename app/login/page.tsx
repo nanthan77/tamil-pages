@@ -18,7 +18,7 @@ export default async function LoginPage() {
             🍁
           </div>
           <h1 className="font-outfit font-extrabold text-2xl text-[#0F172A]">Vendor Sign In</h1>
-          <p className="text-xs text-[#64748B]">Manage your free TamilPages listings across Canada.</p>
+          <p className="text-xs text-[#64748B]">Manage your free TamilCanadianPages listings across Canada.</p>
         </div>
 
         <AuthForm mode="login" />

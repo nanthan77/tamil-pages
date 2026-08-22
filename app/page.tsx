@@ -182,7 +182,7 @@ export default function HomePage() {
                   🍁
                 </div>
                 <div>
-                  <h3 className="font-outfit font-black text-2xl text-[#002D62]">tamilpages.ca</h3>
+                  <h3 className="font-outfit font-black text-2xl text-[#002D62]">tamilcanadianpages.ca</h3>
                   <p className="text-xs text-[#E00624] font-bold uppercase tracking-wider">
                     Canada Tamil Super-Portal
                   </p>

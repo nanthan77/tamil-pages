@@ -285,7 +285,7 @@ export default function Footer() {
           <ul className="space-y-2 text-xs text-slate-300">
             <li>
               <Link href="/about" className="hover:text-white transition block">
-                About tamilpages.ca
+                About tamilcanadianpages.ca
               </Link>
             </li>
             <li>
@@ -347,7 +347,7 @@ export default function Footer() {
 
         {/* Exact Mandated Copyright Line */}
         <div className="text-slate-200 text-sm font-semibold pt-1">
-          © 2026 tamilpages.ca · The Canada Tamil Community Directory · Built with ❤️ for Canadian Tamils
+          © 2026 tamilcanadianpages.ca · The Canada Tamil Community Directory · Built with ❤️ for Canadian Tamils
         </div>
 
         {/* Exact Mandated Powered By SafeNet Creations Line */}

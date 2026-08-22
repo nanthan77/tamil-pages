@@ -27,7 +27,7 @@ export default async function Header() {
               <div className="flex flex-col justify-center">
                 <div className="flex items-center gap-1">
                   <span className="font-outfit font-black text-lg sm:text-2xl tracking-tight leading-none text-white">
-                    tamilpages<span className="text-[#E00624] bg-white px-1 py-0.5 rounded-md ml-0.5 text-[10px] sm:text-xs font-black">.ca</span>
+                    tamilcanadianpages<span className="text-[#E00624] bg-white px-1 py-0.5 rounded-md ml-0.5 text-[10px] sm:text-xs font-black">.ca</span>
                   </span>
                 </div>
                 <span className="text-[9px] sm:text-[10px] text-white/80 font-semibold tracking-wider uppercase mt-0.5 hidden sm:block">

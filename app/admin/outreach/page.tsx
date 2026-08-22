@@ -41,12 +41,12 @@ function cleanPhone(p: string) {
 }
 
 function getMessage(name: string, city: string, category: string, slug: string) {
-  const claimUrl = `https://tamil-pages-961fd.web.app/claim/${slug}`;
-  const profileUrl = `https://tamil-pages-961fd.web.app/directory/${slug}`;
+  const claimUrl = `https://tamilcanadianpages.ca/claim/${slug}`;
+  const profileUrl = `https://tamilcanadianpages.ca/directory/${slug}`;
 
   return `வணக்கம் ${name}! 🍁
 
-Your business profile is featured on TamilPages.ca — Canada's #1 Tamil Community Directory.
+Your business profile is featured on TamilCanadianPages.ca — Canada's #1 Tamil Community Directory.
 
 Over 40+ people in ${city} searched for ${category.replace(/-/g, " ")} this week.
 
@@ -95,8 +95,8 @@ export default function AdminOutreachPage() {
       const msg = getMessage(b.name, b.city, b.category, b.slug);
       const waLink = `https://wa.me/${waPhone}?text=${encodeURIComponent(msg)}`;
       const smsLink = `sms:+${waPhone}?body=${encodeURIComponent(msg)}`;
-      const claimUrl = `https://tamil-pages-961fd.web.app/claim/${b.slug}`;
-      const profileUrl = `https://tamil-pages-961fd.web.app/directory/${b.slug}`;
+      const claimUrl = `https://tamilcanadianpages.ca/claim/${b.slug}`;
+      const profileUrl = `https://tamilcanadianpages.ca/directory/${b.slug}`;
 
       return [
         {
@@ -465,7 +465,7 @@ export default function AdminOutreachPage() {
                         <>
                           <span>·</span>
                           <a
-                            href={`mailto:${r.email}?subject=${encodeURIComponent(`TamilPages.ca: Claim your verified listing for ${r.name}`)}&body=${encodeURIComponent(r.message)}`}
+                            href={`mailto:${r.email}?subject=${encodeURIComponent(`TamilCanadianPages.ca: Claim your verified listing for ${r.name}`)}&body=${encodeURIComponent(r.message)}`}
                             className="font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded hover:underline flex items-center gap-1"
                           >
                             <span>✉️</span>
@@ -602,7 +602,7 @@ export default function AdminOutreachPage() {
                     {/* 2.5 Email Direct Dispatch */}
                     {r.email && (
                       <a
-                        href={`mailto:${r.email}?subject=${encodeURIComponent(`TamilPages.ca: Claim your verified listing for ${r.name}`)}&body=${encodeURIComponent(r.message)}`}
+                        href={`mailto:${r.email}?subject=${encodeURIComponent(`TamilCanadianPages.ca: Claim your verified listing for ${r.name}`)}&body=${encodeURIComponent(r.message)}`}
                         className="px-3 py-2 rounded-xl text-xs font-black bg-indigo-600 hover:bg-indigo-700 text-white flex items-center gap-1.5 shadow-xs transition"
                         title={`Send Direct Email to ${r.email}`}
                       >
@@ -717,7 +717,7 @@ export default function AdminOutreachPage() {
                 🗣️ தமிழ் உரையாடல் (Tamil Script):
               </span>
               <p className="tamil text-sm leading-relaxed font-semibold">
-                &quot;வணக்கம் அண்ணா / அக்கா! நான் <strong>TamilPages.ca</strong> (கனடா தமிழ் அடைவு) லிருந்து அழைக்கிறேன்.
+                &quot;வணக்கம் அண்ணா / அக்கா! நான் <strong>TamilCanadianPages.ca</strong> (கனடா தமிழ் அடைவு) லிருந்து அழைக்கிறேன்.
                 உங்கள் <strong>{activeCallBiz?.name || "கடையின் பெயர்"}</strong> விவரங்கள் எங்கள் இணையதளத்தில் பதிவு செய்யப்பட்டுள்ளது.
               </p>
               <p className="tamil text-sm leading-relaxed">
@@ -731,7 +731,7 @@ export default function AdminOutreachPage() {
                 🗣️ English Script:
               </span>
               <p className="text-xs leading-relaxed font-semibold">
-                &quot;Hello! I&apos;m calling from <strong>TamilPages.ca</strong>, Canada&apos;s Tamil Business Directory.
+                &quot;Hello! I&apos;m calling from <strong>TamilCanadianPages.ca</strong>, Canada&apos;s Tamil Business Directory.
                 We have your business profile for <strong>{activeCallBiz?.name || "your shop"}</strong> in {activeCallBiz?.city || "your area"}.
               </p>
               <p className="text-xs leading-relaxed">

@@ -5,7 +5,7 @@ import { AD_RATES } from "@/lib/site";
 export const metadata = {
   title: "Advertise — paid placements",
   description:
-    "Paid ads on tamilpages.ca: search strips, city sponsors, and category spotlights. Listings are free. Advertising is paid.",
+    "Paid ads on tamilcanadianpages.ca: search strips, city sponsors, and category spotlights. Listings are free. Advertising is paid.",
 };
 
 export default function AdvertisePage() {
@@ -16,7 +16,7 @@ export default function AdvertisePage() {
           <span>🍁</span> Paid advertising
         </div>
         <h1 className="font-outfit font-extrabold text-3xl text-[#0F172A]">
-          Advertise on tamilpages.ca
+          Advertise on tamilcanadianpages.ca
         </h1>
         <p className="text-[#64748B] text-sm leading-relaxed">
           A basic listing is free. Ads are not. Buy the top of a city or category page — same

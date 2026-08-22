@@ -1,6 +1,6 @@
-export const SITE_NAME = "tamilpages.ca";
+export const SITE_NAME = "tamilcanadianpages.ca";
 export const SITE_TAGLINE = "Canada’s Tamil Business Directory";
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://tamilpages.ca").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://tamilcanadianpages.ca").replace(/\/$/, "");
 
 /** Only a basic listing is free for the first year. Ads and Featured are paid. */
 export const FREE_LISTING_UNTIL = new Date("2027-08-16T23:59:59-04:00");

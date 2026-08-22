@@ -111,7 +111,7 @@ export default function MasterAdminPage() {
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl">🍁</span>
-              <span className="font-outfit font-black text-lg tracking-tight">TamilPages</span>
+              <span className="font-outfit font-black text-lg tracking-tight">TamilCanadianPages</span>
             </Link>
             <span className="text-white/40 font-light">|</span>
             <span className="text-xs font-black uppercase tracking-wider bg-amber-400 text-slate-900 px-2.5 py-0.5 rounded-md">
@@ -471,7 +471,7 @@ export default function MasterAdminPage() {
                             <div className="flex items-center gap-1.5">
                               {ld.phone && (
                                 <a
-                                  href={`https://wa.me/${ld.phone}?text=${encodeURIComponent(`Hi ${ld.name}, regarding your inquiry on TamilPages.ca:`)}`}
+                                  href={`https://wa.me/${ld.phone}?text=${encodeURIComponent(`Hi ${ld.name}, regarding your inquiry on TamilCanadianPages.ca:`)}`}
                                   target="_blank"
                                   rel="noreferrer"
                                   className="px-2.5 py-1 rounded-lg bg-[#25D366] text-white text-[10px] font-bold"
@@ -481,7 +481,7 @@ export default function MasterAdminPage() {
                               )}
                               {ld.email && (
                                 <a
-                                  href={`mailto:${ld.email}?subject=TamilPages Inquiry Reply`}
+                                  href={`mailto:${ld.email}?subject=TamilCanadianPages Inquiry Reply`}
                                   className="px-2.5 py-1 rounded-lg bg-indigo-600 text-white text-[10px] font-bold"
                                 >
                                   Email
@@ -599,7 +599,7 @@ export default function MasterAdminPage() {
                   <div className="flex items-center gap-2 shrink-0">
                     <button
                       type="button"
-                      onClick={() => copyToClipboard(`https://tamil-pages-961fd.web.app/claim/${b.slug}`, b.id + "-claim")}
+                      onClick={() => copyToClipboard(`https://tamilcanadianpages.ca/claim/${b.slug}`, b.id + "-claim")}
                       className="px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:bg-slate-100 cursor-pointer"
                       title="Copy Claim URL"
                     >
@@ -746,7 +746,7 @@ export default function MasterAdminPage() {
                   1. Tamil Script (வணக்கம் - 30 வினாடி):
                 </span>
                 <p className="tamil text-slate-800 font-semibold text-xs leading-relaxed">
-                  &quot;வணக்கம் அண்ணா/அக்கா, நாங்க <strong>TamilPages.ca</strong> (கனடிய தமிழ் யெல்லோ பேஜஸ்) இருந்து கூப்பிடுறோம். உங்க கடை/பிசினஸ் ப்ரொபைல் எங்க கனடா டைரக்டரில போட்டிருக்கோம். உங்க வாட்ஸ்அப் நம்பர் மற்றும் திறந்திருக்கும் நேரத்தை சரிபார்த்து இலவசமா வெரிஃபை பண்ணிக்கலாம். உங்க வாட்ஸ்அப் நம்பருக்கு லிங்க் அனுப்பவா?&quot;
+                  &quot;வணக்கம் அண்ணா/அக்கா, நாங்க <strong>TamilCanadianPages.ca</strong> (கனடிய தமிழ் யெல்லோ பேஜஸ்) இருந்து கூப்பிடுறோம். உங்க கடை/பிசினஸ் ப்ரொபைல் எங்க கனடா டைரக்டரில போட்டிருக்கோம். உங்க வாட்ஸ்அப் நம்பர் மற்றும் திறந்திருக்கும் நேரத்தை சரிபார்த்து இலவசமா வெரிஃபை பண்ணிக்கலாம். உங்க வாட்ஸ்அப் நம்பருக்கு லிங்க் அனுப்பவா?&quot;
                 </p>
               </div>
 
@@ -755,7 +755,7 @@ export default function MasterAdminPage() {
                   2. English Script:
                 </span>
                 <p className="text-slate-800 font-medium">
-                  &quot;Hi, I&apos;m calling from <strong>TamilPages.ca</strong>, the Canadian Tamil business directory. We have listed your business on our platform and want to verify your WhatsApp number and opening hours so local customers can reach you directly. Can I text you the free claim link?&quot;
+                  &quot;Hi, I&apos;m calling from <strong>TamilCanadianPages.ca</strong>, the Canadian Tamil business directory. We have listed your business on our platform and want to verify your WhatsApp number and opening hours so local customers can reach you directly. Can I text you the free claim link?&quot;
                 </p>
               </div>
             </div>

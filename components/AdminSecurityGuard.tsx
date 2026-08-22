@@ -9,7 +9,7 @@ interface AdminSecurityGuardProps {
 
 const ADMIN_CREDENTIALS = [
   { user: "admin", pass: "tamiladmin2026" },
-  { user: "admin@tamilpages.ca", pass: "tamiladmin2026" },
+  { user: "admin@tamilcanadianpages.ca", pass: "tamiladmin2026" },
   { user: "nanthan", pass: "tamiladmin2026" },
   { user: "admin", pass: "tamilpages2026" },
 ];
@@ -102,7 +102,7 @@ export default function AdminSecurityGuard({ children }: AdminSecurityGuardProps
               Protected Admin Portal
             </div>
             <h1 className="font-outfit font-black text-2xl text-[#0F172A]">
-              TamilPages Admin Login
+              TamilCanadianPages Admin Login
             </h1>
             <p className="text-xs text-slate-500 leading-relaxed">
               Restricted area. Please sign in with your administrative credentials to manage directory listings and CRM leads.
@@ -120,7 +120,7 @@ export default function AdminSecurityGuard({ children }: AdminSecurityGuardProps
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="e.g. admin or admin@tamilpages.ca"
+                placeholder="e.g. admin or admin@tamilcanadianpages.ca"
                 className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-300 text-xs font-bold text-slate-900 outline-none focus:bg-white focus:ring-2 focus:ring-[#002D62] transition"
               />
             </div>
@@ -172,7 +172,7 @@ export default function AdminSecurityGuard({ children }: AdminSecurityGuardProps
               href="/"
               className="text-xs font-bold text-slate-400 hover:text-[#002D62] transition"
             >
-              ← Return to TamilPages Public Directory
+              ← Return to TamilCanadianPages Public Directory
             </Link>
           </div>
         </div>

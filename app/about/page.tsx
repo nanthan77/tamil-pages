@@ -13,7 +13,7 @@ export default function AboutPage() {
         </div>
 
         <h1 className="font-outfit font-extrabold text-3xl sm:text-4xl text-[#0F172A]">
-          About tamilpages.ca
+          About tamilcanadianpages.ca
         </h1>
 
         <p className="tamil text-[#B0041B] font-semibold text-lg">
@@ -22,7 +22,7 @@ export default function AboutPage() {
 
         <div className="space-y-4 text-[#475569] text-sm sm:text-base leading-relaxed">
           <p>
-            <strong>tamilpages.ca</strong> is the digital Yellow-Pages-style community directory built specifically for the Tamil diaspora living across Canada.
+            <strong>tamilcanadianpages.ca</strong> is the digital Yellow-Pages-style community directory built specifically for the Tamil diaspora living across Canada.
           </p>
           <p>
             Our nationwide directory spans the vibrant Tamil cultural and commercial hubs of <strong>Scarborough, Markham, Toronto, Brampton, Mississauga, Ajax, Pickering, and Whitby</strong> in Ontario, to <strong>Montreal and Laval</strong> in Quebec, <strong>Vancouver, Surrey, and Burnaby</strong> in British Columbia, <strong>Calgary and Edmonton</strong> in Alberta, <strong>Winnipeg</strong> in Manitoba, and <strong>Halifax</strong> in Atlantic Canada.
