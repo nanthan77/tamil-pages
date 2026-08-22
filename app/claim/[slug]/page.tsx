@@ -17,11 +17,7 @@ export default async function ClaimPage({ params }: { params: Promise<{ slug: st
         <div className="h-2 w-full bg-gradient-to-r from-[#E00624] via-[#002D62] to-[#25D366] absolute top-0 left-0 right-0" />
 
         <div className="flex items-center justify-between gap-3 flex-wrap">
-          <img
-            src="/logo-dark.png"
-            alt="tamilcanadianpages.ca"
-            className="h-8 object-contain"
-          />
+          <img src="/logo-dark.png" alt="tamilcanadianpages.ca" width="240" height="40" className="h-8 object-contain" />
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F7FF] text-[#002D62] border border-[#CCE3F8] text-[11px] font-black uppercase tracking-wider">
             <span>🍁</span> Free Verification &amp; Claim
           </div>

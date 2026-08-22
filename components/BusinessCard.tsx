@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getCategory } from "@/lib/categories";
 import type { Business } from "@/lib/types";
 import { initials, mapsLink, telLink, whatsappLink } from "@/lib/utils";
+import { WhatsAppIcon } from "@/components/Icons";
 
 export default function BusinessCard(props: {
   biz?: Business;
@@ -103,7 +104,7 @@ export default function BusinessCard(props: {
               className="p-1.5 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 text-xs font-bold transition flex items-center gap-1"
               title="WhatsApp"
             >
-              <i className="fa-brands fa-whatsapp text-sm" />
+              <WhatsAppIcon className="w-3.5 h-3.5" />
             </a>
           )}
           <a

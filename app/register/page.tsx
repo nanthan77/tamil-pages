@@ -14,11 +14,7 @@ export default async function RegisterPage() {
         <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62] absolute top-0 left-0 right-0" />
 
         <div className="text-center space-y-2 pt-2">
-          <img
-            src="/logo-dark.png"
-            alt="tamilcanadianpages.ca"
-            className="h-10 mx-auto object-contain"
-          />
+          <img src="/logo-dark.png" alt="tamilcanadianpages.ca" width="240" height="40" className="h-10 mx-auto object-contain" />
           <h1 className="font-outfit font-extrabold text-2xl text-[#0F172A] mt-2">
             List Your Business Free
           </h1>

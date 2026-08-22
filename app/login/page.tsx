@@ -14,11 +14,7 @@ export default async function LoginPage() {
         <div className="h-1.5 w-full bg-gradient-to-r from-[#E00624] via-white to-[#002D62] absolute top-0 left-0 right-0" />
         
         <div className="text-center space-y-2 pt-2">
-          <img
-            src="/logo-dark.png"
-            alt="tamilcanadianpages.ca"
-            className="h-10 mx-auto object-contain"
-          />
+          <img src="/logo-dark.png" alt="tamilcanadianpages.ca" width="240" height="40" className="h-10 mx-auto object-contain" />
           <h1 className="font-outfit font-extrabold text-2xl text-[#0F172A]">Vendor Sign In</h1>
           <p className="text-xs text-[#64748B]">Manage your free TamilCanadianPages listings across Canada.</p>
         </div>

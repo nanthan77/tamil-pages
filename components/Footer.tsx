@@ -1,5 +1,7 @@
 "use client";
 
+import { WhatsAppIcon, FacebookIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
+
 import Link from "next/link";
 
 export default function Footer() {
@@ -14,11 +16,7 @@ export default function Footer() {
           {/* Col 1: Brand & Mission (Spans 2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center group py-1">
-              <img
-                src="/logo-white.png"
-                alt="tamilcanadianpages.ca"
-                className="h-8 sm:h-9 w-auto object-contain transition group-hover:scale-[1.02]"
-              />
+              <img src="/logo-white.png" alt="tamilcanadianpages.ca" width="220" height="36" className="h-8 sm:h-9 w-auto object-contain transition group-hover:scale-[1.02]" />
             </Link>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
@@ -40,7 +38,7 @@ export default function Footer() {
                 className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-[#25D366] hover:border-[#25D366] transition flex items-center justify-center text-xs"
                 title="WhatsApp"
               >
-                <i className="fa-brands fa-whatsapp" />
+                <WhatsAppIcon className="w-4 h-4" />
               </a>
               <a
                 href="https://facebook.com"
@@ -49,7 +47,7 @@ export default function Footer() {
                 className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition flex items-center justify-center text-xs"
                 title="Facebook"
               >
-                <i className="fa-brands fa-facebook" />
+                <FacebookIcon className="w-4 h-4" />
               </a>
               <a
                 href="https://instagram.com"
@@ -58,7 +56,7 @@ export default function Footer() {
                 className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-[#E4405F] hover:border-[#E4405F] transition flex items-center justify-center text-xs"
                 title="Instagram"
               >
-                <i className="fa-brands fa-instagram" />
+                <InstagramIcon className="w-4 h-4" />
               </a>
               <a
                 href="https://youtube.com"
@@ -67,7 +65,7 @@ export default function Footer() {
                 className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-[#FF0000] hover:border-[#FF0000] transition flex items-center justify-center text-xs"
                 title="YouTube"
               >
-                <i className="fa-brands fa-youtube" />
+                <YouTubeIcon className="w-4 h-4" />
               </a>
               <a
                 href="https://linkedin.com"

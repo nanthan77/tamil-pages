@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { WhatsAppIcon, FacebookIcon, TwitterIcon, LinkedInIcon } from "@/components/Icons";
 
 interface BusinessShareBarProps {
   url: string;
@@ -46,7 +47,7 @@ export default function BusinessShareBar({
           className="px-3 py-1.5 rounded-xl bg-[#25D366] text-white text-xs font-bold hover:bg-[#1EBE5D] transition flex items-center gap-1.5 shadow-xs"
           title="Share via WhatsApp"
         >
-          <i className="fa-brands fa-whatsapp text-sm" />
+          <WhatsAppIcon className="w-3.5 h-3.5" />
           <span>WhatsApp</span>
         </a>
 
@@ -58,7 +59,7 @@ export default function BusinessShareBar({
           className="px-3 py-1.5 rounded-xl bg-[#1877F2] text-white text-xs font-bold hover:bg-[#0C63D4] transition flex items-center gap-1.5 shadow-xs"
           title="Share on Facebook"
         >
-          <i className="fa-brands fa-facebook text-sm" />
+          <FacebookIcon className="w-3.5 h-3.5" />
           <span>Facebook</span>
         </a>
 
@@ -70,7 +71,7 @@ export default function BusinessShareBar({
           className="px-3 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition flex items-center gap-1.5 shadow-xs"
           title="Share on X"
         >
-          <i className="fa-brands fa-x-twitter text-sm" />
+          <TwitterIcon className="w-3.5 h-3.5" />
           <span>X / Tweet</span>
         </a>
 
@@ -82,7 +83,7 @@ export default function BusinessShareBar({
           className="px-3 py-1.5 rounded-xl bg-[#0A66C2] text-white text-xs font-bold hover:bg-[#084E96] transition flex items-center gap-1.5 shadow-xs"
           title="Share on LinkedIn"
         >
-          <i className="fa-brands fa-linkedin text-sm" />
+          <LinkedInIcon className="w-3.5 h-3.5" />
           <span>LinkedIn</span>
         </a>
 

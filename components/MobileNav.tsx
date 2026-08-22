@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { MenuIcon, CloseIcon } from "@/components/Icons";
 
 export default function MobileNav({ loggedIn }: { loggedIn: boolean }) {
   const [open, setOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function MobileNav({ loggedIn }: { loggedIn: boolean }) {
         onClick={() => setOpen((v) => !v)}
         className="w-10 h-10 rounded-xl border border-white/25 bg-white/10 text-white flex items-center justify-center transition hover:bg-white/20 cursor-pointer"
       >
-        <i className={`fa-solid ${open ? "fa-xmark text-lg" : "fa-bars"}`} />
+        {open ? <CloseIcon className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
       </button>
       {open && (
         <div className="absolute left-0 right-0 top-[4.5rem] bg-[#002D62] border-b-2 border-[#E00624] p-5 space-y-3 shadow-2xl z-50 text-sm">

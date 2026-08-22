@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CATEGORIES } from "@/lib/categories";
 import { CITIES } from "@/lib/cities";
-import { autocomplete } from "@/lib/store";
 import type { AutocompleteResult } from "@/lib/search";
 
 export default function SearchForm({
@@ -45,41 +44,55 @@ export default function SearchForm({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Instant in-memory search autocomplete
+  // Lightweight Instant Category & City Search in Client JS (Avoids bundling 3MB DB)
   useEffect(() => {
-    if (!searchTerm.trim()) {
+    const trimmed = searchTerm.trim().toLowerCase();
+    if (!trimmed || trimmed.length < 2) {
       setSuggestions({ businesses: [], categories: [], cities: [] });
       return;
     }
-    const res = autocomplete(searchTerm.trim(), 5);
-    setSuggestions(res);
-    setIsOpen(true);
+
+    const matchedCats = CATEGORIES.filter(
+      (c) =>
+        c.name.toLowerCase().includes(trimmed) ||
+        (c.tamil && c.tamil.includes(trimmed)) ||
+        c.slug.includes(trimmed)
+    ).slice(0, 4);
+
+    const matchedCities = CITIES.filter(
+      (c) =>
+        c.name.toLowerCase().includes(trimmed) ||
+        c.slug.toLowerCase().includes(trimmed)
+    ).slice(0, 4);
+
+    setSuggestions({
+      businesses: [],
+      categories: matchedCats,
+      cities: matchedCities,
+    });
+    setIsOpen(matchedCats.length > 0 || matchedCities.length > 0);
   }, [searchTerm]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsOpen(false);
-    const p = new URLSearchParams();
-    if (searchTerm.trim()) p.set("q", searchTerm.trim());
-    if (selectedCategory) p.set("category", selectedCategory);
-    if (selectedCity) p.set("city", selectedCity);
-    if (province) p.set("province", province);
-    router.push(`/directory?${p.toString()}`);
-  };
+    const params = new URLSearchParams();
+    if (searchTerm.trim()) params.set("q", searchTerm.trim());
+    if (selectedCategory) params.set("category", selectedCategory);
+    if (selectedCity) params.set("city", selectedCity);
+    if (province) params.set("province", province);
 
-  // Group cities by region
-  const gtaCities = CITIES.filter(
-    (c) =>
-      c.region === "Greater Toronto Area" ||
-      c.region === "Durham Region" ||
-      c.region === "York Region" ||
-      c.region === "Halton Region"
-  );
-  const onCities = CITIES.filter((c) => c.province === "ON" && !gtaCities.includes(c));
-  const bcCities = CITIES.filter((c) => c.province === "BC");
-  const qcCities = CITIES.filter((c) => c.province === "QC");
-  const abCities = CITIES.filter((c) => ["AB", "MB", "SK"].includes(c.province));
-  const atlCities = CITIES.filter((c) => ["NS", "NL", "NB", "PE"].includes(c.province));
+    // Direct routing for SEO friendly category / city combos
+    if (!searchTerm.trim() && selectedCity && selectedCategory) {
+      router.push(`/c/${selectedCity}/${selectedCategory}`);
+    } else if (!searchTerm.trim() && selectedCity) {
+      router.push(`/c/${selectedCity}`);
+    } else if (!searchTerm.trim() && selectedCategory) {
+      router.push(`/category/${selectedCategory}`);
+    } else {
+      router.push(`/directory?${params.toString()}`);
+    }
+  };
 
   const hasSuggestions =
     suggestions.businesses.length > 0 ||
@@ -90,242 +103,134 @@ export default function SearchForm({
     <div className="relative w-full" ref={dropdownRef}>
       <form
         onSubmit={handleSubmit}
-        className={`grid gap-3 ${
-          large ? "md:grid-cols-[1.4fr_1.1fr_1.1fr_auto]" : "md:grid-cols-[1.3fr_1.1fr_1.1fr_auto]"
-        } bg-white border-2 border-[#CBD5E1] hover:border-[#002D62] focus-within:border-[#002D62] rounded-3xl p-3 sm:p-4 shadow-card transition duration-200`}
+        className={`bg-white rounded-2xl shadow-xl border border-slate-200 p-2 flex flex-col md:flex-row items-stretch gap-2 transition-all duration-200 ${
+          large ? "p-3 sm:p-4 rounded-3xl shadow-2xl" : ""
+        }`}
       >
-        {province && <input type="hidden" name="province" value={province} />}
-
-        {/* Query Input with live suggestion trigger */}
-        <div className="space-y-1 relative">
-          <label className="text-[10px] font-extrabold uppercase tracking-widest text-[#002D62] flex items-center justify-between px-1">
-            <span className="flex items-center gap-1"><span>🔍</span> Keyword / Tamil Term</span>
-          </label>
-          <div className="relative">
-            <input
-              type="text"
-              name="q"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onFocus={() => {
-                if (searchTerm.trim() && hasSuggestions) setIsOpen(true);
-              }}
-              placeholder="e.g. Hopper, kothu, lawyer, dentist, kovil, saree…"
-              autoComplete="off"
-              className="w-full rounded-2xl border border-[#CBD5E1] bg-[#F8FAFC] px-3.5 py-2.5 text-sm text-[#0F172A] outline-none transition focus:bg-white pr-8"
-            />
-            {searchTerm && (
-              <button
-                type="button"
-                onClick={() => {
-                  setSearchTerm("");
-                  setIsOpen(false);
-                }}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs p-1"
-              >
-                ✕
-              </button>
-            )}
-          </div>
+        {/* Search Query Input */}
+        <div className="flex-1 relative flex items-center min-w-0">
+          <span className="absolute left-3.5 text-slate-400 text-sm">🔍</span>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onFocus={() => {
+              if (hasSuggestions) setIsOpen(true);
+            }}
+            placeholder="Search Tamil businesses, doctors, lawyers, kovils…"
+            aria-label="Search Tamil businesses by name, service or keyword"
+            className="w-full pl-10 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-slate-900 bg-transparent placeholder-slate-400 rounded-xl outline-none focus:bg-slate-50 transition"
+          />
+          {searchTerm && (
+            <button
+              type="button"
+              onClick={() => setSearchTerm("")}
+              className="absolute right-3 text-slate-400 hover:text-slate-600 text-xs font-bold"
+              aria-label="Clear search query"
+            >
+              ✕
+            </button>
+          )}
         </div>
 
-        {/* Category Selection */}
-        <div className="space-y-1">
-          <label className="text-[10px] font-extrabold uppercase tracking-widest text-[#002D62] flex items-center gap-1 px-1">
-            <span>🏷️</span> Category
-          </label>
+        {/* Category Select Dropdown */}
+        <div className="md:w-56 shrink-0 relative border-t md:border-t-0 md:border-l border-slate-100 pt-2 md:pt-0 md:pl-2">
           <select
-            name="category"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full rounded-2xl border border-[#CBD5E1] bg-[#F8FAFC] px-3 py-2.5 text-sm text-[#0F172A] outline-none transition focus:bg-white cursor-pointer"
+            aria-label="Filter by business category"
+            className="w-full py-2.5 sm:py-3 px-3 text-xs sm:text-sm font-medium text-slate-700 bg-slate-50 md:bg-transparent rounded-xl outline-none cursor-pointer focus:bg-slate-50 transition"
           >
-            <option value="">All Categories ({CATEGORIES.length})</option>
+            <option value="">All 22 Categories</option>
             {CATEGORIES.map((c) => (
               <option key={c.slug} value={c.slug}>
-                {c.name} ({c.tamil})
+                {c.name}
               </option>
             ))}
           </select>
         </div>
 
-        {/* City Selection */}
-        <div className="space-y-1">
-          <label className="text-[10px] font-extrabold uppercase tracking-widest text-[#002D62] flex items-center gap-1 px-1">
-            <span>🍁</span> Canadian City / Region
-          </label>
+        {/* City Select Dropdown */}
+        <div className="md:w-48 shrink-0 relative border-t md:border-t-0 md:border-l border-slate-100 pt-2 md:pt-0 md:pl-2">
           <select
-            name="city"
             value={selectedCity}
             onChange={(e) => setSelectedCity(e.target.value)}
-            className="w-full rounded-2xl border border-[#CBD5E1] bg-[#F8FAFC] px-3 py-2.5 text-sm text-[#0F172A] outline-none transition focus:bg-white cursor-pointer"
+            aria-label="Filter by Canadian city"
+            className="w-full py-2.5 sm:py-3 px-3 text-xs sm:text-sm font-medium text-slate-700 bg-slate-50 md:bg-transparent rounded-xl outline-none cursor-pointer focus:bg-slate-50 transition"
           >
-            <option value="">All Canada ({CITIES.length}+ Cities)</option>
-
-            <optgroup label="📍 Greater Toronto Area (GTA)">
-              {gtaCities.map((c) => (
-                <option key={c.slug} value={c.name}>
-                  {c.name}, {c.province}
-                </option>
-              ))}
-            </optgroup>
-
-            <optgroup label="📍 Ontario (Wider)">
-              {onCities.map((c) => (
-                <option key={c.slug} value={c.name}>
-                  {c.name}, {c.province}
-                </option>
-              ))}
-            </optgroup>
-
-            <optgroup label="📍 British Columbia (Metro Vancouver & BC)">
-              {bcCities.map((c) => (
-                <option key={c.slug} value={c.name}>
-                  {c.name}, {c.province}
-                </option>
-              ))}
-            </optgroup>
-
-            <optgroup label="📍 Quebec (Montreal & QC)">
-              {qcCities.map((c) => (
-                <option key={c.slug} value={c.name}>
-                  {c.name}, {c.province}
-                </option>
-              ))}
-            </optgroup>
-
-            <optgroup label="📍 Alberta & Prairies (AB, MB, SK)">
-              {abCities.map((c) => (
-                <option key={c.slug} value={c.name}>
-                  {c.name}, {c.province}
-                </option>
-              ))}
-            </optgroup>
-
-            <optgroup label="📍 Atlantic Canada (NS, NL, NB, PE)">
-              {atlCities.map((c) => (
-                <option key={c.slug} value={c.name}>
-                  {c.name}, {c.province}
-                </option>
-              ))}
-            </optgroup>
+            <option value="">All Canadian Cities</option>
+            {CITIES.map((c) => (
+              <option key={c.slug} value={c.slug}>
+                {c.name}, {c.province}
+              </option>
+            ))}
           </select>
         </div>
 
-        {/* Submit Button */}
-        <div className="flex items-end">
-          <button
-            type="submit"
-            className="btn-primary w-full md:w-auto px-6 py-2.5 rounded-2xl text-sm font-black flex items-center justify-center gap-2 cursor-pointer shadow-md"
-          >
-            <span>🔍</span>
-            <span>Search Canada</span>
-          </button>
-        </div>
+        {/* Submit Search Button */}
+        <button
+          type="submit"
+          className="btn-primary rounded-xl px-6 py-3 text-xs sm:text-sm font-black shrink-0 shadow-md flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02] transition"
+        >
+          <span>Find Services</span>
+          <span>→</span>
+        </button>
       </form>
 
-      {/* Instant Autocomplete Suggestions Popover */}
+      {/* Autocomplete Dropdown Panel */}
       {isOpen && hasSuggestions && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-3xl shadow-2xl border border-slate-200 p-4 z-50 space-y-3 animate-fadeIn">
-          {/* Category Suggestions */}
+        <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden divide-y divide-slate-100 max-h-96 overflow-y-auto animate-fadeIn">
+          {/* Categories */}
           {suggestions.categories.length > 0 && (
-            <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider">
+            <div className="p-3">
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block px-2 mb-1">
                 Categories
               </span>
-              <div className="flex flex-wrap gap-1.5">
-                {suggestions.categories.map((c) => (
-                  <button
-                    key={c.slug}
-                    type="button"
-                    onClick={() => {
-                      setSelectedCategory(c.slug);
-                      setIsOpen(false);
-                      router.push(`/directory?category=${c.slug}`);
-                    }}
-                    className="px-3 py-1 rounded-xl bg-slate-50 hover:bg-[#F0F7FF] text-xs font-bold text-slate-800 hover:text-[#002D62] border border-slate-200 flex items-center gap-1.5 transition"
-                  >
-                    <span>{c.name}</span>
-                    <span className="tamil text-[#E00624] text-[11px]">({c.tamil})</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* City Suggestions */}
-          {suggestions.cities.length > 0 && (
-            <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider">
-                Cities
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {suggestions.cities.map((city) => (
-                  <button
-                    key={city.slug}
-                    type="button"
-                    onClick={() => {
-                      setSelectedCity(city.name);
-                      setIsOpen(false);
-                      router.push(`/directory?city=${encodeURIComponent(city.name)}`);
-                    }}
-                    className="px-3 py-1 rounded-xl bg-slate-50 hover:bg-[#F0F7FF] text-xs font-bold text-slate-800 hover:text-[#002D62] border border-slate-200 transition"
-                  >
-                    🍁 {city.name}, {city.province}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Business suggestions */}
-          {suggestions.businesses.length > 0 && (
-            <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider">
-                Direct Listings
-              </span>
-              <div className="space-y-1">
-                {suggestions.businesses.map((b) => (
-                  <Link
-                    key={b.slug}
-                    href={`/directory/${b.slug}`}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between p-2.5 rounded-2xl hover:bg-[#F0F7FF] transition border border-transparent hover:border-[#002D62] group"
-                  >
-                    <div className="min-w-0 pr-3">
-                      <div className="flex items-center gap-2">
-                        <span className="font-outfit font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#002D62] truncate">
-                          {b.name}
-                        </span>
-                        {b.tamilName && (
-                          <span className="tamil text-[11px] text-[#E00624] font-semibold shrink-0">
-                            {b.tamilName}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-[10px] text-slate-500 truncate">
-                        {b.categoryName} · {b.city}, {b.province}
-                      </p>
-                    </div>
-                    <span className="text-xs font-bold text-[#002D62] shrink-0 opacity-0 group-hover:opacity-100 transition">
-                      View →
+              {suggestions.categories.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  href={`/category/${cat.slug}`}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 text-xs font-bold text-slate-800 transition"
+                >
+                  <span className="flex items-center gap-2">
+                    <span>🏷️</span>
+                    <span>{cat.name}</span>
+                  </span>
+                  {cat.tamil && (
+                    <span className="tamil text-[11px] text-[#E00624]">
+                      {cat.tamil}
                     </span>
-                  </Link>
-                ))}
-              </div>
+                  )}
+                </Link>
+              ))}
             </div>
           )}
 
-          <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-            <span>Press Enter to search all</span>
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="font-bold text-[#002D62] hover:underline"
-            >
-              See all results for &quot;{searchTerm}&quot; →
-            </button>
-          </div>
+          {/* Cities */}
+          {suggestions.cities.length > 0 && (
+            <div className="p-3">
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block px-2 mb-1">
+                Canadian Cities
+              </span>
+              {suggestions.cities.map((ct) => (
+                <Link
+                  key={ct.slug}
+                  href={`/c/${ct.slug}`}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 text-xs font-bold text-slate-800 transition"
+                >
+                  <span className="flex items-center gap-2">
+                    <span>🍁</span>
+                    <span>{ct.name}, {ct.province}</span>
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-normal">
+                    {ct.region}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>

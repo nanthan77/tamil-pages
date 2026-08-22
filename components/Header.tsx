@@ -19,11 +19,7 @@ export default async function Header() {
           <div className="flex justify-between items-center h-16 sm:h-18">
             {/* Logo */}
             <Link href="/" className="inline-flex items-center group select-none shrink-0 py-1">
-              <img
-                src="/logo-white.png"
-                alt="tamilcanadianpages.ca"
-                className="h-8 sm:h-9 w-auto object-contain transition group-hover:scale-[1.02]"
-              />
+              <img src="/logo-white.png" alt="tamilcanadianpages.ca" width="220" height="36" className="h-8 sm:h-9 w-auto object-contain transition group-hover:scale-[1.02]" />
             </Link>
 
             {/* Desktop Navigation Links */}

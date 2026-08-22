@@ -19,7 +19,7 @@ const outfit = Outfit({
 const work = Work_Sans({
   subsets: ["latin"],
   variable: "--font-work",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   preload: true,
 });
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: `%s · ${SITE_NAME}`,
   },
   description:
-    "Canada’s verified directory for Tamil businesses, restaurants, lawyers, realtors, accountants, Hindu temples, movie showtimes, and cultural services across Toronto, Scarborough, Markham, Brampton, Montreal, Vancouver, and nationwide.",
+    "Canada’s verified directory for 6,380+ Tamil businesses, restaurants, lawyers, realtors, accountants, Hindu temples, movie showtimes, and cultural services across Toronto, Scarborough, Markham, Brampton, Montreal, Vancouver, and nationwide.",
   keywords: [
     "Tamil businesses Canada",
     "Tamil directory Toronto",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     alternateLocale: ["ta_CA"],
     url: SITE_URL,
     title: `${SITE_NAME} — Canada’s #1 Tamil Business & Services Directory`,
-    description: "Verified direct contact directory for 2,240+ Canadian Tamil businesses, temples, and services.",
+    description: "Verified direct contact directory for 6,380+ Canadian Tamil businesses, temples, and services.",
     images: [
       {
         url: `${SITE_URL}/og.png`,
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — Canada’s Tamil Business & Services Directory`,
-    description: "Verified direct contact directory for 2,240+ Canadian Tamil businesses, temples, and services.",
+    description: "Verified direct contact directory for 6,380+ Canadian Tamil businesses, temples, and services.",
     images: [`${SITE_URL}/og.png`],
   },
   icons: {
@@ -114,12 +114,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        />
+        <link rel="preconnect" href="https://apis.google.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://tamil-pages-961fd.firebaseapp.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://apis.google.com" />
+        <link rel="dns-prefetch" href="https://tamil-pages-961fd.firebaseapp.com" />
       </head>
       <body
         className={`${outfit.variable} ${work.variable} ${tamil.variable} font-work antialiased bg-[#F8FAFC] text-[#0F172A] flex flex-col min-h-full selection:bg-[#E00624] selection:text-white`}
