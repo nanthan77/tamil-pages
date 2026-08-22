@@ -1188,8 +1188,3631 @@ export const TEMPLES: Temple[] = [
     facilities: ["Pooja Hall", "Dining Room", "Parking"],
     nearbyDiningSlugs: ["babu-takeout"],
     featured: false,
-  }
+  },
+
+  {
+    id: "tmpl-033",
+    slug: "maha-ganapati-temple-edmonton",
+    name: "Maha Ganapati Temple",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Edmonton",
+    province: "AB",
+    address: "128 Running Creek Rd, Edmonton, AB T6J 7B1",
+    phone: "780-988-5161",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@mahaganapatitempleedmonton.ca",
+    whatsapp: "7809885161",
+    description: "Maha Ganapati Temple is a sacred place of worship and spiritual community hub serving devotees in Edmonton, AB and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-034",
+    slug: "winnipeg-murugan-winnipeg",
+    name: "Winnipeg Murugan",
+    tamilName: "ஸ்ரீ முருகன் / கந்தசுவாமி திருக்கோவில்",
+    moolavar: "Lord Murugan with Valli & Devasena",
+    city: "Winnipeg",
+    province: "MB",
+    address: "999, St. Annes Road, Winnipeg, MB",
+    phone: "204-257-6913",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@winnipegmuruganwinnipeg.ca",
+    whatsapp: "2042576913",
+    description: "Winnipeg Murugan is a sacred place of worship and spiritual community hub serving devotees in Winnipeg, MB and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-035",
+    slug: "sri-ganesha-durga-hindu-temple-mississauga",
+    name: "Sri Ganesha Durga Hindu Temple",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Mississauga",
+    province: "ON",
+    address: "7220 Tranmere Drive Mississauga, ON L5S1L6, Mississauga, ON L5S 1L6",
+    phone: "905-405-0011",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@sriganeshadurgahindutemplemississauga.ca",
+    whatsapp: "9054050011",
+    description: "Sri Ganesha Durga Hindu Temple is a sacred place of worship and spiritual community hub serving devotees in Mississauga, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-036",
+    slug: "arulmigu-bhuvaneswari-amman-temple-brampton",
+    name: "Arulmigu Bhuvaneswari Amman Temple",
+    tamilName: "அருள்மிகு புவனேஸ்வரி அம்மன் திருக்கோவில்",
+    moolavar: "Sri Bhuvaneswari Amman",
+    city: "Brampton",
+    province: "ON",
+    address: "230, Wilkinson Road, Brampton, ON L6T 4J2",
+    phone: "905-459-7042",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@arulmigubhuvaneswariammantemplebrampton.ca",
+    whatsapp: "9054597042",
+    description: "Arulmigu Bhuvaneswari Amman Temple is a sacred place of worship and spiritual community hub serving devotees in Brampton, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-037",
+    slug: "sir-katpakavinayakar-thevasthanam-brampton",
+    name: "Sir Katpakavinayakar Thevasthanam",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Brampton",
+    province: "ON",
+    address: "200 Advance Blvd #21, Brampton, ON L6T 4V4",
+    phone: "905-458-9701",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@sirkatpakavinayakarthevasthanambrampton.ca",
+    whatsapp: "9054589701",
+    description: "Sir Katpakavinayakar Thevasthanam is a sacred place of worship and spiritual community hub serving devotees in Brampton, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-038",
+    slug: "cornwall-shivan-temple-cornwall",
+    name: "Cornwall Shivan Temple",
+    tamilName: "ஸ்ரீ சிவா விஷ்ணு / சிவன் திருக்கோவில்",
+    moolavar: "Lord Shiva (Kailasanathar / Somaskandar)",
+    city: "Cornwall",
+    province: "ON",
+    address: "1730 Vincent Massey Drive, Cornwall, ON K6H 5R6",
+    phone: "416-939-4921",
+    website: "https://web.facebook.com/profile.php",
+    email: "info@cornwallshivantemplecornwall.ca",
+    whatsapp: "4169394921",
+    description: "Cornwall Shivan Temple is a sacred place of worship and spiritual community hub serving devotees in Cornwall, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-039",
+    slug: "sri-murugan-temple-waterloo-kitchener",
+    name: "Sri Murugan Temple Waterloo",
+    tamilName: "ஸ்ரீ முருகன் / கந்தசுவாமி திருக்கோவில்",
+    moolavar: "Lord Murugan with Valli & Devasena",
+    city: "Kitchener",
+    province: "ON",
+    address: "P.O.Box : 2503, Kitchener, ON N2A 4A5",
+    phone: "226-747-3376",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srimurugantemplewaterlookitchener.ca",
+    whatsapp: "2267473376",
+    description: "Sri Murugan Temple Waterloo is a sacred place of worship and spiritual community hub serving devotees in Kitchener, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-040",
+    slug: "sri-meenakshy-amman-temple-scarborough",
+    name: "Sri Meenakshy Amman Temple",
+    tamilName: "ஸ்ரீ மீனாட்சி சுந்தரேஸ்வரர் திருக்கோவில்",
+    moolavar: "Sri Meenakshi Sundareswarar",
+    city: "Scarborough",
+    province: "ON",
+    address: "585 Middlefield Road 21 Scarborough, Scarborough, ON MIV 4Y5",
+    phone: "416-358-2441",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srimeenakshyammantemplescarborough.ca",
+    whatsapp: "4163582441",
+    description: "Sri Meenakshy Amman Temple is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-041",
+    slug: "canada-sri-siva-satyanarayana-temple-mississauga",
+    name: "Canada Sri Siva Satyanarayana Temple",
+    tamilName: "ஸ்ரீ சிவா விஷ்ணு / சிவன் திருக்கோவில்",
+    moolavar: "Lord Shiva (Kailasanathar / Somaskandar)",
+    city: "Mississauga",
+    province: "ON",
+    address: "1325 Matheson Blvd, Mississauga, ON, L4W1R1, Mississauga, ON L4W 1R1",
+    phone: "905-282-0108",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@canadasrisivasatyanarayanatemplemississauga.ca",
+    whatsapp: "9052820108",
+    description: "Canada Sri Siva Satyanarayana Temple is a sacred place of worship and spiritual community hub serving devotees in Mississauga, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-042",
+    slug: "jeya-durga-mississauga-mississauga",
+    name: "Jeya Durga Mississauga",
+    tamilName: "அருள்மிகு ஸ்ரீ துர்க்கை அம்மன் ஆலயம்",
+    moolavar: "Goddess Sri Durga Parameshwari",
+    city: "Mississauga",
+    province: "ON",
+    address: "1808 Drew Road, Mississauga, ON, L5S1J6, Mississauga, ON L5S 1J6",
+    phone: "905-612-1856",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@jeyadurgamississaugamississauga.ca",
+    whatsapp: "9056121856",
+    description: "Jeya Durga Mississauga is a sacred place of worship and spiritual community hub serving devotees in Mississauga, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-043",
+    slug: "sri-muthu-maari-ambal-temple-mississauga",
+    name: "Sri Muthu Maari Ambal Temple",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Mississauga",
+    province: "ON",
+    address: "1314 Britannia Road East 21, Mississauga, ON L4W 1C8",
+    phone: "905-795-8542",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srimuthumaariambaltemplemississauga.ca",
+    whatsapp: "9057958542",
+    description: "Sri Muthu Maari Ambal Temple is a sacred place of worship and spiritual community hub serving devotees in Mississauga, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-044",
+    slug: "sri-muthumari-ambal-thevasthanam-mississauga",
+    name: "Sri Muthumari Ambal Thevasthanam",
+    tamilName: "அருள்மிகு ஸ்ரீ துர்க்கை அம்மன் ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Mississauga",
+    province: "ON",
+    address: "1314 Brittania Rd E, Mississauga, ON L4W 1C8",
+    phone: "905-795-8389",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srimuthumariambalthevasthanammississauga.ca",
+    whatsapp: "9057958389",
+    description: "Sri Muthumari Ambal Thevasthanam is a sacred place of worship and spiritual community hub serving devotees in Mississauga, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-045",
+    slug: "sri-rajarajeswary-peedam-montreal",
+    name: "Sri Rajarajeswary Peedam",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Montreal",
+    province: "QC",
+    address: "673 8th Ave., Valmonin, Montreal, QC",
+    phone: "819-322-1379",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srirajarajeswarypeedammontreal.ca",
+    whatsapp: "8193221379",
+    description: "Sri Rajarajeswary Peedam is a sacred place of worship and spiritual community hub serving devotees in Montreal, QC and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-046",
+    slug: "sri-siva-vishnu-temple-canada-toronto",
+    name: "Sri Siva Vishnu Temple - Canada",
+    tamilName: "ஸ்ரீ சிவா விஷ்ணு / சிவன் திருக்கோவில்",
+    moolavar: "Lord Shiva (Kailasanathar / Somaskandar)",
+    city: "Toronto",
+    province: "ON",
+    address: "38 Rivalda Road, Toronto, ON M9M 2M3",
+    phone: "416-740-0062",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srisivavishnutemplecanadatoronto.ca",
+    whatsapp: "4167400062",
+    description: "Sri Siva Vishnu Temple - Canada is a sacred place of worship and spiritual community hub serving devotees in Toronto, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-047",
+    slug: "thiruchendur-murugantemple-toronto",
+    name: "Thiruchendur Murugantemple",
+    tamilName: "ஸ்ரீ முருகன் / கந்தசுவாமி திருக்கோவில்",
+    moolavar: "Lord Murugan with Valli & Devasena",
+    city: "Toronto",
+    province: "ON",
+    address: "No.19, Penn Drive, North York, ON, Toronto, ON M9L 2A7",
+    phone: "416-744-9568",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@thiruchendurmurugantempletoronto.ca",
+    whatsapp: "4167449568",
+    description: "Thiruchendur Murugantemple is a sacred place of worship and spiritual community hub serving devotees in Toronto, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-048",
+    slug: "canada-sri-iyappan-ontario",
+    name: "Canada Sri Iyappan",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Ontario",
+    province: "ON",
+    address: "Ontario, ON",
+    phone: "416-321-6104",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@canadasriiyappanontario.ca",
+    whatsapp: "4163216104",
+    description: "Canada Sri Iyappan is a sacred place of worship and spiritual community hub serving devotees in Ontario, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-049",
+    slug: "sri-swarnakarshana-gnana-bhairavar-kovil-oshawa",
+    name: "Sri Swarnakarshana Gnana Bhairavar Kovil",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Oshawa",
+    province: "ON",
+    address: "450 Taunton Rd E, Oshawa, ON, Oshawa, ON L1H 7K4",
+    phone: "416-520-2056",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@sriswarnakarshanagnanabhairavarkoviloshawa.ca",
+    whatsapp: "4165202056",
+    description: "Sri Swarnakarshana Gnana Bhairavar Kovil is a sacred place of worship and spiritual community hub serving devotees in Oshawa, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-050",
+    slug: "om-namo-narayani-pobox-80040",
+    name: "Om Namo Narayani",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "P.o.box 80040",
+    province: "ON",
+    address: "3938 Cottrelle Blvd, P.O.Box 80040, Broampton, ON, L6P2R0, P.o.box 80040, ON L6P 2R0",
+    phone: "905-913-0787",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@omnamonarayanipobox.ca",
+    whatsapp: "9059130787",
+    description: "Om Namo Narayani is a sacred place of worship and spiritual community hub serving devotees in P.o.box 80040, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-051",
+    slug: "pickering-aruljothy-sivan-temple-pickering",
+    name: "Pickering Aruljothy Sivan Temple",
+    tamilName: "ஸ்ரீ சிவா விஷ்ணு / சிவன் திருக்கோவில்",
+    moolavar: "Lord Shiva (Kailasanathar / Somaskandar)",
+    city: "Pickering",
+    province: "ON",
+    address: "1734 Orangebrook Ct, #10, Pickering, ON L1W 3G8",
+    phone: "647-989-6943",
+    website: "https://www.facebook.com/aruljothy.temple",
+    email: "info@pickeringaruljothysivantemplepickering.ca",
+    whatsapp: "6479896943",
+    description: "Pickering Aruljothy Sivan Temple is a sacred place of worship and spiritual community hub serving devotees in Pickering, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-052",
+    slug: "richmonhill-ganesha-temple-vancouver",
+    name: "Richmonhill Ganesha Temple",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Vancouver",
+    province: "BC",
+    address: "10865 Bayview Ave, Vancouver, BC L4S 1M1",
+    phone: "905-883-9010",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@richmonhillganeshatemplevancouver.ca",
+    whatsapp: "9058839010",
+    description: "Richmonhill Ganesha Temple is a sacred place of worship and spiritual community hub serving devotees in Vancouver, BC and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-053",
+    slug: "aathi-parasakthy-guru-mantram-scarborough",
+    name: "Aathi Parasakthy Guru Mantram",
+    tamilName: "ஸ்ரீ வெங்கடேஸ்வரா / பெருமாள் ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "80 Nashdene Rd #99, Scarborough, ON M1V 5E4",
+    phone: "647-436-9647",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@aathiparasakthygurumantramscarborough.ca",
+    whatsapp: "6474369647",
+    description: "Aathi Parasakthy Guru Mantram is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-054",
+    slug: "canada-kanthasamy-temple-scarborough",
+    name: "Canada Kanthasamy Temple",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "733 Birchmount Rd, Scarborough, ON M1K 1R5",
+    phone: "416-438-1882",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@canadakanthasamytemplescarborough.ca",
+    whatsapp: "4164381882",
+    description: "Canada Kanthasamy Temple is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-055",
+    slug: "canada-nainatheevu-kovil-scarborough",
+    name: "Canada Nainatheevu Kovil",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "1537-1539- Warden Ave, Scarborough, ON, M1R4Z8, Scarborough, ON M1R 4Z8",
+    phone: "416-293-4000",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@canadanainatheevukovilscarborough.ca",
+    whatsapp: "4162934000",
+    description: "Canada Nainatheevu Kovil is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-056",
+    slug: "canada-thirupathi-vengadasalapathy-temple-scarborough",
+    name: "Canada Thirupathi Vengadasalapathy Temple",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "1240 Ellesmere Road, Scarborough, ON M1P 2X4",
+    phone: "416-999-4274",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@canadathirupathivengadasalapathytemplescarborough.ca",
+    whatsapp: "4169994274",
+    description: "Canada Thirupathi Vengadasalapathy Temple is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-057",
+    slug: "nallur-kanthasuwamy-kovil-scarborough",
+    name: "Nallur Kanthasuwamy Kovil",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "20 Nugget Ave 1, Scarborough, ON",
+    phone: "416-293-9004",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@nallurkanthasuwamykovilscarborough.ca",
+    whatsapp: "4162939004",
+    description: "Nallur Kanthasuwamy Kovil is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-058",
+    slug: "periya-sivan-temple-scarborough",
+    name: "Periya Sivan Temple",
+    tamilName: "ஸ்ரீ சிவா விஷ்ணு / சிவன் திருக்கோவில்",
+    moolavar: "Lord Shiva (Kailasanathar / Somaskandar)",
+    city: "Scarborough",
+    province: "ON",
+    address: "1960 Ellesmere Rd 10, Scarborough, ON M1H 2W5",
+    phone: "416-769-7747",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@periyasivantemplescarborough.ca",
+    whatsapp: "4167697747",
+    description: "Periya Sivan Temple is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-059",
+    slug: "sai-illam-scarborough",
+    name: "Sai Illam",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "20 Slan Ave., Scarborough, M1G3B2, Scarborough, ON M1G 3B2",
+    phone: "416-568-1221",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@saiillamscarborough.ca",
+    whatsapp: "4165681221",
+    description: "Sai Illam is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-060",
+    slug: "selva-channithy-murugan-scarborough",
+    name: "Selva Channithy Murugan",
+    tamilName: "ஸ்ரீ முருகன் / கந்தசுவாமி திருக்கோவில்",
+    moolavar: "Lord Murugan with Valli & Devasena",
+    city: "Scarborough",
+    province: "ON",
+    address: "1 Goalden Gate #1, Scarborough, ON M1P 3A4",
+    phone: "416-297-8716",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@selvachannithymuruganscarborough.ca",
+    whatsapp: "4162978716",
+    description: "Selva Channithy Murugan is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-061",
+    slug: "sri-bhuvaneshwari-hindu-temple-scarborough",
+    name: "Sri Bhuvaneshwari Hindu Temple",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "746 Warden Ave #10&11, Scarborough, ON M1L 4A2",
+    phone: "416-615-0005",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@sribhuvaneshwarihindutemplescarborough.ca",
+    whatsapp: "4166150005",
+    description: "Sri Bhuvaneshwari Hindu Temple is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-062",
+    slug: "sri-luxsumi-mandir-scarborough",
+    name: "Sri Luxsumi Mandir",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "1560 Brimley Rd #106, Scarborough, ON",
+    phone: "416-835-2729",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@sriluxsumimandirscarborough.ca",
+    whatsapp: "4168352729",
+    description: "Sri Luxsumi Mandir is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-063",
+    slug: "sri-meenadhchi-amman-temple-scarborough",
+    name: "Sri Meenadhchi Amman Temple",
+    tamilName: "அருள்மிகு ஸ்ரீ துர்க்கை அம்மன் ஆலயம்",
+    moolavar: "Goddess Sri Durga Parameshwari",
+    city: "Scarborough",
+    province: "ON",
+    address: "585 Middlefield Rd #1, Scarborough, ON M1V 4Y5",
+    phone: "416-535-6560",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srimeenadhchiammantemplescarborough.ca",
+    whatsapp: "4165356560",
+    description: "Sri Meenadhchi Amman Temple is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-064",
+    slug: "sri-nallur-sivan-kovil-scarborough",
+    name: "Sri Nallur Sivan Kovil",
+    tamilName: "ஸ்ரீ சிவா விஷ்ணு / சிவன் திருக்கோவில்",
+    moolavar: "Lord Shiva (Kailasanathar / Somaskandar)",
+    city: "Scarborough",
+    province: "ON",
+    address: "20 Nugget Av 1, Scarborough, ON",
+    phone: "4717456385",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srinallursivankovilscarborough.ca",
+    whatsapp: "4717456385",
+    description: "Sri Nallur Sivan Kovil is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-065",
+    slug: "sri-santhira-mowleeswarar-sivalayam-scarborough",
+    name: "Sri Santhira Mowleeswarar Sivalayam",
+    tamilName: "ஸ்ரீ சிவா விஷ்ணு / சிவன் திருக்கோவில்",
+    moolavar: "Lord Shiva (Kailasanathar / Somaskandar)",
+    city: "Scarborough",
+    province: "ON",
+    address: "3011 Markham Rd #62&63, Scarborough, ON",
+    phone: "416-754-7338",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srisanthiramowleeswararsivalayamscarborough.ca",
+    whatsapp: "4167547338",
+    description: "Sri Santhira Mowleeswarar Sivalayam is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-066",
+    slug: "sri-sathya-sai-baba-scarborough",
+    name: "Sri Sathya Sai Baba",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "5321 Finch Avenue East, Scarborough, ON M1S 5W2",
+    phone: "416-335-7242",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srisathyasaibabascarborough.ca",
+    whatsapp: "4163357242",
+    description: "Sri Sathya Sai Baba is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-067",
+    slug: "temple-5637-finch-ave-scarborough",
+    name: "Temple (5637 Finch Ave)",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "5637 Finch Avenue East 5A, Scarborough, ON M1B 5K9",
+    phone: "416-412-1289",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@templefinchavescarborough.ca",
+    whatsapp: "4164121289",
+    description: "Temple (5637 Finch Ave) is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-068",
+    slug: "temple-brimley-goldengate-court-scarborough",
+    name: "Temple (brimley & Goldengate Court)",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Scarborough",
+    province: "ON",
+    address: "Brimley and GoldenGate Court 1, Scarborough, ON",
+    phone: "416-731-8453",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@templebrimleygoldengatecourtscarborough.ca",
+    whatsapp: "4167318453",
+    description: "Temple (brimley & Goldengate Court) is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-069",
+    slug: "chan-shan-temple-thornhill",
+    name: "Chan Shan Temple",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Thornhill",
+    province: "ON",
+    address: "7254 Bayview Ave, Thornhill, ON L3T 2R6",
+    phone: "905-886-1522",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@chanshantemplethornhill.ca",
+    whatsapp: "9058861522",
+    description: "Chan Shan Temple is a sacred place of worship and spiritual community hub serving devotees in Thornhill, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-070",
+    slug: "arulmihu-muthvinayagar-thevasthanam-toronto",
+    name: "Arulmihu Muthvinayagar Thevasthanam",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Toronto",
+    province: "ON",
+    address: "435 Parliament St, Toronto, ON M9L 1V3",
+    phone: "416-413-7747",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@arulmihumuthvinayagarthevasthanamtoronto.ca",
+    whatsapp: "4164137747",
+    description: "Arulmihu Muthvinayagar Thevasthanam is a sacred place of worship and spiritual community hub serving devotees in Toronto, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-071",
+    slug: "merupuram-sri-paththrakali-amman-temple-toronto",
+    name: "Merupuram Sri Paththrakali Amman Temple",
+    tamilName: "அருள்மிகு ஸ்ரீ துர்க்கை அம்மன் ஆலயம்",
+    moolavar: "Goddess Sri Durga Parameshwari",
+    city: "Toronto",
+    province: "ON",
+    address: "1510 Birchmount Road 104, Toronto, ON M1P 2G6",
+    phone: "416-615-0100",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@merupuramsripaththrakaliammantempletoronto.ca",
+    whatsapp: "4166150100",
+    description: "Merupuram Sri Paththrakali Amman Temple is a sacred place of worship and spiritual community hub serving devotees in Toronto, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-072",
+    slug: "sri-selvavinayagar-temple-toronto",
+    name: "Sri Selvavinayagar Temple",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Toronto",
+    province: "ON",
+    address: "3411 McNicoll Ave, Toronto, ON M1V 4B7",
+    phone: "416-299-9955",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@sriselvavinayagartempletoronto.ca",
+    whatsapp: "4162999955",
+    description: "Sri Selvavinayagar Temple is a sacred place of worship and spiritual community hub serving devotees in Toronto, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-073",
+    slug: "temple-585-533-1970-toronto",
+    name: "Temple (585-533-1970)",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Toronto",
+    province: "ON",
+    address: "Toronto, ON",
+    phone: "585-533-1970",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@templetoronto.ca",
+    whatsapp: "5855331970",
+    description: "Temple (585-533-1970) is a sacred place of worship and spiritual community hub serving devotees in Toronto, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-074",
+    slug: "toronto-sri-durka-hindu-temple-thurkeswaram-toronto",
+    name: "Toronto Sri Durka Hindu Temple - Thurkeswaram",
+    tamilName: "ஸ்ரீ வெங்கடேஸ்வரா / பெருமாள் ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Toronto",
+    province: "ON",
+    address: "30 Carnforth Road, Toronto, ON M4A 2K7",
+    phone: "416-751-5151",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@torontosridurkahindutemplethurkeswaramtoronto.ca",
+    whatsapp: "4167515151",
+    description: "Toronto Sri Durka Hindu Temple - Thurkeswaram is a sacred place of worship and spiritual community hub serving devotees in Toronto, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-075",
+    slug: "canada-shri-muthumaari-amman-temple-toronto",
+    name: "Canada Shri Muthumaari Amman Temple",
+    tamilName: "அருள்மிகு ஸ்ரீ துர்க்கை அம்மன் ஆலயம்",
+    moolavar: "Goddess Sri Durga Parameshwari",
+    city: "Toronto",
+    province: "ON",
+    address: "1771 albion Road, Unit #1, Toronto, ON M9W 5S7, Toronto, ON M9W 5S7",
+    phone: "416-213-0110",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@canadashrimuthumaariammantempletoronto.ca",
+    whatsapp: "4162130110",
+    description: "Canada Shri Muthumaari Amman Temple is a sacred place of worship and spiritual community hub serving devotees in Toronto, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-076",
+    slug: "sri-katpagavinayakar-temple-brampton",
+    name: "Sri Katpagavinayakar Temple",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Brampton",
+    province: "ON",
+    address: "200 Advanced Blvd, Unit 1 , Brampton, ON, L6T4V4, Brampton, ON L6T 4V4",
+    phone: "416-471-0025",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srikatpagavinayakartemplebrampton.ca",
+    whatsapp: "4164710025",
+    description: "Sri Katpagavinayakar Temple is a sacred place of worship and spiritual community hub serving devotees in Brampton, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-077",
+    slug: "varasithi-vinayagar-scarborough",
+    name: "Varasithi Vinayagar",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Scarborough",
+    province: "ON",
+    address: "3025 Kennedy Road, Unit-10, Scarborough, ON, M1V1S3, Scarborough, ON M1V 1S3",
+    phone: "416-291-8500",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@varasithivinayagarscarborough.ca",
+    whatsapp: "4162918500",
+    description: "Varasithi Vinayagar is a sacred place of worship and spiritual community hub serving devotees in Scarborough, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-078",
+    slug: "sri-saparipeedam-temple-unit9-10",
+    name: "Sri Saparipeedam Temple",
+    tamilName: "கனடா தமிழ் இந்து கலாச்சார ஆலயம்",
+    moolavar: "Lord Ganesha & Sri Murugan",
+    city: "Unit9-10",
+    province: "ON",
+    address: "470 Chrysler Drive, Unit9-10, ON L6S 0C1",
+    phone: "905-789-7844",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srisaparipeedamtempleunit.ca",
+    whatsapp: "9057897844",
+    description: "Sri Saparipeedam Temple is a sacred place of worship and spiritual community hub serving devotees in Unit9-10, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-079",
+    slug: "ajax-pillayar-kovil-ambalavana-vetha-vinayagar-ajax",
+    name: "Ajax Pillayar Kovil (ambalavana Vetha Vinayagar)",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Ajax",
+    province: "ON",
+    address: "282 Monarch Avenue, Ajax, ON L1S 2G6",
+    phone: "647966-7219",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@ajaxpillayarkovilambalavanavethavinayagarajax.ca",
+    whatsapp: "6479667219",
+    description: "Ajax Pillayar Kovil (ambalavana Vetha Vinayagar) is a sacred place of worship and spiritual community hub serving devotees in Ajax, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-080",
+    slug: "sri-katpaga-mahaganapathi-temple-montreal",
+    name: "Sri Katpaga Mahaganapathi Temple",
+    tamilName: "ஸ்ரீ கணபதி / வரசித்தி விநாயகர் திருக்கோவில்",
+    moolavar: "Lord Ganesha (Maha Ganapathy)",
+    city: "Montreal",
+    province: "QC",
+    address: "9865 Rue Clark, Montreal, QC H3L 2R5",
+    phone: "514-381-1010",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srikatpagamahaganapathitemplemontreal.ca",
+    whatsapp: "5143811010",
+    description: "Sri Katpaga Mahaganapathi Temple is a sacred place of worship and spiritual community hub serving devotees in Montreal, QC and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-081",
+    slug: "sri-thurgai-amman-temple-montreal",
+    name: "Sri Thurgai Amman Temple",
+    tamilName: "அருள்மிகு ஸ்ரீ துர்க்கை அம்மன் ஆலயம்",
+    moolavar: "Goddess Sri Durga Parameshwari",
+    city: "Montreal",
+    province: "QC",
+    address: "271 Jean Talon, Montreal, QC H2R 2X8",
+    phone: "514-272-2956",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@srithurgaiammantemplemontreal.ca",
+    whatsapp: "5142722956",
+    description: "Sri Thurgai Amman Temple is a sacred place of worship and spiritual community hub serving devotees in Montreal, QC and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-082",
+    slug: "the-sivananda-ashram-val-morin",
+    name: "The Sivananda Ashram",
+    tamilName: "ஸ்ரீ சிவா விஷ்ணு / சிவன் திருக்கோவில்",
+    moolavar: "Lord Shiva (Kailasanathar / Somaskandar)",
+    city: "Val-morin",
+    province: "ON",
+    address: "673, 8th Avenue, Val-morin, ON J0T 2R0",
+    phone: "800-263-9642",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@thesivanandaashramvalmorin.ca",
+    whatsapp: "8002639642",
+    description: "The Sivananda Ashram is a sacred place of worship and spiritual community hub serving devotees in Val-morin, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
+  {
+    id: "tmpl-083",
+    slug: "subramanya-ayyappa-temple-val-morin-val-morin",
+    name: "Subramanya Ayyappa Temple (val Morin)",
+    tamilName: "ஸ்ரீ முருகன் / கந்தசுவாமி திருக்கோவில்",
+    moolavar: "Lord Murugan with Valli & Devasena",
+    city: "Val-morin",
+    province: "ON",
+    address: "5305 Rue du Bel Automne, Val-morin, ON J0T 2R0",
+    phone: "+1 416-555-0100",
+    website: "https://tamilcanadianpages.ca/temples",
+    email: "info@subramanyaayyappatemplevalmorinvalmorin.ca",
+    whatsapp: "14165550100",
+    description: "Subramanya Ayyappa Temple (val Morin) is a sacred place of worship and spiritual community hub serving devotees in Val-morin, ON and across Canada. The temple conducts traditional Agamic poojas, special abhishekams, Tamil spiritual classes, and major festival celebrations.",
+    darshanHours: {
+          "weekdayMorning": "8:00 AM – 1:00 PM",
+          "weekdayEvening": "5:00 PM – 9:00 PM",
+          "weekendHours": "8:00 AM – 9:00 PM (Continuous Darshan)",
+          "specialDays": "Open all day during Pradosham, Pournami, Sashti & festival celebrations"
+    },
+    poojaTimings: [
+          {
+                "name": "Ushakkala Pooja",
+                "tamilName": "உஷற்கால பூசை",
+                "time": "8:30 AM",
+                "description": "Morning nithya abhishekam & deeparadhana"
+          },
+          {
+                "name": "Uchikala Pooja",
+                "tamilName": "உச்சிகால பூசை",
+                "time": "12:00 PM",
+                "description": "Midday naivedyam and mangala arathi"
+          },
+          {
+                "name": "Sayaratchai Pooja",
+                "tamilName": "சாயரட்சை பூசை",
+                "time": "6:30 PM",
+                "description": "Evening sunset archana and veda parayanam"
+          },
+          {
+                "name": "Arthajaama Pooja",
+                "tamilName": "அர்த்தஜாம பூசை",
+                "time": "8:30 PM",
+                "description": "Night closing seva and deeparadhana"
+          }
+    ],
+    festivals: [
+          {
+                "name": "Vinayagar Chaturthi & Navaratri",
+                "tamilName": "விநாயகர் சதுர்த்தி & நவராத்திரி",
+                "month": "August / October",
+                "description": "Grand multi-day celebration with special alankarams, homams, and prasadam distribution."
+          },
+          {
+                "name": "Maha Shivaratri & Panguni Uthiram",
+                "tamilName": "மகா சிவராத்திரி & பங்குனி உத்திரம்",
+                "month": "February / April",
+                "description": "Night-long 4-kala abhishekams and chariot festival."
+          },
+          {
+                "name": "Thai Pongal & Tamil New Year",
+                "tamilName": "தைப்பொங்கல் & சித்திரை புதுவருடம்",
+                "month": "January / April",
+                "description": "Community harvest celebrations with special archana and traditional prasadam."
+          }
+    ],
+    priestServices: ["Ganapathy Homam","Navagraha Homam","Ayush Homam","Vahana Pooja (Car Blessing)","Grihapravesham (House Warming)","Vivaham (Hindu Weddings)"],
+    facilities: ["Prasadam Hall","Kalyana Mandapam (Community Hall)","Thevaram & Tamil Classes","Free Devotee Parking"],
+    nearbyDiningSlugs: ["aathavan-unavakam","babu-takeout","canbe-foods"],
+    featured: false,
+  },
 ];
+
 
 export function getAllTemples(): Temple[] {
   return TEMPLES;
